@@ -18,10 +18,11 @@
 ・日常生活
 
 ## 設計書
-・ER図(https://drive.google.com/drive/recent)
+・ER図https://drive.google.com/drive/recent
+・画面遷移図:https://docs.google.com/presentation/d/1SwN39Elq3x1y2aVwEUXPNV3x5U63OTTh/edit?usp=sharing&ouid=104216964125764909973&rtpof=true&sd=true
 
 ## チャレンジ要素一覧
-・https://docs.google.com/spreadsheets/d/1gc8HUmY9g9iHl1bL68lI3VxOKnnxhQIYegAEj5dHYv0/edit#gid=0
+https://docs.google.com/spreadsheets/d/1gc8HUmY9g9iHl1bL68lI3VxOKnnxhQIYegAEj5dHYv0/edit#gid=0
 
 ## 開発環境
 - OS：Linux(CentOS)
