@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: 'homes#top'
+  resources :familycodes
+  resources :members
+  resources :users
+  resources :admins
   # get 'search/search'
   # #adminのルート
   # devise_for :admin

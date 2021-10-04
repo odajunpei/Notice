@@ -43,7 +43,6 @@ class DeviseCreateMembers < ActiveRecord::Migration[5.2]
       t.integer :birth_year
       t.integer :birth_month
       t.integer :birth_day
-      t.string :family_code
       t.string :profile_image_id
     end
 
