@@ -1,0 +1,57 @@
+家族プロフィール詳細画面
+<div class="container">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <p class="page-title">
+        プロフィール詳細画面
+      </p>
+      <table class="table">
+        <tr>
+          <th>
+            氏名
+          </th>
+          <th>
+            <%= @member.name %>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            氏名カナ
+          </th>
+          <th>
+            <%= @member.name_kana %>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            電話番号
+          </th>
+          <th>
+            <%= @member.telephone_number %>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            生年月日
+          </th>
+          <th>
+            <%= @member.birth_year %>年<%= @member.birth_month %>月<%= @member.birth_day %>日
+          </th>
+        </tr>
+        <tr>
+          <th>
+            メールアドレス
+          </th>
+          <th>
+            <%= @member.email %>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <%= link_to "プロフィール情報を編集する", edit_member_path(@member) %>
+          </th>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
