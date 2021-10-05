@@ -15,13 +15,6 @@ class FamilycodesController < ApplicationController
 
   def index
   end
-<<<<<<< HEAD
 
   private
-
-=======
-  
-  private
-  
->>>>>>> aa81e37194dbcb6e07162263a24db2e8d7be1ce2
 end
