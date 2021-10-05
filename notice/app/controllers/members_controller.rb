@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_action :authenticate_member
+  before_action :authenticate_member!
   def show
     @member = Member.find(current_member.id)
   end
@@ -11,7 +11,7 @@ class MembersController < ApplicationController
   def update
     @member = Member.find(current_member.id)
     if @member.update(member_params)
-      redirect_to members_path(current_member.id)
+      redirect_to member_path(current_member.id)
     else
       render :edit
     end
@@ -26,6 +26,6 @@ class MembersController < ApplicationController
   def member_params
     params.require(:member).permit(:name, :name_kana, :telephone_number, :birth_year, :birth_month, :birth_day, :email, :is_active, :image_id)
   end
-  
-  
+
+
 end

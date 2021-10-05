@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :familycodes
   resources :members
   resources :users
+  get 'users/show' => 'users/show'
   resources :admins
+  resources :posts
   # get 'search/search'
   # #adminのルート
   # devise_for :admin

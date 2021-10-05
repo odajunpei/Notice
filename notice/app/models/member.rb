@@ -6,4 +6,6 @@ class Member < ApplicationRecord
 
   has_many :family_codes
   has_many :posts, dependent: :destroy
+
+  attachment :image
 end
