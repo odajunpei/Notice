@@ -5,12 +5,12 @@
       <%= form_with model: @member, url:members_path, local:true do |f| %>
       <%= render "members/shared/error_messages", resource: resource %>
       <table class="table">
-        <tr>
+         <tr>
           <th>
-            <%= f.label :"顔写真" %>
+            <%= f.label :顔写真 %>
           </th>
           <td>
-            <!--%= f.attachment_field :profile_image, size:"200x200" %>-->
+            <%= f.attachment_field :profile_image, size: "200x200" %>
           </td>
         </tr>
         <tr>
@@ -78,6 +78,14 @@
           </th>
           <td>
             <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <%= f.label :"家族コード選択" %>
+          </th>
+          <td>
+            <%= f.collection_select :familycode_id, Familycode.all, :id, :family_code ,prompt: '--選択してください--' %>
           </td>
         </tr>
         <tr>

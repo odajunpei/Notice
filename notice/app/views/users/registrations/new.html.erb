@@ -1,13 +1,23 @@
 <div class= "container">
   <div class= "row">
     <div class= "offset-2 col-10">
-      <h2 class= "mt-4 pb-3">おじおば会員サインアップ</h2>
+      <h2 class= "mt-4 pb-3">
+        おじおば会員サインアップ
+      </h2>
       <%= form_with model: @user, url:users_path, local:true do |f| %>
       <%= render "users/shared/error_messages", resource: resource %>
-        <table class="table">
+      <table class="table">
         <tr>
           <th>
-            <%= f.label "氏名" %>
+            <%= f.label :"顔写真" %>
+          </th>
+          <td>
+            <%= f.attachment_field :profile_image, size: "200x200" %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <%= f.label :"氏名" %>
           </th>
           <td>
             <%= f.text_field :name, autofocus: true, placeholder:"山田太郎", class:"col-md-3" %>
@@ -73,13 +83,55 @@
           </td>
         </tr>
         <tr>
+          <th>
+            <%= f.label :"家族コード選択" %>
+          </th>
+          <td>
+            <%= f.collection_select :familycode_id, Familycode.all, :id, :family_code ,prompt: '--選択してください--' %>
+          </td>
+        </tr>
+        <!--<tr>-->
+        <!--  <th>-->
+        <!--    %= f.label :"家族ネーム選択" %>-->
+        <!--  </th>-->
+        <!--  <td>-->
+        <!--    %= f.collection_select :familycode_id, Familycode.all, :id, :family_name ,prompt: '--選択してください' %>-->
+        <!--  </td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--  <th>-->
+        <!--    %= f.label :"家族コード" %>-->
+        <!--  </th>-->
+        <!--  <td>-->
+        <!--    <= f.text_field :word, :value => @word ,placeholder: "家族コードを入力してください" %>-->
+        <!--  </td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--  <th>-->
+        <!--    %= f.label :"家族名" %>-->
+        <!--  </th>-->
+        <!--  <td>-->
+        <!--    %= f.text_field :word, :value => @word ,placeholder: "家族名を入力してください" %>-->
+        <!--  </td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--  <th>-->
+        <!--    検索結果-->
+        <!--  </th>-->
+        <!--  <td>-->
+        <!--    %= @familycodes.each do |familycode| %>-->
+        <!--     %= familycode.name %>-->
+        <!--    % end %>-->
+        <!--  </td>-->
+        <!--</tr>-->
+        <tr>
           <td>
             <%= f.submit "登録する" %>
           </td>
         </tr>
       </table>
       <% end %>
-    <%= render "users/shared/links" %>
+     <%= render "users/shared/links" %>
     </div>
   </div>
 </div>

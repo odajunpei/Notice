@@ -1,0 +1,26 @@
+      家族コード検索用部分テンプレート
+      <%= form_tag(url:"controllers/familycodes", action: "find") do |f| %>
+      <table class="table">
+        <tr>
+          <th>
+            <%= f.label :"家族コード" %>
+          </th>
+          <td>
+            <%= f.text_field :family_code, placeholder: "家族コードを入力してください" %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <%= f.label :"家族名" %>
+          </th>
+          <td>
+            <%= f.text_field :family_name, placeholder: "家族名を入力してください" %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.submit "検索" %>
+          </td>
+        </tr>
+      </table>
+     <% end %>

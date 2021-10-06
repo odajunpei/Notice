@@ -44,6 +44,7 @@ class DeviseCreateMembers < ActiveRecord::Migration[5.2]
       t.integer :birth_month
       t.integer :birth_day
       t.string :profile_image_id
+      t.string :familycode_id
     end
 
     add_index :members, :email,                unique: true

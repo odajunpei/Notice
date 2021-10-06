@@ -8,6 +8,14 @@
       <table class="table">
         <tr>
           <th>
+            顔写真
+          </th>
+          <td>
+            <%= attachment_image_tag @user, :profile_image, size:"200x200", format: 'jpeg', fallback:"no-image.jpg" %>
+          </td>
+        </tr>
+        <tr>
+          <th>
             氏名
           </th>
           <th>
@@ -48,8 +56,21 @@
         </tr>
         <tr>
           <th>
+            家族コード
+          </th>
+          <td>
+            <%= @user.familycode.family_code %>
+          </td>
+        </tr>
+        <tr>
+          <th>
             <%= link_to "プロフィール情報を編集する", edit_user_path(@user) %>
           </th>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to "投稿画面へ", new_post_path %>
+          </td>
         </tr>
       </table>
     </div>

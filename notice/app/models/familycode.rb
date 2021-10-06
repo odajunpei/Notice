@@ -1,5 +1,7 @@
 class Familycode < ApplicationRecord
 
-  belongs_to :user
-  belongs_to :member
+  has_many :users
+  # has_many :member_familycodes
+  has_many :members
+  # , through: :member_familycodes
 end

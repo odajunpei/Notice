@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"changed":false,"filter":false,"title":"git - \"ip-172-31-59-227.ec2.internal\" ","tooltip":"git - \"ip-172-31-59-227.ec2.internal\" ","value":"","undoManager":{"mark":-1,"position":-1,"stack":[]},"terminal":{"id":"cloud9_terminal_139","cwd":"","width":1857,"height":393,"scrollTop":2237},"timestamp":1633236812742}
-=======
-{"changed":false,"filter":false,"title":"bash - \"ip-172-31-59-227.ec2.internal\" ","tooltip":"bash - \"ip-172-31-59-227.ec2.internal\" ","value":"","undoManager":{"mark":-1,"position":-1,"stack":[]},"terminal":{"id":"cloud9_terminal_139","cwd":"","width":1857,"height":387,"scrollTop":8835},"timestamp":1633236812742}
->>>>>>> aa81e37194dbcb6e07162263a24db2e8d7be1ce2
+{"changed":false,"filter":false,"title":"puma - \"ip-172-31-59-227.ec2.internal\" ","tooltip":"puma - \"ip-172-31-59-227.ec2.internal\" ","value":"","undoManager":{"mark":-1,"position":-1,"stack":[]},"terminal":{"id":"cloud9_terminal_139","cwd":"","width":1857,"height":600,"scrollTop":82223},"timestamp":1633236812742}

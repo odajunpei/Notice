@@ -10,6 +10,14 @@
       <table class="table">
         <tr>
           <th>
+            <%= f.label :顔写真 %>
+          </th>
+          <td>
+            <%= f.attachment_field :profile_image, size: "200x200" %>
+          </td>
+        </tr>
+        <tr>
+          <th>
             <%= f.label "氏名" %>
           </th>
           <td>
@@ -54,6 +62,14 @@
           </th>
           <td>
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <%= f.label :"家族コード選択" %>
+          </th>
+          <td>
+            <%= f.collection_select :familycode_id, Familycode.all, :id, :family_code ,prompt: '--選択してください--' %>
           </td>
         </tr>
         <tr>

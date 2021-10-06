@@ -9,7 +9,7 @@
 ・おじおばかまちょ
 
 ### テーマを選んだ理由
-・わかりやすく、覚えやすい名前と判断したため。
+・
 
 ### ターゲットユーザ
 ・別居しているおじいちゃん、おばあちゃんがいる家庭。
@@ -25,7 +25,7 @@
 https://docs.google.com/spreadsheets/d/1gc8HUmY9g9iHl1bL68lI3VxOKnnxhQIYegAEj5dHYv0/edit#gid=0
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：windows
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery

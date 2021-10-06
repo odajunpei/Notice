@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'users/show' => 'users/show'
   resources :admins
   resources :posts
+  get 'familycodes/find'
+  post 'familycodes/find'
   # get 'search/search'
   # #adminのルート
   # devise_for :admin

@@ -1,11 +1,26 @@
-<% if user_signed_in? %>
 <h1>家族コード作成画面</h1>
-<%= form_with model:@famly_code,url:familycodes_path,local:true do |f| %>
-  <%= f.label "家族コード" %>
-  <%= f.text_field :family_code %>
-  <%= f.hidden_field :user_id, value => @user.id %>
-  <%= f.submit "登録する" %>
-<% end %>
-<% elsif member_signed_in? %>
-  <%= f.collection_select :familycode_id, Familycode.all, :id, family_code ,prompt: '--選択してください--' %>
+<%= form_with model:@famly_code, url:familycodes_path,local:true do |f| %>
+  <table class="table">
+    <tr>
+      <th>
+        <%= f.label "家族コード" %>
+      </th>
+      <td>
+        <%= f.text_field :family_code %>
+      </td>
+    </tr>
+    <!--<tr>-->
+    <!--  <th>-->
+    <!--    %= f.label "家族名" %>-->
+    <!--  </th>-->
+    <!--  <td>-->
+    <!--    %= f.text_field :family_name %>-->
+    <!--  </td>-->
+    <!--</tr>-->
+    <tr>
+      <td>
+        <%= f.submit "家族コードの作成" %>
+      </td>
+    </tr>
+  </table>
 <% end %>

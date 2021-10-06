@@ -5,14 +5,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+    def new
+      @user = User.new
+      # if params[:word].present?
+      #   @word = params[:word]
+      #   @familycodes = search(@word , Familycode)
+      # end
+      super
+    end
+    
+    # def search
+    #   items = item.all
+    #   if word.present?
+    #     items = items.where("")
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    p params
+     super
+  end
 
   # GET /resource/edit
   # def edit
@@ -59,4 +70,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+
 end

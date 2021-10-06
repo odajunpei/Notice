@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_04_022406) do
+ActiveRecord::Schema.define(version: 2021_10_06_132605) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,9 +33,14 @@ ActiveRecord::Schema.define(version: 2021_10_04_022406) do
   end
 
   create_table "familycodes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "member_id"
     t.string "family_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "member_familycodes", force: :cascade do |t|
+    t.string "familycode_id"
+    t.string "member_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,8 +60,8 @@ ActiveRecord::Schema.define(version: 2021_10_04_022406) do
     t.integer "birth_year"
     t.integer "birth_month"
     t.integer "birth_day"
-    t.string "family_code"
     t.string "profile_image_id"
+    t.string "familycode_id"
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
@@ -83,7 +88,8 @@ ActiveRecord::Schema.define(version: 2021_10_04_022406) do
     t.integer "birth_year"
     t.integer "birth_month"
     t.integer "birth_day"
-    t.string "family_code"
+    t.string "profile_image_id"
+    t.string "familycode_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
