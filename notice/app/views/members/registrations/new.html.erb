@@ -2,12 +2,25 @@
   <div class= "row">
     <div class= "offset-2 col-10">
       <h2 class= "mt-4 pb-3">家族会員サインアップ</h2>
-      <%= form_with model: @member, url:members_path, local:true do |f| %>
       <%= render "members/shared/error_messages", resource: resource %>
+      <%= form_with url: new_member_registration_path, method: :get, local: true do |f| %>
+      <table class="table">
+        <tr>
+          <th>
+            <%= f.label :"家族コード検索" %>
+          </th>
+          <td>
+            <%= f.text_field :search %>
+              <%= f.submit '検索する'  %>
+          </td>
+        </tr>
+      </table>
+      <% end %>
+      <%= form_with model: @member, url: members_path, local: true do |f| %>
       <table class="table">
          <tr>
           <th>
-            <%= f.label :顔写真 %>
+            <%= f.label :"顔写真" %>
           </th>
           <td>
             <%= f.attachment_field :profile_image, size: "200x200" %>
@@ -15,7 +28,7 @@
         </tr>
         <tr>
           <th>
-            <%= f.label "氏名" %>
+            <%= f.label :"氏名" %>
           </th>
           <td>
             <%= f.text_field :name, autofocus: true, placeholder:"山田太郎", class:"col-md-3" %>
@@ -80,17 +93,20 @@
             <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
           </td>
         </tr>
-        <tr>
-          <th>
-            <%= f.label :"家族コード選択" %>
-          </th>
-          <td>
-            <%= f.collection_select :familycode_id, Familycode.all, :id, :family_code ,prompt: '--選択してください--' %>
-          </td>
-        </tr>
+
         <tr>
           <td>
             <%= f.submit "登録する" %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <%= f.label :"家族コード" %>
+          </th>
+          <td>
+            <% if @familycode.present? %>
+              <%= @familycode.family_code %>
+            <% end %>
           </td>
         </tr>
       </table>

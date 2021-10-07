@@ -1,2 +1,5 @@
 class Members::PostsController < ApplicationController
+  def index
+    @post = Post.all
+  end
 end

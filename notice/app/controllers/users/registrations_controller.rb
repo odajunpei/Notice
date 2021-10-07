@@ -5,25 +5,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-    def new
-      @user = User.new
+    #def new
+      #@user = User.new
       # if params[:word].present?
       #   @word = params[:word]
       #   @familycodes = search(@word , Familycode)
       # end
-      super
-    end
-    
+      #super
+   # end
+
     # def search
     #   items = item.all
     #   if word.present?
     #     items = items.where("")
 
   # POST /resource
-  def create
-    p params
-     super
-  end
+  #def create
+     #super
+ # end
 
   # GET /resource/edit
   # def edit

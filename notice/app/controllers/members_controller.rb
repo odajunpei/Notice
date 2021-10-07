@@ -20,6 +20,8 @@ class MembersController < ApplicationController
   def leave
     @member = Member.find(current_member.id)
   end
+  
+  
 
   private
 

@@ -16,13 +16,13 @@
 　内閣府の情報では、65歳以上の方の自宅での孤立死が年々増加しているという情報もあります。
 進化した技術を有効利用し、この社会問題解決の一助になればと思います。
 ### ターゲットユーザ
-・別居しているおじいちゃん、おばあちゃんがいる家庭。
+・別居している祖父、祖母がいる家庭。
 
 ### 主な利用シーン
 ・日常生活
 
 ## 設計書
-・ER図https://drive.google.com/drive/recent
+・ER図:https://drive.google.com/drive/recent
 ・画面遷移図:https://docs.google.com/presentation/d/1SwN39Elq3x1y2aVwEUXPNV3x5U63OTTh/edit?usp=sharing&ouid=104216964125764909973&rtpof=true&sd=true
 
 ## チャレンジ要素一覧
