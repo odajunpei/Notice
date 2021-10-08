@@ -12,7 +12,9 @@
                 <%= attachment_image_tag post.user, :profile_image, size:"200x200",format: 'jpeg', fallback:"no_image.jpg" %>
               </th>
               <td>
+              <%= link_to members_post_path(@post_find) do %>
                 <%= post.post %>
+              <% end %>
               </td>
             </test>
         </tbody>

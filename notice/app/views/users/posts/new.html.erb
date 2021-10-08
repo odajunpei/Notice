@@ -5,16 +5,10 @@
       <%= form_with model: @post,url:users_posts_path, local:true do |f| %>
       <table class="table table-borderless mt-5 ">
         <tbody>
-          <tr>
-            <td><%= f.label :投稿 %></td>
-            <td><%= f.text_field :post, value:"おはよう" %></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><%= f.submit "投稿", class: "btn btn-primary"  %></td>
-          </tr>
-      </tbody>
-    </table>
+          <td><%= f.hidden_field :post, :value => "おはよう" %></td>
+          <td><%= f.submit "おはよう", class: "btn btn-primary"  %></td>
+        </tbody>
+      </table>
     <% end %>
     </div>
   </div>

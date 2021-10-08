@@ -6,10 +6,15 @@ class Members::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-      # @word = params[:search]
-      @familycode = Familycode.where(family_code: "#{params[:search]}")
-    # super
+     @member = Member.new
+     super
   end
+
+  # def search
+  #   byebug
+  #   @familycode = Familycode.where(family_code: "#{params[:cd]}")
+  #   render :new
+  # end
 
   # POST /resource
   # def create

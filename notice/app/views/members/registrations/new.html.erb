@@ -2,21 +2,32 @@
   <div class= "row">
     <div class= "offset-2 col-10">
       <h2 class= "mt-4 pb-3">家族会員サインアップ</h2>
-      <%= render "members/shared/error_messages", resource: resource %>
-      <%= form_with url: new_member_registration_path, method: :get, local: true do |f| %>
+      <%= form_with url: search_path, method: :get, local: true do |f| %>
       <table class="table">
-        <tr>
-          <th>
-            <%= f.label :"家族コード検索" %>
-          </th>
-          <td>
-            <%= f.text_field :search %>
+        <% if @familycode.present? %>
+          <tr>
+            <th>
+              <%= f.label :"家族コード検索" %>
+            </th>
+            <td>
+              <%= f.text_field :cd, readonly: true %>
+            </td>
+          </tr>
+        <% else %>
+          <tr>
+            <th>
+              <%= f.label :"家族コード検索" %>
+            </th>
+            <td>
+              <%= f.text_field :cd %>
               <%= f.submit '検索する'  %>
-          </td>
-        </tr>
+            </td>
+          </tr>
+        <% end %>
       </table>
       <% end %>
-      <%= form_with model: @member, url: members_path, local: true do |f| %>
+      <% if @familycode.present? %>
+      <%= form_with model: @member, url: member_registration_path, local: true do |f| %>
       <table class="table">
          <tr>
           <th>
@@ -93,25 +104,22 @@
             <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
           </td>
         </tr>
-
-        <tr>
-          <td>
-            <%= f.submit "登録する" %>
-          </td>
-        </tr>
         <tr>
           <th>
             <%= f.label :"家族コード" %>
           </th>
           <td>
-            <% if @familycode.present? %>
-              <%= @familycode.family_code %>
-            <% end %>
+            <%= f.collection_select :familycode_id, Familycode.where(family_code: @familycode.family_code), :id, :family_code ,readonly: true %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.submit "登録する" %>
           </td>
         </tr>
       </table>
       <% end %>
-    <%= render "members/shared/links" %>
+      <% end %>
     </div>
   </div>
 </div>

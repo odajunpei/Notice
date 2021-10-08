@@ -1,11 +1,6 @@
 class FamilycodesController < ApplicationController
   def new
     @family_code = Familycode.new
-    # @user = User.find(params[:id])
-    # @familycodes = Array.new
-    # if request.post? then
-    #   @familycodes = Familycode.where family_code: params[:find]
-    # end
   end
 
   def create
@@ -17,12 +12,11 @@ class FamilycodesController < ApplicationController
     end
   end
 
-  # def find
-  #   @familycodes = Array.new
-  #   if request.post? then
-  #     @familycodes = Familycode.where family_code: params[:find]
-  #   end
-  # end
+  def search
+    @member = Member.new
+    @familycode = Familycode.find_by(family_code: "#{params[:cd]}")
+    render 'members/registrations/new'
+  end
 
   private
 

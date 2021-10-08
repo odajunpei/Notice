@@ -11,14 +11,23 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def after_sign_up_path_for(resource)
+      byebug
+      case resource
+      when Member
+        member_path(current_member)
+      when User
+        user_path(current_user)
+      end
+    end
+
     def after_sign_out_path_for(resource)
      root_path
     end
 
-  protected
+    protected
 
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :name_kana,:familycode_id, :birth_year, :birth_month, :birth_day, :telephone_number, :profile_image_id])
-    end
-
+  def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :name_kana, :birth_year, :birth_month, :birth_day, :telephone_number, :profile_image, :familycode_id])
+  end
 end

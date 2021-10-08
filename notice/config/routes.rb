@@ -9,6 +9,7 @@ Rails.application.routes.draw do
      resources :comments
   end
 
+  get 'familycodes/search' => 'familycodes#search', as: :search
   namespace :users do
     resources :posts
     resources :comments
@@ -16,9 +17,8 @@ Rails.application.routes.draw do
   resources :familycodes
   resources :members
   resources :users
-  get 'users/show' => 'users/show'
+  get 'users/show' => 'users#show'
   resources :admins
 
-  get 'familycodes/find'
-  post 'familycodes/find'
+
 end
