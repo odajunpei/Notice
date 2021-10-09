@@ -8,7 +8,7 @@ class Member < ApplicationRecord
   # has_many :member_familycodes
   belongs_to :familycode
   # , through: :member_familycodes
-  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   attachment :profile_image
 end

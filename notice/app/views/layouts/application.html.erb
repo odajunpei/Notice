@@ -25,9 +25,10 @@
       <div>
         <nav class="navbar  navbar-expand-lg navbar-light text-align-center gnav">
           <ul class="navbar-nav justfy-content-center height-60px">
+            <h1>おじおばかまちょ</h1>
             <% if member_signed_in? %>
               <li class="nav-item"><%= link_to 'プロフィール', member_path(current_member), class: "btn btn-warning" %></li>
-              <li class="nav-item"><%= link_to '投稿一覧', members_posts_path, class: "btn btn-warning" %></li>
+              <li class="nav-item"><%= link_to '投稿一覧', posts_path, class: "btn btn-warning" %></li>
               <li class="nav-item"><p><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn btn-warning" %></p></li>
             <% elsif admin_signed_in? %>
               <!--<li class="nav-item">%= link_to 'ユーザ一覧', admin_products_path , class: "btn btn-warning" %></li>-->
@@ -38,7 +39,7 @@
             <% elsif user_signed_in? %>
               <li class="nav-item"><%= link_to 'プロフィール', user_path(current_user), class: "btn btn-warning" %></li>
               <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-warning" %></li>
-              <li class="nav-item"><%= link_to '投稿一覧', new_users_post_path, class: "btn btn-warning" %></li>
+              <li class="nav-item"><%= link_to '投稿', new_post_path, class: "btn btn-warning" %></li>
             <% else %>
                <li class="nav-item"><%= link_to '家族登録', new_member_registration_path, class: "btn btn-warning" %></li>
                <li class="nav-item"><%= link_to '家族ログイン', member_session_path, class: "btn btn-warning" %></li>

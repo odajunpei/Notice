@@ -4,16 +4,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: 'homes#top'
-  namespace :members do
-     resources :posts
-     resources :comments
+  resources :posts do
+   resources :comments
   end
-
-  get 'familycodes/search' => 'familycodes#search', as: :search
-  namespace :users do
-    resources :posts
-    resources :comments
-  end
+  get 'familycodes/searchmember' => 'familycodes#searchmember', as: :searchmember
+   get 'familycodes/searchuser' => 'familycodes#searchuser', as: :searchuser
   resources :familycodes
   resources :members
   resources :users

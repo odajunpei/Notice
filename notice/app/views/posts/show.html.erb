@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+<div class="container px5 px-sm-0">
+    <div class="row">
+        <div class="col-md-8 offset-md-1">
+          <p></p>
+          <h2>投稿詳細</h2>
+          <table class="table table-hover table-inverse">
+            <tbody>
+              <tr>
+                <td>
+                  <%= attachment_image_tag @post.user, :profile_image, size:"200x200", fallback: "no_image.jpg" %>
+                </td>
+                <td>
+                  <%= @post.user.name %>
+                </td>
+                <td><%= @post.post %></td>
+              </tr>
+            </tbody>
+          </table>
+　　　　　<h4><strong>コメント</strong></h4>
+          <table class="table table-hover table-inverse">
+            <tbody>
+              <% @comments.each do |comment| %>
+                <tr>
+                  <td>
+                    <%= attachment_image_tag comment.member, :profile_image, size:"40x40", fallback: "no_image.jpg" %>
+                  </td>
+                  <td>
+                    <%= comment.comment %>
+                  </td>
+                  <td>
+                    <% if comment.member == current_member %>
+                      <div class="comment_delete">
+                        <%= link_to "destroy", post_comment_path(comment.post, comment), method: :delete %>
+                      </div>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <%= form_with(model:[@post, @comment], method: :post) do |f| %>
+            <table class="table table-hover table-inverse">
+              <tbody>
+                <tr>
+                  <%= f.text_area :comment,placeholder: "コメントをここに" %>
+                  <%= f.hidden_field :post_id, value: @post.id %>
+                  <%= f.submit "送信" %>
+                </tr>
+              </tbody>
+            </table>
+          <% end %>
+          <% end %>
+      </div>
+    </div>
+  </div>
