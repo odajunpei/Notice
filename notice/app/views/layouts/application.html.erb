@@ -10,15 +10,6 @@
 
   <body>
     <header>
-      <% if member_signed_in? %>
-        <div class= "welcome">
-          <span class="name">Welcome to 家族.<%= current_member.name %></span>
-        </div>
-      <% elsif user_signed_in? %>
-        <div class= "welcome">
-          <span class="name">Welcome to おじい.<%= current_user.name %></span>
-        </div>
-      <% end %>
       <div>
         <strong id="notice"><%= notice %></strong>
       </div>
@@ -48,24 +39,15 @@
             <% end %>
           </ul>
         </nav>
-                <!--<div class="search_container d-flex justify-content-end pr-4 s-space">-->
-                <!--  % if request.fullpath.include?("admin/member") &&  admin_signed_in? %>-->
-                <!--    %= form_with url: admin_members_path, method: :get, local: true do |f| %>-->
-                <!--      %= f.text_field :word, :value => @word , placeholder: "  を入力して下さい(管理者)"  %>-->
-                <!--      %= f.submit "" %>-->
-                <!--    % end %>-->
-                <!--  % elsif request.fullpath.include?("admin/products")  &&  admin_signed_in? %>-->
-                <!--    %= form_with url: admin_products_path, method: :get, local: true do |f| %>-->
-                <!--      %= f.text_field :word, :value => @word , placeholder: "  を入力して下さい(管理者)" %>-->
-                <!--      %= f.submit "" %>-->
-                <!--    % end %>-->
-                <!--  % elsif request.fullpath.include?("admin") != true  %>-->
-                <!--    %= form_with url: products_path, method: :get, local: true do |f| %>-->
-                <!--      %= f.text_field :word, placeholder: "  を入力して下さい"%>-->
-                <!--      %= f.submit "" %>-->
-                <!--    % end %>-->
-                <!--  % end %>-->
-                <!--</div>-->
+        <% if member_signed_in? %>
+          <div class= "welcome">
+            <span class="name">ようこそ!!<%= current_member.name %>様</span>
+          </div>
+        <% elsif user_signed_in? %>
+          <div class= "welcome">
+            <span class="name">ようこそ!!<%= current_user.name %>様</span>
+          </div>
+        <% end %>
       </div>
     </header>
     <%= yield %>

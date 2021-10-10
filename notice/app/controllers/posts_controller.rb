@@ -14,14 +14,14 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
-    # @user = @posts.user
+    @posts = Post.all.order("id DESK").page(params[:page]).per(5)
+    @user = @posts.user
   end
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments
-    @comment = current_member.comments.new
+    @comment = Comment.new
+    @comments = @post.comments.order(created_at: :desc)
   end
 
     private

@@ -1,15 +1,20 @@
 class CommentsController < ApplicationController
+
   def create
-    @post = Post.find(params[:post_id])
-    @comment = current_member.comments.new(comment_params)
-    if @comment.save
-      redirect_to post_path(@post)
-    end
+     @post = Post.find(params[:post_id])
+     @comment = @post.comments.build(comment_params)
+     @comment.member_id = current_member.id
+     @comment.save(comment_params)
+     @comments = @post.comments
+     render :index
   end
 
   def destroy
-    Comment.find_by(id: params[:id], post_id: params[:post_id]).destroy
-    redirect_to book_path(params[:post_id])
+      @post = Post.find(params[:post_id])
+      @comment = Comment.find(params[:id])
+      @comment.destroy
+      @comments = @post.comments
+      render :index
   end
 
   private
