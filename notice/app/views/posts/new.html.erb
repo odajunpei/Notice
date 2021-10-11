@@ -1,6 +1,6 @@
 <div class="container-fluid h-100">
   <div class="row h-100">
-    <div class="col-md-5">
+    <div class="col-md-5">  <!--scr-->
       <h2>家族からメッセージ</h2>
       <% @posts.each do |post| %>
         <% post.comments.each do |comment| %>
@@ -8,17 +8,20 @@
             <tbody>
               <tr>
                 <td>
-                  <%= attachment_image_tag comment.member, :profile_image, size:"100x100", fallback: "no_image.jpg" %>
+                  <%= attachment_image_tag comment.member, :profile_image, size:"200x200", fallback: "no_image.jpg" %>
                 </td>
                 <td>
-                  <h2><%= comment.comment %>(<%= post.created_at.strftime('%d日%H:%M') %>)</h2>
+                  <h2>
+                    <%= comment.comment %><br>
+                    (<%= post.created_at.strftime('%Y/%m/%d %H:%M:%S') %>)
+                  </h2>
                 </td>
               </tr>
             </tbody>
           </table>
         <% end %>
       <% end %>
-      <%= paginate @posts %>
+        <%= paginate @posts %>
     </div>
     <div class="col-md-1"></div>
     <div class="col-md-6">

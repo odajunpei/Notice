@@ -8,12 +8,12 @@
         <tbody>
             <tr>
               <th>
-                <%= attachment_image_tag post.user, :profile_image, size:"100x100",format: 'jpeg', fallback:"no_image.jpg" %>
+                <%= attachment_image_tag post.user, :profile_image, size:"100x100",format: 'jpeg', fallback:"grand.png" %>
               </th>
               <td>
               <%= link_to post_path(post.id) do %>
                 <h1><%= post.post %></h1>
-                <h2><%= post.created_at.strftime('%d日%H:%M') %></h2>
+                <h2><%= post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></h2>
               <% end %>
               </td>
             </tr>
