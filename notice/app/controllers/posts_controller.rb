@@ -14,8 +14,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order("id DESK").page(params[:page]).per(5)
-    @user = @posts.user
+    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(3)
+     @post = Post.all
   end
 
   def show

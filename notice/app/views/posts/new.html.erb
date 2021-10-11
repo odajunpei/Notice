@@ -1,5 +1,5 @@
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid h-100">
+  <div class="row h-100">
     <div class="col-md-5">
       <h2>家族からメッセージ</h2>
       <% @posts.each do |post| %>
@@ -11,7 +11,8 @@
                   <%= attachment_image_tag comment.member, :profile_image, size:"100x100", fallback: "no_image.jpg" %>
                 </td>
                 <td>
-                  <%= comment.comment %>
+                  <h2><%= comment.comment %>(<%= post.created_at.strftime('%d日%H:%M') %>)</h2>
+
                 </td>
               </tr>
             </tbody>
@@ -22,47 +23,36 @@
     </div>
     <div class="col-md-1"></div>
     <div class="col-md-6">
-      <h2 class="mt-3 pb-3">投稿ボタン</h2>
-      <table class="table table-borderless">
-        <tbody>
-          <tr>
-            <th>
-              <%= form_with model: @post,url:posts_path, local:true do |f| %>
-                <%= f.hidden_field :post, :value => "おはよう" %>
-                <%= f.hidden_field :user_id, :value => current_user.id %>
-                <%= f.submit "おはよう", class: "btn btn-primary w-100"  %>
-              <% end %>
-            </th>
-          </tr>
-          <tr>
-            <th>
-              <%= form_with model: @post,url:posts_path, local:true do |f| %>
-                <%= f.hidden_field :post, :value => "ご飯食べたよ" %>
-                <%= f.hidden_field :user_id, :value => current_user.id %>
-                <%= f.submit "ご飯食べたよ", class: "btn btn-primary w-100"  %>
-              <% end %>
-            </th>
-          </tr>
-          <tr>
-            <th>
-              <%= form_with model: @post,url:posts_path, local:true do |f| %>
-                <%= f.hidden_field :post, :value => "おやすみ" %>
-                <%= f.hidden_field :user_id, :value => current_user.id %>
-                <%= f.submit "おやすみ", class: "btn btn-primary w-100"  %>
-              <% end %>
-            </th>
-          </tr>
-          <tr>
-            <th>
-              <%= form_with model: @post,url:posts_path, local:true do |f| %>
-                <%= f.hidden_field :post, :value => "SOS" %>
-                <%= f.hidden_field :user_id, :value => current_user.id %>
-                <%= f.submit "SOS", class: "btn btn-danger w-100"  %>
-              <% end %>
-            </th>
-          </tr>
-        </tbody>
-      </table>
+      <div class="submitarea">
+        <div class="submitbtn">
+          <%= form_with model: @post,url:posts_path, local:true do |f| %>
+            <%= f.hidden_field :post, :value => "おはよう" %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.submit "おはよう", class: "btn-primary w-100 h-100"  %>
+          <% end %>
+        </div>
+        <div class="submitbtn">
+          <%= form_with model: @post,url:posts_path, local:true do |f| %>
+            <%= f.hidden_field :post, :value => "ご飯食べたよ" %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.submit "ご飯食べたよ", class: "btn-primary w-100"  %>
+          <% end %>
+        </div>
+        <div class="submitbtn">
+          <%= form_with model: @post,url:posts_path, local:true do |f| %>
+            <%= f.hidden_field :post, :value => "おやすみ" %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.submit "おやすみ", class: "btn-primary w-100"  %>
+          <% end %>
+        </div>
+        <div class="submitbtn">
+          <%= form_with model: @post,url:posts_path, local:true do |f| %>
+            <%= f.hidden_field :post, :value => "SOS" %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.submit "SOS", class: "btn-danger w-100"  %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

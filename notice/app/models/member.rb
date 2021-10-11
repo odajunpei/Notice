@@ -11,4 +11,8 @@ class Member < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   attachment :profile_image
+  validates :name, presence: true
+  validates :name_kana, presence: true
+  validates :telephone_number, presence: true
+  validates :family_code, presence: true
 end

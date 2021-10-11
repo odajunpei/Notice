@@ -17,3 +17,24 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+.background_image{
+  background-color: #ffffe0;
+  height: 100%;
+  font-family: cursive;
+}
+
+.header-color{
+  background-color:gold;
+}
+
+.submitarea{
+  height: 600px;
+}
+
+.submitbtn{
+  width: 100%;
+  height: 25%;
+  font-size: 550%;
+  margin: 1%;
+}
