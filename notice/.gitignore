@@ -19,7 +19,9 @@
 
 # Ignore Byebug command history file.
 .byebug_history
-#AWSデプロイ用記述
-/.env
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+#AWSデプロイ用記述
+/.env
