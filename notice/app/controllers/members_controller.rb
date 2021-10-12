@@ -2,6 +2,7 @@ class MembersController < ApplicationController
   before_action :authenticate_member!
   def show
     @member = Member.find(current_member.id)
+    @familymembers = @member.familycode.member
   end
 
   def edit
