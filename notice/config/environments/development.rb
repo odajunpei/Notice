@@ -27,7 +27,7 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
 
@@ -52,4 +52,17 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.web_console.whitelisted_ips = '14.10.0.192' #家族コード検索機能実装中にエラー発生のため追記
+
+  #お問い合わせ機能
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                  587,
+  domain:               'smtp.gmail.com',
+  user_name:            ENV['SEND_MAIL'],
+  password:             ENV['SEND_MAIL_PASSWORD'],
+  authentication:       'plain',
+  enable_starttls_auto:  true
+}
 end

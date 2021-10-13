@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'inquiry/index'
+  get 'inquiry/confirm'
+  get 'inquiry/thanks'
   devise_for :admins
   devise_for :members
   devise_for :users
@@ -14,6 +17,10 @@ Rails.application.routes.draw do
   resources :users
   get 'users/show' => 'users#show'
   resources :admins
-
+  
+  #お問い合わせ
+  get   'inquiry'         => 'inquiry#index'     
+  post  'inquiry/confirm' => 'inquiry#confirm'   
+  post  'inquiry/thanks'  => 'inquiry#thanks'    
 
 end
