@@ -14,5 +14,5 @@ class Member < ApplicationRecord
   validates :name, presence: true
   validates :name_kana, presence: true
   validates :telephone_number, presence: true
-  validates :family_code, presence: true
+  validates :familycode_id, presence: true
 end

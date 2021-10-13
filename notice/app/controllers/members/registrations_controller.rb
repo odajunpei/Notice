@@ -5,20 +5,24 @@ class Members::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  def new
-     @member = Member.new
-     super
-  end
+    #def new
+      #@member = Member.new
+      # if params[:word].present?
+      #   @word = params[:word]
+      #   @familycodes = search(@word , Familycode)
+      # end
+      #super
+   # end
 
   # def search
-  #   byebug
+  #
   #   @familycode = Familycode.where(family_code: "#{params[:cd]}")
   #   render :new
   # end
 
   # POST /resource
   # def create
-  #   super
+      #super
   # end
 
   # GET /resource/edit

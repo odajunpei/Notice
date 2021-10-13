@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @posts = Post.all.page(params[:page]).per(1)   #直近3件の投稿に対するコメントを表示する。
+    @posts = current_user.posts.all.page(params[:page]).per(1)   #直近3件の投稿に対するコメントを表示する。
     # @comments = @post.comments.
   end
 
@@ -14,8 +14,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(3)
-     @post = Post.all
+    user_list = User.where(familycode_id: current_member.familycode_id)
+    @posts = Post.where(user_id: user_list).order(created_at: :desc).page(params[:page]).per(3)
   end
 
   def show
@@ -29,6 +29,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:post, :user_id)
     end
-
 
 end

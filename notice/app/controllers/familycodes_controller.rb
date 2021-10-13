@@ -29,6 +29,6 @@ class FamilycodesController < ApplicationController
   private
 
   def familycode_params
-    params.permit(:family_code)
+    params.permit(:family_code,:id)
   end
 end

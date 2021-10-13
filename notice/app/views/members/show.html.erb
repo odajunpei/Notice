@@ -1,5 +1,4 @@
-家族プロフィール詳細画面
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-10 offset-1">
       <p class="page-title">
@@ -62,11 +61,30 @@
             <%= @member.familycode.family_code %>
           </td>
         </tr>
-        <!--<tr>-->
-        <!--  <td>-->
-
-        <!--  </td>-->
-        <!--</tr>-->
+        <tr>
+          <th>
+            家族の投稿者一覧
+          </th>
+          <td>
+            <% @familymembers.each do |familymember| %>
+            <div>
+              ・<%= familymember.name %>
+            </div>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <div>
+            家族メンバー一覧
+            </div>
+          </th>
+          <td>
+            <% @familymembers.each do |familymember| %>
+              ・<%= familymember.name %>
+            <% end %>
+          </td>
+        </tr>
         <tr>
           <th>
             <%= link_to "プロフィール情報を編集する", edit_member_path(@member) %>

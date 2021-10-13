@@ -8,4 +8,9 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
 
   attachment :profile_image
+
+  validates :name, presence: true
+  validates :name_kana, presence: true
+  validates :telephone_number, presence: true
+  validates :familycode_id, presence: true
 end
