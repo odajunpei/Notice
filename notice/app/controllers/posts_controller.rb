@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+#user側
   def new
     @post = Post.new
     @posts = current_user.posts.all.page(params[:page]).per(1)   #直近3件の投稿に対するコメントを表示する。
@@ -13,6 +13,7 @@ class PostsController < ApplicationController
     end
   end
 
+#member側
   def index
     user_list = User.where(familycode_id: current_member.familycode_id)
     @posts = Post.where(user_id: user_list).order(created_at: :desc).page(params[:page]).per(3)

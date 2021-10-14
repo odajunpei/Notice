@@ -96,4 +96,6 @@ Rails.application.configure do
   authentication:       'plain',
   enable_starttls_auto:  true
 }
+
+Refile.secret_key = '23ea030ffeb288439c88afb4284cc06c259420a657fb49389589d1a9d1f7288245e7d3398c346a828086b313c32be93edea19f186144df4aff12124f53b3fcaa'
 end

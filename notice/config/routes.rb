@@ -11,16 +11,22 @@ Rails.application.routes.draw do
    resources :comments
   end
   get 'familycodes/searchmember' => 'familycodes#searchmember', as: :searchmember
-   get 'familycodes/searchuser' => 'familycodes#searchuser', as: :searchuser
+  get 'familycodes/searchuser' => 'familycodes#searchuser', as: :searchuser
   resources :familycodes
   resources :members
   resources :users
   get 'users/show' => 'users#show'
   resources :admins
-  
-  #お問い合わせ
-  get   'inquiry'         => 'inquiry#index'     
-  post  'inquiry/confirm' => 'inquiry#confirm'   
-  post  'inquiry/thanks'  => 'inquiry#thanks'    
 
+  #お問い合わせ
+  get   'inquiry'         => 'inquiry#index'
+  post  'inquiry/confirm' => 'inquiry#confirm'
+  post  'inquiry/thanks'  => 'inquiry#thanks'
+  
+  namespace :admin do
+    resources :members
+    resources :users
+    resources :posts
+    resources :familycodes
+  end
 end

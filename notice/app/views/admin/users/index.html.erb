@@ -1,0 +1,22 @@
+<div class="container-fuluid">
+  <div class="row">
+    <div class="col-md-10 offset-1">
+      <h1>投稿会員一覧</h1>
+      <% @users.each do |user| %>
+      <table>
+        <tbody>
+        <tr>
+          <th>
+            <%= user.id %>
+          </th>
+          <td>
+            <%= user.name %>
+          </td>
+          <td>
+            <!--%= member.familycode_id.family_code %>-->
+          </td>
+          <td>
+          </td>
+        </tbody>
+      </table>
+<% end %>

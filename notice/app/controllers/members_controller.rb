@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
   before_action :authenticate_member!
+
   def show
     @member = Member.find(current_member.id)
     @familymembers = Member.where(familycode_id: current_member.familycode_id)

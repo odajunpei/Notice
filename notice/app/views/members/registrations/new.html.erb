@@ -2,6 +2,16 @@
   <div class= "row">
     <div class= "offset-2 col-10">
       <h2 class= "mt-4 pb-3">家族会員サインアップ</h2>
+       <% if @member.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <strong>入力内容にエラーがあります</strong>
+          <ul>
+            <% @member.errors.each do |attr, msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
       <%= form_with url: searchmember_path, method: :get, local: true do |f| %>
       <table class="table">
         <% if @familycode.present? %>

@@ -1,0 +1,29 @@
+<div class="container-fuluid">
+  <div class="row">
+    <div class="col-md-10 offset-1">
+      <h1>投稿一覧</h1>
+      <% @posts.each do |post| %>
+      <table>
+        <tbody>
+        <tr>
+          <th>
+            <%= post.id %>
+          </th>
+          <td>
+            <%= link_to admin_post_path(post) do %>
+              <%= post.post %>
+            <% end %>
+          </td>
+          <td>
+            <%= post.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+          </td>
+          <td>
+            <div id="comments_area">
+          <%= render partial: 'comments/comment', locals: { comments: @comments } %>
+        </div>
+          </td>
+          <td>
+          </td>
+        </tbody>
+      </table>
+<% end %>
