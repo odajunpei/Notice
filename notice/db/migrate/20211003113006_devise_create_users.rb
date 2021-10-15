@@ -38,13 +38,15 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       #追加
       t.string :name
       t.string :name_kana
+      t.string :nickname
       t.string :telephone_number
       t.boolean :is_deleted , default: false
-      t.integer :birth_year
-      t.integer :birth_month
-      t.integer :birth_day
+      t.date :birth_date
       t.string :profile_image_id
       t.string :familycode_id
+      t.integer :address_area, null:false, default: 0
+      t.string :address
+      t.integer :fire
     end
 
     add_index :users, :email,                unique: true

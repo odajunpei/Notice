@@ -29,6 +29,14 @@
             <%= @member.name_kana %>
           </th>
         </tr>
+             <tr>
+          <th>
+            ニックネーム
+          </th>
+          <td>
+            <%= @member.nickname %>
+          </td>
+        </tr>
         <tr>
           <th>
             電話番号
@@ -42,8 +50,16 @@
             生年月日
           </th>
           <th>
-            <%= @member.birth_year %>年<%= @member.birth_month %>月<%= @member.birth_day %>日
+            <%= @member.birth_date %>
           </th>
+        </tr>
+         <tr>
+          <th>
+            都道府県
+          </th>
+          <td>
+            <%= @member.address %>
+          </td>
         </tr>
         <tr>
           <th>
@@ -67,9 +83,7 @@
           </th>
           <td>
             <% @familyusers.each do |familyuser| %>
-            <div>
               ・<%= familyuser.name %>
-            </div>
             <% end %>
           </td>
         </tr>

@@ -65,6 +65,14 @@
         </tr>
         <tr>
           <th>
+            <%= f.label :"ニックネーム" %>
+          </th>
+          <td>
+            <%= f.text_field:nickname, placeholder: "ヤーマダ", class:"col-md-3" %>
+          </td>
+        </tr>
+        <tr>
+          <th>
             <%= f.label :"電話番号" %>
           </th>
           <td>
@@ -76,15 +84,15 @@
             <%= f.label :"生年月日" %>
           </th>
           <td>
-            <span>
-              <%= f.number_field :birth_year ,class:"col-md-1" %>年
-            </span>
-            <span>
-              <%= f.number_field :birth_month ,class:"col-md-1" %>月
-            </span>
-            <span>
-              <%= f.number_field :birth_day ,class:"col-md-1" %>日
-            </span>
+             <%= f.date_select :birth_date, start_year:1900 %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <%= f.label :"都道府県" %>
+          </th>
+          <td>
+            <%= f.select :address, User.address_areas.keys, {}, class:"col-md-3" %>
           </td>
         </tr>
         <tr>
