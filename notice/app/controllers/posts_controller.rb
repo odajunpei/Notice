@@ -2,8 +2,7 @@ class PostsController < ApplicationController
 #user側
   def new
     @post = Post.new
-    @posts = current_user.posts.all.page(params[:page]).per(1)   #直近3件の投稿に対するコメントを表示する。
-    # @comments = @post.comments.
+    @posts = current_user.posts.order("created_at DESC").page(params[:page]).per(1)   #直近3件の投稿に対するコメントを表示する。
   end
 
   def create
@@ -16,13 +15,13 @@ class PostsController < ApplicationController
 #member側
   def index
     user_list = User.where(familycode_id: current_member.familycode_id)
-    @posts = Post.where(user_id: user_list).order(created_at: :desc).page(params[:page]).per(3)
+    @posts = Post.where(user_id: user_list).order("created_at DESC").page(params[:page]).per(3)
   end
 
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comments = @post.comments.order(created_at: :desc)
+    @comments = @post.comments.order("created_at DESC")
   end
 
     private
