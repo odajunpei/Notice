@@ -28,7 +28,12 @@
             </td>
           </tr>
         </table>
-        <%= f.submit '送信', :class => 'btn btn-primary' %>
+        <span>
+          <%= f.submit '送信', :class => 'btn btn-primary' %>
+        </span>
+        <span>
+          <%= link_to '新規お問い合わせ画面に戻る', inquiry_index_path, class: "btn btn-primary" %>
+        </span>
       <% end %>
     </div>
   </div>
