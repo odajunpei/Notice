@@ -15,12 +15,14 @@ class FamilycodesController < ApplicationController
   def searchmember
     @member = Member.new
     @familycode = Familycode.find_by(family_code: "#{params[:cd]}")
+    @familycode_id = @familycode.id
     render 'members/registrations/new'
   end
 
   def searchuser
     @user = User.new
     @familycode = Familycode.find_by(family_code: "#{params[:cd]}")
+    @familycode_id = @familycode.id
     render 'users/registrations/new'
   end
 

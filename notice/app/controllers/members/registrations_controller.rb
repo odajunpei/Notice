@@ -6,11 +6,8 @@ class Members::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
     #def new
-      #@member = Member.new
-      # if params[:word].present?
-      #   @word = params[:word]
-      #   @familycodes = search(@word , Familycode)
-      # end
+      
+      
       #super
    # end
 

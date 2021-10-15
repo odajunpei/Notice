@@ -14,19 +14,19 @@
       <% end %>
       <%= form_with url: searchmember_path, method: :get, local: true do |f| %>
       <table class="table">
-        <% if @familycode.present? %>
+        <% if @familycode.blank? %>
+          <!--<tr>-->
+          <!--  <th>-->
+          <!--    %= f.label :"家族コード認証済み" %>-->
+          <!--  </th>-->
+          <!--  <td>-->
+          <!--    %= f.text_field :cd, readonly: true %>-->
+          <!--  </td>-->
+          <!--</tr>-->
+        <!--% else %>-->
           <tr>
             <th>
-              <%= f.label :"家族コード検索" %>
-            </th>
-            <td>
-              <%= f.text_field :cd, readonly: true %>
-            </td>
-          </tr>
-        <% else %>
-          <tr>
-            <th>
-              <%= f.label :"家族コード検索" %>
+              <%= f.label :"家族コード登録" %>
             </th>
             <td>
               <%= f.text_field :cd %>
@@ -119,7 +119,10 @@
             <%= f.label :"家族コード" %>
           </th>
           <td>
-            <%= f.collection_select :familycode_id, Familycode.where(family_code: @familycode.family_code), :id, :family_code ,readonly: true %>
+            <%= f.hidden_field :familycode_id, :value =>@familycode_id, readonly: true %>
+            <!--%= Familycode.where(family_code: @familycode.family_code) %>-->
+            <!--%= f.collection_select :familycode_id, Familycode.where(family_code: @familycode.family_code), :id, :family_code ,readonly: true %>-->
+            <strong class="text-success">登録済み</strong>
           </td>
         </tr>
         <tr>
