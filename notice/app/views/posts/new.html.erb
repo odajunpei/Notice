@@ -6,6 +6,7 @@
       <%= attachment_image_tag current_user, :profile_image, size:"100x100", fallback: "grand.png" %>
       <h1><%= post.post %></h1>
       <h2><%= post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></h2>
+      <%= paginate @posts %>
       <h2>家族からメッセージ</h2>
         <% post.comments.each do |comment| %>
           <table class='table table-hover table-inverse'>
@@ -25,7 +26,6 @@
           </table>
         <% end %>
       <% end %>
-        <%= paginate @posts %>
       </div>
     <div class="col-md-1"></div>
     <div class="col-md-6">

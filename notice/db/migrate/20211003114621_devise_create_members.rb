@@ -46,6 +46,7 @@ class DeviseCreateMembers < ActiveRecord::Migration[5.2]
       t.string :familycode_id
       t.integer :address_area, null: false, default: 0
       t.string :address
+      t.integer :gender
     end
 
     add_index :members, :email,                unique: true

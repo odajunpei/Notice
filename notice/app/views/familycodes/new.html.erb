@@ -6,7 +6,7 @@
         <div class="alert alert-danger" role="alert">
           <strong>入力内容にエラーがあります</strong>
           <ul>
-            <% @family_code.errors.each do |attr, msg| %>
+            <% @family_code.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
             <% end %>
           </ul>
@@ -16,7 +16,7 @@
         <table class="table">
           <tr>
             <th>
-              <%= f.label "家族コード" %>
+              <%= f.label "family_code", "家族コード" %>
             </th>
             <td>
               <%= f.text_field :family_code %>

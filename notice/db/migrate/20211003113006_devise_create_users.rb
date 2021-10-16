@@ -47,6 +47,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :address_area, null:false, default: 0
       t.string :address
       t.integer :fire
+      t.integer :gender
     end
 
     add_index :users, :email,                unique: true

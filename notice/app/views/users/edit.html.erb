@@ -52,6 +52,19 @@
         </tr>
         <tr>
           <th>
+            <%= f.label :"性別" %>
+          </th>
+          <td>
+            <%= f.label :"男性" %>
+            <%= f.radio_button :gender, :男性 %>
+            <%= f.label :"女性" %>
+            <%= f.radio_button :gender, :女性 %>
+            <%= f.label :"回答無し" %>
+            <%= f.radio_button :gender, :回答無し %>
+          </td>
+        </tr>
+        <tr>
+          <th>
             <%= f.label :電話番号 %>
           </th>
           <td>

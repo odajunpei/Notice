@@ -94,6 +94,10 @@ GEM
       sassc (>= 1.11)
     globalid (0.5.2)
       activesupport (>= 5.0)
+    hashid-rails (1.4.1)
+      activerecord (>= 4.0)
+      hashids (~> 1.0)
+    hashids (1.0.5)
     http-accept (1.7.0)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
@@ -266,6 +270,7 @@ DEPENDENCIES
   dotenv-rails
   enum_help
   font-awesome-sass (~> 5.13)
+  hashid-rails
   jbuilder (~> 2.5)
   jquery-rails
   kaminari (~> 1.2.1)

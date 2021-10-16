@@ -1,0 +1,32 @@
+ja:
+  activerecord:
+
+    attributes:
+      member:
+        current_password: "現在のパスワード"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        remember_me: "次回から自動的にログイン"
+        name: "氏名"
+        name_kana: "カナ氏名"
+        nickname: "ニックネーム"
+        address: "都道府県"
+        gender: "性別"
+        birth_date: "誕生日"
+        telephone_number: "電話番号"
+
+    attributes:
+      user:
+        current_password: "現在のパスワード"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        remember_me: "次回から自動的にログイン"
+        name: "氏名"
+        name_kana: "カナ氏名"
+        nickname: "ニックネーム"
+        address: "都道府県"
+        gender: "性別"
+        birth_date: "誕生日"
+        telephone_number: "電話番号"

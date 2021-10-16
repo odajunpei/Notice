@@ -8,16 +8,24 @@
         <div class="alert alert-danger" role="alert">
           <strong>入力内容にエラーがあります</strong>
           <ul>
-            <% @user.errors.each do |attr, msg| %>
+            <% @user.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
             <% end %>
           </ul>
         </div>
       <% end %>
+      <% if @familycode.blank? %>
       <%= form_with url: searchuser_path, method: :get, local: true do |f| %>
       <table class="table">
+        <% if flash[:danger] %>
+        <div class="alert alert-danger" role="alert">
+          <strong>入力内容にエラーがあります</strong>
+          <ul>
+            <%= flash[:danger] %>
+          </ul>
+        </div>
+        <% end %>
         <tr>
-          <% if @familycode.blank? %>
           <th>
             <%= f.label :"家族コード登録" %>
           </th>
@@ -65,6 +73,19 @@
           </th>
           <td>
             <%= f.text_field:nickname, placeholder: "ヤーマダ", class:"col-md-3" %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <%= f.label :"性別" %>
+          </th>
+          <td>
+            <%= f.label :"男性" %>
+            <%= f.radio_button :gender, :男性 %>
+            <%= f.label :"女性" %>
+            <%= f.radio_button :gender, :女性 %>
+            <%= f.label :"回答無し" %>
+            <%= f.radio_button :gender, :回答無し %>
           </td>
         </tr>
         <tr>
@@ -125,7 +146,7 @@
           </th>
           <td>
             <%= f.hidden_field :familycode_id, :value =>@familycode_id, readonly: true %>
-            <strong class="text-success">登録済み</strong>
+            <strong class="text-success">検索した家族コードを登録済み</strong>
           </td>
         </tr>
         <tr>

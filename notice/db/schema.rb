@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_10_06_132605) do
     t.string "familycode_id"
     t.integer "address_area", default: 0, null: false
     t.string "address"
+    t.integer "gender"
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
@@ -93,6 +94,7 @@ ActiveRecord::Schema.define(version: 2021_10_06_132605) do
     t.integer "address_area", default: 0, null: false
     t.string "address"
     t.integer "fire"
+    t.integer "gender"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

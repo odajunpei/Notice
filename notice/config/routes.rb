@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   get 'familycodes/searchmember' => 'familycodes#searchmember', as: :searchmember
   get 'familycodes/searchuser' => 'familycodes#searchuser', as: :searchuser
-  resources :familycodes
+  resources :familycodes, only: [:new, :create, :destroy, :show]
   resources :members
   resources :users
   get 'users/show' => 'users#show'
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get   'inquiry'         => 'inquiry#index'
   post  'inquiry/confirm' => 'inquiry#confirm'
   post  'inquiry/thanks'  => 'inquiry#thanks'
-  
+
   namespace :admin do
     resources :members
     resources :users

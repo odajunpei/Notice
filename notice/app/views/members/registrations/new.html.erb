@@ -6,24 +6,23 @@
         <div class="alert alert-danger" role="alert">
           <strong>入力内容にエラーがあります</strong>
           <ul>
-            <% @member.errors.each do |attr, msg| %>
+            <% @member.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
             <% end %>
           </ul>
         </div>
       <% end %>
+      <% if @familycode.blank? %>
       <%= form_with url: searchmember_path, method: :get, local: true do |f| %>
       <table class="table">
-        <% if @familycode.blank? %>
-          <!--<tr>-->
-          <!--  <th>-->
-          <!--    %= f.label :"家族コード認証済み" %>-->
-          <!--  </th>-->
-          <!--  <td>-->
-          <!--    %= f.text_field :cd, readonly: true %>-->
-          <!--  </td>-->
-          <!--</tr>-->
-        <!--% else %>-->
+      <% if flash[:danger] %>
+        <div class="alert alert-danger" role="alert">
+          <strong>入力内容にエラーがあります</strong>
+          <ul>
+            <%= flash[:danger] %>
+          </ul>
+        </div>
+      <% end %>
           <tr>
             <th>
               <%= f.label :"家族コード登録" %>
@@ -69,6 +68,19 @@
           </th>
           <td>
             <%= f.text_field:nickname, placeholder: "ヤーマダ", class:"col-md-3" %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <%= f.label :"性別" %>
+          </th>
+          <td>
+            <%= f.label :"男性" %>
+            <%= f.radio_button :gender, :男性 %>
+            <%= f.label :"女性" %>
+            <%= f.radio_button :gender, :女性 %>
+            <%= f.label :"回答無し" %>
+            <%= f.radio_button :gender, :回答無し %>
           </td>
         </tr>
         <tr>
@@ -130,7 +142,7 @@
             <%= f.hidden_field :familycode_id, :value =>@familycode_id, readonly: true %>
             <!--%= Familycode.where(family_code: @familycode.family_code) %>-->
             <!--%= f.collection_select :familycode_id, Familycode.where(family_code: @familycode.family_code), :id, :family_code ,readonly: true %>-->
-            <strong class="text-success">登録済み</strong>
+            <strong class="text-success">検索した家族コードを登録済み</strong>
           </td>
         </tr>
         <tr>
