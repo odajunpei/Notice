@@ -6,14 +6,14 @@ class FamilycodesController < ApplicationController
   def create
       @family_code = Familycode.new(familycode_params)
     if @family_code.save
-      redirect_to familycode_path(@family_code)
+      redirect_to familycodes_result_path(family_code: @family_code.family_code) #キー:family_code 値:@family_code.family_code
     else
       render :new
     end
   end
 
-  def show
-    @familycode = Familycode.find(params[:id])
+  def result
+    @familycode = params[:family_code] #キーで取得
   end
 
   def searchmember

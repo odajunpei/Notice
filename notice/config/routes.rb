@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   end
   get 'familycodes/searchmember' => 'familycodes#searchmember', as: :searchmember
   get 'familycodes/searchuser' => 'familycodes#searchuser', as: :searchuser
-  resources :familycodes, only: [:new, :create, :destroy, :show]
+  resources :familycodes, only: [:new, :create, :destroy]
+  get 'familycodes/result' => 'familycodes#result'
   resources :members
   resources :users
   get 'users/show' => 'users#show'

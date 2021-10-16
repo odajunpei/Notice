@@ -13,7 +13,8 @@
             <tbody>
               <tr>
                 <td>
-                  <%= attachment_image_tag comment.member, :profile_image, size:"200x200", fallback: "no-image.jpg" %>
+                  <%= attachment_image_tag comment.member, :profile_image, size:"200x200", fallback: "no-image.jpg" %><br>
+                  <%= comment.member.nickname %>
                 </td>
                 <td>
                   <h2>
