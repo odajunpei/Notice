@@ -1,0 +1,122 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <p class="page-title">
+        プロフィール詳細画面
+      </p>
+      <table class="table">
+        <tr>
+          <th>
+            顔写真
+          </th>
+          <td>
+            <%= attachment_image_tag @member, :profile_image, size:"200x200", format: 'jpeg', fallback:"no-image.jpg" %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            氏名
+          </th>
+          <th>
+            <%= @member.name %>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            氏名カナ
+          </th>
+          <th>
+            <%= @member.name_kana %>
+          </th>
+        </tr>
+             <tr>
+          <th>
+            ニックネーム
+          </th>
+          <td>
+            <%= @member.nickname %>
+          </td>
+        </tr>
+          <th>
+            性別
+          </th>
+          <td>
+            <%= @member.gender %>
+          </td>
+        <tr>
+          <th>
+            電話番号
+          </th>
+          <th>
+            <%= @member.telephone_number %>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            生年月日
+          </th>
+          <th>
+            <%= @member.birth_date %>
+          </th>
+        </tr>
+         <tr>
+          <th>
+            都道府県
+          </th>
+          <td>
+            <%= @member.address %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            メールアドレス
+          </th>
+          <th>
+            <%= @member.email %>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            家族コード
+          </th>
+          <td>
+            <%= link_to admin_familycode_path(@member.familycode_id) do %>
+              <%= @member.familycode.family_code %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            投稿者一覧
+          </th>
+          <td>
+            <% @familyusers.each do |familyuser| %>
+              <%= link_to admin_user_path(familyuser) do %>
+                ・<%= familyuser.name %>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <div>
+            家族メンバー一覧
+            </div>
+          </th>
+          <td>
+            <% @familymembers.each do |familymember| %>
+              <%= link_to admin_member_path(familymember) do %>
+                ・<%= familymember.name %>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <%= link_to "削除する", admin_member_path(@member), class:"btn btn-danger" %>
+          </th>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

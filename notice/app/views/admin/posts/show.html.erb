@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <p></p>
+      <h2>投稿詳細</h2>
+      <table class="table table-hover table-inverse">
+        <tbody>
+          <tr>
+            <td>
+              <h1><%= @post.user.nickname %></h1>
+            </td>
+            <td>
+              <h1><%= @post.post %></h1>
+              <h2><%= @post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></h2>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h4><strong>コメント</strong></h4>
+      <div class="row">
+        <div id="comments_area">
+          <%= render partial: 'comments/comment', locals: { comments: @comments } %>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -3,18 +3,30 @@
     <div class="col-md-10 offset-1">
       <h1>家族コード一覧</h1>
       <% @familycodes.each do |familycode| %>
-      <table>
+      <table class="table">
+        <thread>
+          <tr>
+            <th>ID</th>
+            <th>家族コード</th>
+            <th>家族コード作成日時</th>
+          </tr>
+        </thread>
         <tbody>
         <tr>
           <th>
             <%= familycode.id %>
           </th>
           <td>
-              <%= familycode.family_code %>
+          <%= link_to admin_familycode_path(familycode) do %>
+            <%= familycode.family_code %>
+          <% end %>
           </td>
           <td>
             <%= familycode.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
           </td>
         </tbody>
       </table>
-<% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

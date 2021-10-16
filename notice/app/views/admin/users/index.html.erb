@@ -3,20 +3,50 @@
     <div class="col-md-10 offset-1">
       <h1>投稿会員一覧</h1>
       <% @users.each do |user| %>
-      <table>
+      <table class="table">
+        <thread>
+          <tr>
+            <th>ID</th>
+            <th>氏名</th>
+            <th>性別</th>
+            <th>都道府県</th>
+            <th>電話番号</th>
+            <th>メールアドレス</th>
+            <th>投稿数</th>
+            <th>登録日時</th>
+          </tr>
+        </thread>
         <tbody>
         <tr>
           <th>
             <%= user.id %>
           </th>
           <td>
-            <%= user.name %>
+            <%= link_to admin_user_path(user) do %>
+              <%= user.name %>
+            <% end %>
           </td>
           <td>
-            <!--%= member.familycode_id.family_code %>-->
+            <%= user.gender %>
           </td>
           <td>
+            <%= user.address %>
+          </td>
+          <td>
+            <%= user.telephone_number %>
+          </td>
+          <td>
+            <%= user.email %>
+          </td>
+          <td>
+            <%= user.posts.count %>回
+          </td>
+          <td>
+            <%= user.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
           </td>
         </tbody>
       </table>
-<% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
