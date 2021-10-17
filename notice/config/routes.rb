@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   post  'inquiry/confirm' => 'inquiry#confirm'
   post  'inquiry/thanks'  => 'inquiry#thanks'
 
+  get 'admin/sign_in' => 'admin#sign_in'
   namespace :admin do
     resources :members
     resources :users

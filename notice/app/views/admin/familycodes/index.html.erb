@@ -2,7 +2,6 @@
   <div class="row">
     <div class="col-md-10 offset-1">
       <h1>家族コード一覧</h1>
-      <% @familycodes.each do |familycode| %>
       <table class="table">
         <thread>
           <tr>
@@ -11,6 +10,7 @@
             <th>家族コード作成日時</th>
           </tr>
         </thread>
+        <% @familycodes.each do |familycode| %>
         <tbody>
         <tr>
           <th>
@@ -25,8 +25,8 @@
             <%= familycode.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
           </td>
         </tbody>
+        <% end %>
       </table>
-      <% end %>
     </div>
   </div>
 </div>

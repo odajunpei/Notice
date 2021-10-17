@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
         member_path(current_member)
       when User
         user_path(current_user)
+      when Admin
+        admin_familycodes_path
       end
     end
 
@@ -21,7 +23,7 @@ class ApplicationController < ActionController::Base
     end
 
     def after_sign_out_path_for(resource)
-     root_path
+      root_path
     end
 
     protected

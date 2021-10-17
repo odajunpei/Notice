@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-10 offset-md-1">
-      <h2>投稿詳細</h2>
+      <h1>投稿詳細</h1>
       <table class="table">
         <thread>
           <tr>
@@ -15,7 +15,11 @@
         <tbody>
           <tr>
             <td><%= @post.id %></td>
-            <td><%= @post.user.name %></td>
+            <td>
+              <%= link_to admin_user_path(@post.user) do %>
+                <%= @post.user.name %>
+              <% end %>
+            </td>
             <td><%= @post.post %></td>
             <td><%= @post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
           </tr>
@@ -56,7 +60,7 @@
           　</tbody>
           </table>
         <% else %>
-          <h1>コメント無し</h1>
+          <h1 class="text-danger mt-5">・この投稿に対するコメントはありません。</h1>
         <% end %>
       </div>
     </div>
