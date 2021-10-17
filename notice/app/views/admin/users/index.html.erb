@@ -2,7 +2,6 @@
   <div class="row">
     <div class="col-md-10 offset-1">
       <h1>投稿会員一覧</h1>
-      <% @users.each do |user| %>
       <table class="table">
         <thread>
           <tr>
@@ -16,6 +15,7 @@
             <th>登録日時</th>
           </tr>
         </thread>
+        <% @users.each do |user| %>
         <tbody>
         <tr>
           <th>
@@ -45,8 +45,8 @@
             <%= user.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
           </td>
         </tbody>
+        <% end %>
       </table>
-      <% end %>
     </div>
   </div>
 </div>

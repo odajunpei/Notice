@@ -1,4 +1,6 @@
 class Admin::FamilycodesController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
    @familycodes = Familycode.all
   end

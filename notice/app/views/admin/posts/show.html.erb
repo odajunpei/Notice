@@ -2,27 +2,63 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-10 offset-md-1">
-      <p></p>
       <h2>投稿詳細</h2>
-      <table class="table table-hover table-inverse">
+      <table class="table">
+        <thread>
+          <tr>
+            <th>ID</th>
+            <th>氏名</th>
+            <th>投稿</th>
+            <th>投稿時間</th>
+          </tr>
+        </thread>
         <tbody>
           <tr>
-            <td>
-              <h1><%= @post.user.nickname %></h1>
-            </td>
-            <td>
-              <h1><%= @post.post %></h1>
-              <h2><%= @post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></h2>
-            </td>
+            <td><%= @post.id %></td>
+            <td><%= @post.user.name %></td>
+            <td><%= @post.post %></td>
+            <td><%= @post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
           </tr>
         </tbody>
       </table>
-      <h4><strong>コメント</strong></h4>
-      <div class="row">
-        <div id="comments_area">
-          <%= render partial: 'comments/comment', locals: { comments: @comments } %>
-        </div>
-        </div>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-md-10 offset-1">
+        <% if @post.comments.present? %>
+          <h1>コメント</h1>
+          <table class="table">
+            <thread>
+              <tr>
+                <th>コメントID</th>
+                <th>氏名</th>
+                <th>コメント</th>
+                <th>コメント時間</th>
+              </tr>
+            </thread>
+          　<tbody>
+          　   <% @comments.each do |comment| %>
+          　   <tr>
+          　     <td>
+          　       <%= comment.id %>
+          　     </td>
+          　     <td>
+          　       <%= comment.member.name %>
+          　     </td>
+          　     <td>
+          　       <%=comment.comment %>
+          　     </td>
+          　     <td>
+          　       <%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+          　     </td>
+          　   </tr>
+          　  <% end %>
+          　</tbody>
+          </table>
+        <% else %>
+          <h1>コメント無し</h1>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
