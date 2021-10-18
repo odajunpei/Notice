@@ -5,15 +5,14 @@
       <table class="table">
         <thread>
           <tr>
-            <th>ID</th>
-            <th>氏名</th>
-            <th>性別</th>
-            <th>都道府県</th>
-            <th>電話番号</th>
-            <th>メールアドレス</th>
-            <th>コメント数</th>
-            <th>登録日時</th>
-            <th>削除</th>
+            <th><%= sorttable "id", "ID" %></th>
+            <th><%= sorttable "name_kana", "氏名" %></th>
+            <th><%= sorttable "gender", "性別" %></th>
+            <th><%= sorttable "address","都道府県" %></th>
+            <th><%= sorttable "telephone_number", "電話番号" %></th>
+            <th><%= sorttable "email", "メールアドレス" %></th>
+            <th><%= sorttable "comments.count", "コメント数" %></th>
+            <th><%= sorttable "created_at", "登録日時" %></th>
           </tr>
         </thread>
         <% @members.each do |member| %>
@@ -44,9 +43,6 @@
           </td>
            <td>
             <%= member.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
-          </td>
-            <td>
-            <%= link_to "削除する", admin_member_path(member), class:"btn btn-danger" %>
           </td>
         </tbody>
       　<% end %>

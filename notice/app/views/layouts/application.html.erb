@@ -24,7 +24,7 @@
                 <li class="nav-item"><p><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn btn-success" %></p></li>
                 <li class="nav-item"><%= link_to 'お問い合わせ', inquiry_path, class:"btn btn-success" %></li>
               <% elsif admin_signed_in? %>
-                <li class="nav-item"><%= link_to 'ユーザ一覧', admin_users_path , class: "btn btn-warning" %></li>
+                <li class="nav-item"><%= link_to '投稿会員一覧', admin_users_path , class: "btn btn-warning" %></li>
                 <li class="nav-item"><%= link_to '家族会員一覧', admin_members_path, class: "btn btn-warning" %></li>
                 <li class="nav-item"><%= link_to '投稿一覧', admin_posts_path, class: "btn btn-warning" %></li>
                 <li class="nav-item"><%= link_to '家族コード一覧', admin_familycodes_path, class: "btn btn-warning" %></li>
@@ -32,14 +32,14 @@
               <% elsif user_signed_in? %>
                 <li class="nav-item"><%= link_to 'プロフィール', user_path(current_user), class: "btn btn-success" %></li>
                 <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-success" %></li>
-                <li class="nav-item"><%= link_to '投稿', new_post_path, class: "btn btn-success" %></li>
+                <li class="nav-item"><%= link_to '投稿画面', new_post_path, class: "btn btn-success" %></li>
                 <li class="nav-item"><%= link_to 'お問い合わせ', inquiry_path, class:"btn btn-success" %></li>
               <% else %>
                 <li class="nav-item"><%= link_to '家族コード作成', new_familycode_path, class: "btn btn-success w-20" %></li>
-                <li class="nav-item"><%= link_to '家族登録', new_member_registration_path, class: "btn btn-success w-20" %></li>
+                <li class="nav-item"><%= link_to '家族会員登録', new_member_registration_path, class: "btn btn-success w-20" %></li>
                 <li class="nav-item"><%= link_to '家族ログイン', member_session_path, class: "btn btn-success w-20" %></li>
-                <li class="nav-item"><%= link_to 'おじ登録', new_user_registration_path, class: "btn btn-success w-20" %></li>
-                <li class="nav-item"><%= link_to 'おじログイン', user_session_path, class: "btn btn-success w-20" %></li>
+                <li class="nav-item"><%= link_to '投稿会員登録', new_user_registration_path, class: "btn btn-success w-20" %></li>
+                <li class="nav-item"><%= link_to '投稿会員ログイン', user_session_path, class: "btn btn-success w-20" %></li>
                 <li class="nav-item"><%= link_to 'お問い合わせ', inquiry_path, class:"btn btn-success w-20" %></li>
               <% end %>
             </ul>

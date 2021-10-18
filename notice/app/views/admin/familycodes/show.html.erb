@@ -1,7 +1,7 @@
 <div class="container-fuluid">
   <div class="row">
     <div class="col-md-10 offset-1">
-      <h1 class="text-success">家族コード:<%= @familycode.family_code %></h1>
+      <h1 class="text-success">家族コード詳細:<%= @familycode.family_code %></h1>
       <% if @familycode.users.present? %>
         <h1>投稿者</h1>
           <table class="table">
@@ -103,6 +103,7 @@
       <% else %>
         <h1 class="text-danger mt-5">・家族会員は未登録です。</h1>
       <% end %>
+      <%= link_to "削除する", admin_familycode_path(@familycode),method: :delete, class:"btn btn-danger mt-5 t-center" %>
       </div>
     </div>
   </div>

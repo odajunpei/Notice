@@ -5,9 +5,11 @@
       <table class="table">
         <thread>
           <tr>
-            <th>ID</th>
-            <th>家族コード</th>
-            <th>家族コード作成日時</th>
+            <th><%= sorttable "id", "ID" %></th>
+            <th><%= sorttable "family_code", "家族コード" %></th>
+            <th><%= sorttable "created_at", "家族コード作成日時" %></th>
+            <th><%= sorttable "users.count", "投稿会員数" %></th>
+            <th><%= sorttable "members.count", "家族会員数" %></th>
           </tr>
         </thread>
         <% @familycodes.each do |familycode| %>
@@ -23,6 +25,12 @@
           </td>
           <td>
             <%= familycode.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+          </td>
+          <td>
+            <%= familycode.users.count %>
+          </td>
+          <td>
+            <%= familycode.members.count %>
           </td>
         </tbody>
         <% end %>

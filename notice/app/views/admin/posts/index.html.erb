@@ -5,11 +5,11 @@
       <table class="table">
         <thread>
           <tr>
-            <th>ID</th>
-            <th>投稿</th>
-            <th>投稿時間</th>
-            <th>投稿者</th>
-            <th>投稿コメント数</th>
+            <th><%= sorttable "id", "ID" %></th>
+            <th><%= sorttable "post", "投稿" %></th>
+            <th><%= sorttable "created_at", "投稿時間" %></th>
+            <th><%= sorttable "user.name_kana", "投稿者" %></th>
+            <th><%= sorttable "comments.count", "投稿コメント数" %></th>
           </tr>
         </thread>
         <% @posts.each do |post| %>
