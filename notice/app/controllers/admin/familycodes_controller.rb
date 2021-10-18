@@ -1,5 +1,6 @@
 class Admin::FamilycodesController < ApplicationController
   before_action :authenticate_admin!
+  before_action :set_q, only: [:index, :search]
   helper_method :sort_column, :sort_direction
 
   def index
@@ -13,16 +14,13 @@ class Admin::FamilycodesController < ApplicationController
   def destroy
     @familycode = Familycode.find(params[:id])
     @familycode.destroy
-    redirect_to admin_familycodes_path.order(sort_column+ ' ' + sort_direction)
+    redirect_to admin_familycodes_path
   end
 
-  def result
-    @familycode = params[:family_code]
-  end
-  
+
   def search
-    @familycode = Familycode.find_by(family_code: "#{params[:cd]}")
-  end 
+    @results = @q.result.order(sort_column+ ' ' + sort_direction)
+  end
 
   private
 
@@ -31,10 +29,10 @@ class Admin::FamilycodesController < ApplicationController
     end
 
     def sort_column
-      Familycode.column_names.include?(params[:sort])? params[:sort] : "family_code"
+      Familycode.column_names.include?(params[:sort])? params[:sort] : "famcode"
     end
 
     def set_q
-      @q = User.ransack(params[:q])
+      @q = Familycode.ransack(params[:q])
     end
 end

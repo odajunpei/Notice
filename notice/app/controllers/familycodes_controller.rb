@@ -6,19 +6,19 @@ class FamilycodesController < ApplicationController
   def create
       @family_code = Familycode.new(familycode_params)
     if @family_code.save
-      redirect_to familycodes_result_path(family_code: @family_code.family_code) #キー:family_code 値:@family_code.family_code
+      redirect_to familycodes_result_path(famcode: @family_code.famcode) #キー:famcode 値:@family_code.famcode
     else
       render :new
     end
   end
 
   def result
-    @familycode = params[:family_code] #キーで取得
+    @familycode = params[:famcode] #キーで取得
   end
 
   def searchmember
     @member = Member.new
-    @familycode = Familycode.find_by(family_code: "#{params[:cd]}")
+    @familycode = Familycode.find_by(famcode: "#{params[:cd]}")
     if @familycode.present?
       @familycode_id = @familycode.id
       render 'members/registrations/new'
@@ -30,7 +30,7 @@ class FamilycodesController < ApplicationController
 
   def searchuser
     @user = User.new
-    @familycode = Familycode.find_by(family_code: "#{params[:cd]}")
+    @familycode = Familycode.find_by(famcode: "#{params[:cd]}")
     if @familycode.present?
       @familycode_id = @familycode.id
       render 'users/registrations/new'
@@ -45,6 +45,6 @@ class FamilycodesController < ApplicationController
   private
 
   def familycode_params
-    params.permit(:family_code,:id)
+    params.permit(:famcode,:id)
   end
 end

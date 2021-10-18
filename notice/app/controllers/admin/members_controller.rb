@@ -19,7 +19,7 @@ class Admin::MembersController < ApplicationController
   end
 
   def search
-    @results = @q.result
+    @results = @q.result.order(sort_column+ ' ' + sort_direction)
   end
 
   private

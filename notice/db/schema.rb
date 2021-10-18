@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_10_06_132605) do
   end
 
   create_table "familycodes", force: :cascade do |t|
-    t.string "family_code"
+    t.string "famcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

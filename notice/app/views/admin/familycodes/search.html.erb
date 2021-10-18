@@ -22,14 +22,14 @@
             <th><%= sorttable "members.count", "家族会員数" %></th>
           </tr>
         </thread>
-        <% @familycodes.each do |familycode| %>
+        <% @results.each do |familycode| %>
         <tbody>
         <tr>
           <th>
             <%= familycode.id %>
           </th>
           <td>
-          <%= link_to admin_familycode_path(familycode) do %>
+        <%= link_to admin_familycode_path(familycode) do %>
             <%= familycode.famcode %>
           <% end %>
           </td>
