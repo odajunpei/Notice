@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
 before_action :authenticate_admin!
+before_action :set_q, only: [:index, :search]
 helper_method :sort_column, :sort_direction
 
   def index
@@ -18,6 +19,10 @@ helper_method :sort_column, :sort_direction
     redirect_to admin_users_path
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
 
     def sort_direction
@@ -26,5 +31,9 @@ helper_method :sort_column, :sort_direction
 
     def sort_column
       User.column_names.include?(params[:sort])? params[:sort] : "name"
+    end
+
+    def set_q
+      @q = User.ransack(params[:q])
     end
 end

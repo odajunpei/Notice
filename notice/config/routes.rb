@@ -26,9 +26,21 @@ Rails.application.routes.draw do
 
   get 'admin/sign_in' => 'admin#sign_in'
   namespace :admin do
-    resources :members
-    resources :users
+    resources :members do
+      collection do
+        get 'search'
+      end
+    end
+    resources :users do
+     collection do
+      get 'search'
+     end
+    end
     resources :posts
-    resources :familycodes
+    resources :familycodes do
+      collection do
+        get 'search'
+      end
+    end
   end
 end

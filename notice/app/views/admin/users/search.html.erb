@@ -3,29 +3,28 @@
     <div class="col-md-8"></div>
     <div class="col-md-4">
       <%= search_form_for @q, url: search_admin_users_path do |f| %>
-        <%= f.label :email, 'メールアドレス' %>
-        <%= f.search_field :email_cont %>
-        <%= f.submit '検索' %>
+        <%= f.label :email_cont, 'メールアドレス' %>
+        <%= f.search_field :email_cont, placeholder:"メールアドレス" %>
+        <% f.submit '検索' %>
       <% end %>
     </div>
   </div>
   <div class="row">
     <div class="col-md-10 offset-1">
-      <h1>投稿会員一覧</h1>
+      <h1>投稿会員検索結果</h1>
       <table class="table">
         <thread>
           <tr>
-            <th><%= sorttable "id", "ID" %></th>
-            <th><%= sorttable "name_kana", "氏名" %></th>
-            <th><%= sorttable "gender", "性別" %></th>
-            <th><%= sorttable "address","都道府県" %></th>
-            <th><%= sorttable "telephone_number", "電話番号" %></th>
-            <th><%= sorttable "email", "メールアドレス" %></th>
-            <th><%= sorttable "posts.count", "投稿数" %></th>
-            <th><%= sorttable "created_at", "登録日時" %></th>
+            <th>ID</th>
+            <th>氏名</th>
+            <th>性別</th>
+            <th>都道府県</th>
+            <th>電話番号</th>
+            <th>メールアドレス</th>
+            <th><%= sort_link(@q, :created_at, "登録日時") %></th>
           </tr>
         </thread>
-        <% @users.each do |user| %>
+        <% @results.each do |user| %>
         <tbody>
         <tr>
           <th>
@@ -47,9 +46,6 @@
           </td>
           <td>
             <%= user.email %>
-          </td>
-          <td>
-            <%= user.posts.count %>回
           </td>
           <td>
             <%= user.created_at.strftime('%Y/%m/%d %H:%M:%S') %>

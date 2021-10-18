@@ -11,21 +11,20 @@
   </div>
   <div class="row">
     <div class="col-md-10 offset-1">
-      <h1>家族会員一覧</h1>
+      <h1>家族会員検索結果</h1>
       <table class="table">
         <thread>
           <tr>
-            <th><%= sorttable "id", "ID" %></th>
-            <th><%= sorttable "name_kana", "氏名" %></th>
-            <th><%= sorttable "gender", "性別" %></th>
-            <th><%= sorttable "address","都道府県" %></th>
-            <th><%= sorttable "telephone_number", "電話番号" %></th>
-            <th><%= sorttable "email", "メールアドレス" %></th>
-            <th><%= sorttable "comments.count", "コメント数" %></th>
-            <th><%= sorttable "created_at", "登録日時" %></th>
+            <th>ID</th>
+            <th>氏名</th>
+            <th>性別</th>
+            <th>都道府県</th>
+            <th>電話番号</th>
+            <th>メールアドレス</th>
+            <th><%= sort_link(@q, :created_at, "登録日時") %></th>
           </tr>
         </thread>
-        <% @members.each do |member| %>
+        <% @results.each do |member| %>
         <tbody>
         <tr>
           <th>
@@ -47,9 +46,6 @@
           </td>
           <td>
             <%= member.email %>
-          </td>
-          <td>
-            <%= member.comments.count %>回
           </td>
            <td>
             <%= member.created_at.strftime('%Y/%m/%d %H:%M:%S') %>

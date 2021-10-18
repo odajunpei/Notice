@@ -57,8 +57,8 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'rails-i18n'
 gem 'enum_help'
 gem 'ancestry'
+gem 'ransack'
 # #家族コード暗号化用
-gem 'hashid-rails'
 gem 'dotenv-rails'
 #AWSデプロイ用記述
 group :production do
