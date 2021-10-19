@@ -37,6 +37,18 @@ ja:
         email: "メールアドレス"
         password: "パスワード"
 
+    attributes:
+      familycode:
+        famcode: "家族コード"
+
+    attributes:
+      post:
+        post: "投稿"
+
+    attributes:
+      comment:
+        comment: "コメント"
+
     devise:
       confirmations:
       confirmed: 'アカウントを登録しました。'
