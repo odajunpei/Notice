@@ -10,9 +10,9 @@
   </head>
     <body class="d-flex flex-column vh-100 background_image">
     <header class="shadow-sm">
-      <nav class="navbar navbar-light justfy-content-between">
+      <nav class="navbar navbar-light justfy-content-between nav-back">
         <div class="container-fluid">
-          <a class="navbar-brand p-2" href="/"><%= image_tag('logo.png') %></a>
+          <a class="navbar-brand p-2" href="/"><h1 class="webtitle">Warm</h1></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -35,12 +35,12 @@
                 <li class="nav-item"><%= link_to '投稿画面', new_post_path, class: "btn btn-success" %></li>
                 <li class="nav-item"><%= link_to 'お問い合わせ', inquiry_path, class:"btn btn-success" %></li>
               <% else %>
-                <li class="nav-item"><%= link_to '家族コード作成', new_familycode_path, class: "btn btn-success w-20" %></li>
-                <li class="nav-item"><%= link_to '家族会員登録', new_member_registration_path, class: "btn btn-success w-20" %></li>
-                <li class="nav-item"><%= link_to '家族ログイン', member_session_path, class: "btn btn-success w-20" %></li>
-                <li class="nav-item"><%= link_to '投稿会員登録', new_user_registration_path, class: "btn btn-success w-20" %></li>
-                <li class="nav-item"><%= link_to '投稿会員ログイン', user_session_path, class: "btn btn-success w-20" %></li>
-                <li class="nav-item"><%= link_to 'お問い合わせ', inquiry_path, class:"btn btn-success w-20" %></li>
+                <li class="nav-item"><%= link_to '家族コード作成', new_familycode_path, class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to '家族会員登録', new_member_registration_path, class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to '家族ログイン', member_session_path, class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to '投稿会員登録', new_user_registration_path, class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to '投稿会員ログイン', user_session_path, class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to 'お問い合わせ', inquiry_path, class:"nav-text" %></li>
               <% end %>
             </ul>
           </div>
@@ -60,7 +60,7 @@
       <% end %>
       <%= yield %>
     </main>
-    <footer class="bg-success text-white pt-5 pb-4">
+    <footer class="text-black pt-5 pb-4">
       <div class="container">
         <div class="row text-center">
           <div class="col-md-12">

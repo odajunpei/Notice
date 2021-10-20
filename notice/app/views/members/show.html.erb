@@ -1,13 +1,13 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-10 offset-1">
-      <h1 class="page-title">
-        家族会員プロフィール詳細
-      </h1>
-      <table class="table">
+    <div class="col-md-10 offset-1">
+      <h1>家族会員プロフィール詳細</h1>
+    </div>
+    <div class="col-md-6 offset-3">
+      <table class="table tablef">
         <tr>
           <th>
-            顔写真
+            <h3>顔写真</h3>
           </th>
           <td>
             <%= attachment_image_tag @member, :profile_image, size:"200x200", format: 'jpeg', fallback:"no-image.jpg" %>
@@ -15,77 +15,77 @@
         </tr>
         <tr>
           <th>
-            氏名
+            <h3>氏名</h3>
           </th>
           <th>
-            <%= @member.name %>
+            <h3><%= @member.name %></h3>
           </th>
         </tr>
         <tr>
           <th>
-            氏名カナ
+            <h3>氏名カナ</h3>
           </th>
           <th>
-            <%= @member.name_kana %>
+            <h3><%= @member.name_kana %></h3>
           </th>
         </tr>
-             <tr>
+        <tr>
           <th>
-            ニックネーム
+            <h3>ニックネーム</h3>
           </th>
           <td>
-            <%= @member.nickname %>
+            <h3><%= @member.nickname %></h3>
           </td>
         </tr>
           <th>
-            性別
+            <h3>性別</h3>
           </th>
           <td>
-            <%= @member.gender %>
+            <h3><%= @member.gender %></h3>
           </td>
         <tr>
           <th>
-            電話番号
+            <h3>電話番号</h3>
           </th>
           <th>
-            <%= @member.telephone_number %>
+            <h3><%= @member.telephone_number %></h3>
           </th>
         </tr>
         <tr>
           <th>
-            生年月日
+            <h3>生年月日</h3>
           </th>
           <th>
-            <%= @member.birth_date %>
+            <h3><%= @member.birth_date %></h3>
           </th>
         </tr>
          <tr>
           <th>
-            都道府県
+            <h3>都道府県</h3>
           </th>
           <td>
-            <%= @member.address %>
+            <h3><%= @member.address %></h3>
           </td>
         </tr>
         <tr>
           <th>
-            メールアドレス
+            <h3>メールアドレス</h3>
           </th>
           <th>
-            <%= @member.email %>
+            <h3><%= @member.email %></h3>
           </th>
         </tr>
         <tr>
           <th>
-            家族コード
+            <h3>家族コード</h3>
           </th>
           <td>
-            <%= @member.familycode.famcode %>
+            <h3><%= @member.familycode.famcode %></h3>
           </td>
         </tr>
         <tr>
           <th>
-            家族の投稿者一覧
+            <h3>家族の投稿者一覧</h3>
           </th>
           <td>
             <% @familyusers.each do |familyuser| %>
@@ -95,9 +95,7 @@
         </tr>
         <tr>
           <th>
-            <div>
-            家族メンバー一覧
-            </div>
+            <h3>家族メンバー一覧</h3>
           </th>
           <td>
             <% @familymembers.each do |familymember| %>
@@ -107,7 +105,7 @@
         </tr>
         <tr>
           <th>
-            <%= link_to "プロフィール情報を編集する", edit_member_path(@member) %>
+            <h3><%= link_to "プロフィール情報を編集する", edit_member_path(@member) %></h3>
           </th>
         </tr>
       </table>

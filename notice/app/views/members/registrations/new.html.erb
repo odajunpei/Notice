@@ -1,7 +1,9 @@
-<div class= "container">
+<div class= "container-fluid">
   <div class= "row">
-    <div class= "offset-2 col-10">
-      <h2 class= "mt-4 pb-3">家族会員サインアップ</h2>
+    <div class="col-md-10 offset-1">
+      <h1 class= "mt-3">家族会員登録</h1>
+    </div>
+    <div class= "col-md-6 offset-3">
        <% if @member.errors.any? %>
         <div class="alert alert-danger" role="alert">
           <strong>入力内容にエラーがあります</strong>
@@ -14,7 +16,7 @@
       <% end %>
       <% if @familycode.blank? %>
       <%= form_with url: searchmember_path, method: :get, local: true do |f| %>
-      <table class="table">
+      <table class="table tablef">
       <% if flash[:danger] %>
         <div class="alert alert-danger" role="alert">
           <strong>入力内容にエラーがあります</strong>
@@ -25,75 +27,77 @@
       <% end %>
           <tr>
             <th>
-              <%= f.label :"家族コード関連付け" %>
+              <h3><%= f.label :"家族コード関連付け" %></h3>
             </th>
             <td>
-              <%= f.text_field :cd %>
-              <%= f.submit '検索する'  %>
+              <h3><%= f.text_field :cd, size:50 %></h3>
+              <h3><%= f.submit '登録' , class:"btn-outline-success text-right" %></h3>
             </td>
           </tr>
-        <% end %>
       </table>
+      <% end %>
       <% end %>
       <% if @familycode.present? %>
       <%= form_with model: @member, url: member_registration_path, local: true do |f| %>
-      <table class="table">
+      <table class="table tablef text-center">
          <tr>
           <th>
-            <%= f.label :"顔写真" %>
+            <h3><%= f.label :profile_image, "顔写真" %></h3>
           </th>
           <td>
-            <%= f.attachment_field :profile_image, size: "200x200" %>
+            <h4><%= f.attachment_field :profile_image, size: "200x200" %></h4>
           </td>
         </tr>
         <tr>
           <th>
-            <%= f.label :"氏名" %>
+            <h3><%= f.label :name, "氏名" %></h3>
           </th>
           <td>
-            <%= f.text_field :name, autofocus: true, placeholder:"山田太郎", class:"col-md-3" %>
+            <%= f.text_field :name, autofocus: true, placeholder:"山田太郎", size:50 %>
           </td>
         </tr>
         <tr>
           <th>
-            <%= f.label :"カナ氏名" %>
+            <h3><%= f.label :name_kana, "カナ氏名" %></h3>
           </th>
           <td>
-            <%= f.text_field :name_kana, placeholder: "ヤマダタロウ", class:"col-md-3" %>
+            <%= f.text_field :name_kana, placeholder: "ヤマダタロウ", size:50%>
           </td>
         </tr>
         <tr>
           <th>
-            <%= f.label :"ニックネーム" %>
+            <h3><%= f.label :nickname, "ニックネーム" %></h3>
           </th>
           <td>
-            <%= f.text_field:nickname, placeholder: "ヤーマダ", class:"col-md-3" %>
+            <%= f.text_field :nickname, placeholder: "ヤーマダ", size:50 %>
           </td>
         </tr>
         <tr>
           <th>
-            <%= f.label :"性別" %>
+            <h3><%= f.label :gender, "性別" %></h3>
           </th>
           <td>
-            <%= f.radio_button :gender, :男性 %>
-            <%= f.label :"男性" %>
-            <%= f.radio_button :gender, :女性 %>
-            <%= f.label :"女性" %>
-            <%= f.radio_button :gender, :回答無し %>
-            <%= f.label :"回答無し" %>
+            <h3>
+              <%= f.radio_button :gender, :男性 %>
+              <%= f.label :"男性" %>
+              <%= f.radio_button :gender, :女性 %>
+              <%= f.label :"女性" %>
+              <%= f.radio_button :gender, :回答無し %>
+              <%= f.label :"回答無し" %>
+            </h3>
           </td>
         </tr>
         <tr>
           <th>
-            <%= f.label :"電話番号" %>
+            <h3><%= f.label :telephone_number, "電話番号" %></h3>
           </th>
           <td>
-            <%= f.number_field :telephone_number, placeholder: "ハイフン無しで入力下さい", class:"col-md-3" %>
+            <%= f.number_field :telephone_number, placeholder: "ハイフン無しで入力下さい", size:50 %>
           </td>
         </tr>
         <tr>
           <th>
-            <%= f.label :"生年月日" %>
+            <h3><%= f.label :birth_date, "生年月日" %></h3>
           </th>
           <td>
              <%= f.date_select :birth_date, start_year:1900 %>
@@ -101,53 +105,54 @@
         </tr>
         <tr>
           <th>
-            <%= f.label :"都道府県" %>
+            <h3><%= f.label :address, "都道府県" %></h3>
           </th>
           <td>
-            <%= f.select :address, User.address_areas.keys, {}, class:"col-md-3" %>
+            <%= f.select :address, User.address_areas.keys, {} %>
           </td>
         </tr>
         <tr>
           <th>
-            <%= f.label :"メールアドレス" %><br />
+            <h3><%= f.label :email, "メールアドレス" %></h3>
           </th>
           <td>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", size:50 %>
           </td>
         </tr>
         <tr>
           <th>
-            <%= f.label :"パスワード" %>
+            <h3><%= f.label :password, "パスワード" %></h3>
           </th>
           <td>
             <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %><br />
-            <%= f.password_field :password, autocomplete: "new-password" %>
+            <%= f.password_field :password, autocomplete: "new-password", size:50 %>
           </td>
         </tr>
         <tr>
           <th>
-            <%= f.label :"パスワード確認"%><br />
+            <h3><%= f.label :password_confirmation, "パスワード確認"%></h3>
           </th>
           <td>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", size:50 %>
           </td>
         </tr>
         <tr>
           <th>
-            <%= f.label :"家族コード" %>
+            <h3><%= f.label :famcode, "家族コード" %></h3>
           </th>
           <td>
             <%= f.hidden_field :familycode_id, :value =>@familycode_id, readonly: true %>
             <!--%= Familycode.where(family_code: @familycode.family_code) %>-->
             <!--%= f.collection_select :familycode_id, Familycode.where(family_code: @familycode.family_code), :id, :family_code ,readonly: true %>-->
-            <strong class="text-success">検索した家族コードを登録済み</strong>
+            <h3><strong class="text-success">検索した家族コードを登録済み</strong></h3>
           </td>
         </tr>
         <tr>
+          <th></th>
           <td>
-            <%= f.submit "登録する" %>
+            <%= f.submit "登録する", class:"btn btn-outline-success", size:20 %>
           </td>
         </tr>
       </table>

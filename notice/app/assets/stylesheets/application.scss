@@ -19,9 +19,10 @@
 @import 'font-awesome';
 
 .background_image{
-  background-color: #ffffe0;
+  background-image: url("background.jpg") ;
   height: 100%;
   font-family: cursive;
+  color: #2f4f4f;
 }
 
 .header-color{
@@ -80,4 +81,28 @@
     padding: 10px 0;
     height: auto;
     opacity: 1;
+}
+
+footer{
+  background-color:rgba(255,255,255,0.5);
+}
+
+.webtitle{
+  font-weight: bold;
+  font-size: 200%;
+}
+
+.nav-back{
+  background-color:rgba(255,255,255,0.5);
+}
+
+.nav-text{
+  color:gray;
+  font-weight: 900;
+}
+
+.tablef th, .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: none;
 }
