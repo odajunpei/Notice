@@ -2,7 +2,7 @@
   <div class= "row">
     <div class= "offset-1 col-10">
       <h2 class= "mt-4 pb-3">
-        おじおば会員サインアップ
+        投稿会員サインアップ
       </h2>
       <% if @user.errors.any? %>
         <div class="alert alert-danger" role="alert">
@@ -27,7 +27,7 @@
         <% end %>
         <tr>
           <th>
-            <%= f.label :"家族コード登録" %>
+            <%= f.label :cd, "家族コード関連付け" %>
           </th>
           <td>
             <%= f.text_field :cd %>

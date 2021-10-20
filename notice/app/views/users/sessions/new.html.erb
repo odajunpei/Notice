@@ -2,12 +2,12 @@
 <div class= "container">
   <div class= "row">
     <div class= "offset-2 col-10">
-      <h2>祖父祖母ログイン</h2>
+      <h2>投稿会員ログイン</h2>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <table class="table">
           <tr>
             <th>
-              <%= f.label :email %>
+              <%= f.label :email, "メールアドレス" %>
             </th>
             <td>
               <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -15,7 +15,7 @@
           </tr>
           <tr>
             <th>
-              <%= f.label :password %>
+              <%= f.label :password, "パスワード" %>
             </th>
             <td>
               <%= f.password_field :password, autocomplete: "current-password" %>
