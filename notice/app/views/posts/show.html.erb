@@ -1,7 +1,6 @@
-<p id="notice"><%= notice %></p>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-10 offset-md-1">
+    <div class="col-md-10 offset-1">
       <p></p>
       <h2>投稿詳細</h2>
       <table class="table table-hover table-inverse">
@@ -20,18 +19,20 @@
           </tr>
         </tbody>
       </table>
-      <h4><strong>コメント</strong></h4>
-      <div class="row">
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-md-5 offset-1">
+        <h1>コメント</h1>
         <div id="comments_area">
           <%= render partial: 'comments/comment', locals: { comments: @comments } %>
         </div>
-        <% if member_signed_in? %>
-          <div class="comment-create">
-            <h3 class="text-left">レビューを投稿する</h3>
-            <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
-          </div>
-        <% end %>
+      </div>
+      <div class="col-md-6">
+        <div class="comment-create">
+          <h3 class="text-left">レビューを投稿する</h3>
+          <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
         </div>
       </div>
     </div>
-  </div>
+</div>
