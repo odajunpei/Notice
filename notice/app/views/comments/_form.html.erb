@@ -1,12 +1,16 @@
 <%= form_with(model: [@post, comment], url: post_comments_path(@post),local: false ) do |f| %>
     <table>
         <tbody>
-            <td>
-                <%= f.text_area :comment, class: "input-mysize" %>
-            </td>
-            <td>
-                <%= f.submit "送信", class: "btn btn-outline-dark comment-submit float-right" %>
-            </td>
+            <tr>
+                <td>
+                    <%= f.text_area :comment, class: "form-size" %>
+                </td>
+            <!--</tr>-->
+            <!--<tr>-->
+                <td>
+                    <%= f.submit "送信", class: "btn btn-outline-dark comment-submit float-right" %>
+                </td>
+            </tr>
         </tbody>
     </table>
 <% end %>

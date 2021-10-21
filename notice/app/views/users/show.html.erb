@@ -7,92 +7,112 @@
       <table class="table tablef text-center">
         <tr>
           <th>
-            <h3 class:"form-size">顔写真</h3>
+            <h3>顔写真</h3>
           </th>
-          <td>
-            <%= attachment_image_tag @user, :profile_image, size:"200x200", format: 'jpeg', fallback:"grand.png" %>
+        </tr>
+        <tr>
+          <td class:"text-center">
+            <%= attachment_image_tag @user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand.png" %>
           </td>
         </tr>
         <tr>
           <th>
             <h3>氏名</h3>
           </th>
-          <th>
-            <h3><%= @user.name %></h3>
-          </th>
+        </tr>
+        <tr>
+          <td>
+            <h2><%= @user.name %></h2>
+          </td>
         </tr>
         <tr>
           <th>
             <h3>氏名カナ</h3>
           </th>
-          <th>
-            <h3><%= @user.name_kana %></h3>
-          </th>
+        </tr>
+        <tr>
+          <td>
+            <h2><%= @user.name_kana %></h2>
+          </td>
         </tr>
         <tr>
           <th>
             <h3>ニックネーム</h3>
           </th>
+        </tr>
+        <tr>
           <td>
-            <h3><%= @user.nickname %></h3>
+            <h2><%= @user.nickname %></h2>
           </td>
         </tr>
         <tr>
           <th>
             <h3>性別</h3>
           </th>
+        </tr>
+        <tr>
           <td>
-           <h3><%= @user.gender %></h3>
+            <h2><%= @user.gender %></h2>
           </td>
         </tr>
         <tr>
           <th>
             <h3>電話番号</h3>
           </th>
-          <th>
-            <h3><%= @user.telephone_number %></h3>
-          </th>
+        </tr>
+        <tr>
+          <td>
+            <h2><%= @user.telephone_number %></h2>
+          </td>
         </tr>
         <tr>
           <th>
             <h3>生年月日</h3>
           </th>
-          <th>
-            <h3><%= @user.birth_date %></h3>
-          </th>
+        </tr>
+        <tr>
+          <td>
+            <h2><%= @user.birth_date %></h2>
+          </td>
         </tr>
         <tr>
           <th>
             <h3>都道府県</h3>
           </th>
+        </tr>
+        <tr>
           <td>
-            <h3><%= @user.address %></h3>
+            <h2><%= @user.address %></h2>
           </td>
         </tr>
         <tr>
           <th>
             <h3>メールアドレス</h3>
           </th>
-          <th>
-            <h3><%= @user.email %></h3>
-          </th>
+        </tr>
+        <tr>
+          <td>
+            <h2><%= @user.email %></h2>
+          </td>
         </tr>
         <tr>
           <th>
             <h3>家族コード</h3>
           </th>
+        </tr>
+        <tr>
           <td>
-            <h3><%= @user.familycode.famcode %></h3>
+            <h2><%= @user.familycode.famcode %></h2>
           </td>
         </tr>
         <tr>
           <th>
-            <h3><%= link_to "プロフィール情報を編集する", edit_user_path(@user) %></h3>
+            <h3 class="text-left"><%= link_to "プロフィール情報を編集する", edit_user_path(@user) %></h3>
           </th>
         </tr>
         <tr>
           <td>
-            <h3><%= link_to "投稿画面へ", new_post_path %></h3>
+            <h3 class="text-left"><%= link_to "投稿画面へ", new_post_path %></h3>
           </td>
         </tr>
       </table>

@@ -1,24 +1,27 @@
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
-    <div class="comment-container">
-        <div class="comment-box">
-            <div class="comment-avatar">
-            <%= attachment_image_tag comment.member, :profile_image, fallback: "no-image.jpg", class:"comment-image", size: "40x40" %>
-            </div>
-            <div class="comment-text">
-                <div class="comment-entry">
-                    <%= comment.comment %>
-                    <% if comment.member == current_member %>
-                        <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
-                            <i class="fas fa-trash" style="color: black;"></i>
-                        <% end %>
-                    <% end %>
-                </div>
-                <span class="comment-date pull-right">
-                      <%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
-                </span>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <table class="table tablef">
+                    <tr>
+                        <th>
+                            <%= attachment_image_tag comment.member, :profile_image, fallback: "no-image.jpg", class:"comment-image", size: "40x40" %><br>
+                            <%= comment.member.nickname %>
+                        </th>
+                        <td>
+                            <%= comment.comment %>
+                            <% if comment.member == current_member %>
+                                <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
+                                    <i class="fas fa-trash" style="color: black;"></i>
+                                <% end %>
+                            <% end %><br>
+                            <%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
-    </li>
+    </div>
   <% end %>
 <% end %>

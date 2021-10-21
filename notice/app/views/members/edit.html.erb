@@ -1,9 +1,9 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-10 offset-1">
+    <div class="col-xs-12 col-sm-10 offset-sm-1 col-md-10 offset-md-1">
       <h1>家族会員プロフィール情報編集</h1>
     </div>
-    <div class= "col-md-6 offset-3">
+    <div class= "col-xs-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3">
       <% if @member.errors.any? %>
         <div class="alert alert-danger" role="alert">
           <strong>入力内容にエラーがあります</strong>
@@ -16,11 +16,13 @@
       <% end %>
       <%= form_with model:@member, url:member_path(@member), local:true do |f| %>
       <%= render "members/shared/error_messages", resource: @member %>
-      <table class="table tablef text-center">
-         <tr>
+      <table class="table tablef">
+        <tr>
           <th>
             <h3><%= f.label :profile_image, "顔写真" %></h3>
           </th>
+        </tr>
+        <tr>
           <td>
             <h4><%= f.attachment_field :profile_image, size: "200x200" %></h4>
           </td>
@@ -29,6 +31,8 @@
           <th>
             <h3><%= f.label :name, "氏名" %></h3>
           </th>
+        </tr>
+        <tr>
           <td>
             <%= f.text_field :name, autofocus: true, placeholder:"山田太郎", class:"form-size" %>
           </td>
@@ -37,6 +41,8 @@
           <th>
             <h3><%= f.label :name_kana, "カナ氏名" %></h3>
           </th>
+        </tr>
+        <tr>
           <td>
             <%= f.text_field :name_kana, placeholder: "ヤマダタロウ", class:"form-size" %>
           </td>
@@ -45,6 +51,8 @@
           <th>
             <h3><%= f.label :nickname, "ニックネーム" %></h3>
           </th>
+        </tr>
+        <tr>
           <td>
             <%= f.text_field:nickname, placeholder: "ヤーマダ", class:"form-size" %>
           </td>
@@ -53,6 +61,8 @@
           <th>
             <h3><%= f.label :gender, "性別" %></h3>
           </th>
+        </tr>
+        <tr>
           <td>
             <h3>
               <%= f.radio_button :gender, :男性 %>
@@ -68,6 +78,8 @@
           <th>
             <h3><%= f.label :telephone_number, "電話番号" %></h3>
           </th>
+        </tr>
+        <tr>
           <td>
             <%= f.number_field :telephone_number, placeholder: "ハイフン無しで入力下さい", class:"form-size" %>
           </td>
@@ -76,6 +88,8 @@
           <th>
             <h3><%= f.label :birth_date, "生年月日" %></h3>
           </th>
+        </tr>
+        <tr>
           <td>
              <%= f.date_select :birth_date, start_year:1900 %>
           </td>
@@ -84,6 +98,8 @@
           <th>
             <h3><%= f.label :address, "都道府県" %></h3>
           </th>
+        </tr>
+        <tr>
           <td>
             <%= f.select :address, User.address_areas.keys, {} %>
           </td>
@@ -92,6 +108,8 @@
           <th>
             <h3><%= f.label :email, "メールアドレス" %></h3>
           </th>
+        </tr>
+        <tr>
           <td>
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-size" %>
           </td>
@@ -100,14 +118,15 @@
           <th>
             <h3><%= f.label :famcode, "家族コード" %></h3>
           </th>
+        </tr>
+        <tr>
           <td class="text-danger">
             <h3><strong>編集不可</strong></h3>
           </td>
         </tr>
         <tr>
-          <th></th>
           <td>
-            <%= f.submit "更新する", class:"btn btn-outline-success", class:"form-size" %>
+            <%= f.submit "更新する", class:"btn btn-outline-success", size:20 %>
           </td>
         </tr>
       </table>
