@@ -1,17 +1,15 @@
-<div class="container-fluid h-100">
-  <div class="row h-100">
-    <div class="col-md-5">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-7 col-md-5">
       <% @posts.each do |post| %>
       <h1><%= post.user.nickname %>様の最新投稿↓</h1>
-        <table class='table'>
+        <table class='table tablef'>
           <tr>
             <th>
-              <%= attachment_image_tag current_user, :profile_image, size:"100x100", fallback: "grand.png" %>
+              <%= attachment_image_tag current_user, :profile_image, size:"100x100", fallback: "grand.png" %><br>
             </th>
             <td>
-              <h1><%= post.post %></h1>
-            </td>
-            <td>
+              <h1><%= post.post %></h1><br>
               <h2><%= post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></h2>
             </td>
           </tr>
@@ -24,13 +22,13 @@
               <tr>
                 <td>
                   <%= attachment_image_tag comment.member, :profile_image, size:"150x150", fallback: "no-image.jpg" %><br>
-                  <h3><%= comment.member.nickname %></h3>
+                  <h1><%= comment.member.nickname %></h1>
                 </td>
                 <td>
-                  <h2>
+                  <h1>
                     <%= comment.comment %><br>
                     (<%= post.created_at.strftime('%Y/%m/%d %H:%M:%S') %>)
-                  </h2>
+                  </h1>
                 </td>
               </tr>
             </tbody>
@@ -38,35 +36,35 @@
         <% end %>
       <% end %>
       </div>
-    <div class="col-md-1"></div>
-    <div class="col-md-6">
+    <!--<div class="col-md-1"></div>-->
+    <div class="col-xs-12 col-sm-6 col-md-6 offset-md-1">
       <div class="submitarea">
         <div class="submitbtn">
           <%= form_with model: @post,url:posts_path, local:true do |f| %>
             <%= f.hidden_field :post, :value => "おはよう" %>
             <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.submit "おはよう", class: "btn-primary w-100 h-100"  %>
+            <%= f.submit "おはよう", class: "btn-primary post-size"  %>
           <% end %>
         </div>
         <div class="submitbtn">
           <%= form_with model: @post,url:posts_path, local:true do |f| %>
             <%= f.hidden_field :post, :value => "ご飯食べたよ" %>
             <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.submit "ご飯食べたよ", class: "btn-primary w-100"  %>
+            <%= f.submit "ご飯食べたよ", class: "btn-primary post-size"  %>
           <% end %>
         </div>
         <div class="submitbtn">
           <%= form_with model: @post,url:posts_path, local:true do |f| %>
             <%= f.hidden_field :post, :value => "おやすみ" %>
             <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.submit "おやすみ", class: "btn-primary w-100"  %>
+            <%= f.submit "おやすみ", class: "btn-primary post-size" %>
           <% end %>
         </div>
         <div class="submitbtn">
           <%= form_with model: @post,url:posts_path, local:true do |f| %>
             <%= f.hidden_field :post, :value => "SOS" %>
             <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.submit "SOS", class: "btn-danger w-100"  %>
+            <%= f.submit "SOS", class: "btn-danger post-size" %>
           <% end %>
         </div>
       </div>
