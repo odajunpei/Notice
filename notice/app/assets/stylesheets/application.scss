@@ -76,6 +76,8 @@
     overflow: hidden;
     opacity: 0;
     transition: 0.8s;
+    position:relative;
+    // padding-top:75%;
 }
 
 .hidden_box input:checked ~ .hidden_show {
@@ -103,9 +105,69 @@ footer{
   font-weight: 900;
 }
 
-.tablef th, .table td {
-    padding: 0.75rem;
-    vertical-align: top;
+.tablef th {
+    padding-bottom: 0rem;
+    padding-top: 1rem;
+    vertical-align: bottom;
     border-top: none;
 }
 
+.tablef td{
+  vertical-align: top;
+  border-top: none;
+}
+
+.form-size{
+  width: 70%;
+}
+
+h1{
+  font-size: 2.5rem;
+}
+
+h3{
+  font-size: 1.2rem;
+  margin-bottm: 0px;
+}
+
+h4{
+  font-size: 1.1rem;
+}
+
+.form-image-size{
+  width: 100%;
+}
+
+table th{
+ text-align: left;
+ margin: 0rem;
+ padding: 0rem;
+}
+
+table td{
+  text-align: right;
+  margin: 0rem;
+  padding: 0rem;
+}
+
+table tr{
+  margin-bottom: 0px;
+
+}
+
+/*スマホサイズ*/
+@media screen and (max-width: 425px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.0rem;
+    font-weight: 800;
+  }
+
+  .form-size{
+  width: 100%;
+}
+
+}

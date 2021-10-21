@@ -30,7 +30,7 @@
             <h3><%= f.label :name, "氏名" %></h3>
           </th>
           <td>
-            <%= f.text_field :name, autofocus: true, placeholder:"山田太郎", size:50 %>
+            <%= f.text_field :name, autofocus: true, placeholder:"山田太郎", class:"form-size" %>
           </td>
         </tr>
         <tr>
@@ -38,7 +38,7 @@
             <h3><%= f.label :name_kana, "カナ氏名" %></h3>
           </th>
           <td>
-            <%= f.text_field :name_kana, placeholder: "ヤマダタロウ", size:50%>
+            <%= f.text_field :name_kana, placeholder: "ヤマダタロウ", class:"form-size" %>
           </td>
         </tr>
         <tr>
@@ -46,7 +46,7 @@
             <h3><%= f.label :nickname, "ニックネーム" %></h3>
           </th>
           <td>
-            <%= f.text_field:nickname, placeholder: "ヤーマダ", size:50 %>
+            <%= f.text_field:nickname, placeholder: "ヤーマダ", class:"form-size" %>
           </td>
         </tr>
         <tr>
@@ -69,7 +69,7 @@
             <h3><%= f.label :telephone_number, "電話番号" %></h3>
           </th>
           <td>
-            <%= f.number_field :telephone_number, placeholder: "ハイフン無しで入力下さい", size:50 %>
+            <%= f.number_field :telephone_number, placeholder: "ハイフン無しで入力下さい", class:"form-size" %>
           </td>
         </tr>
         <tr>
@@ -93,7 +93,7 @@
             <h3><%= f.label :email, "メールアドレス" %></h3>
           </th>
           <td>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", size:50 %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-size" %>
           </td>
         </tr>
         <tr>
@@ -107,7 +107,7 @@
         <tr>
           <th></th>
           <td>
-            <%= f.submit "更新する", class:"btn btn-outline-success", size:20 %>
+            <%= f.submit "更新する", class:"btn btn-outline-success", class:"form-size" %>
           </td>
         </tr>
       </table>
