@@ -192,7 +192,10 @@ table tr{
 }
 
 .pagination{
-  width: 320px;
+  color: #ffffe0;
+  border-radius: 15px;     /*角を丸くする*/
+  justify-content: center;
+  font-size: 100%;
 }
 }
 
