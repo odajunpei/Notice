@@ -49,7 +49,7 @@
         </tr>
         <tr>
           <td>
-            <h4><%= f.attachment_field :profile_image %></h4>
+            <h4><%= f.attachment_field :profile_image, class:"form-size" %></h4>
           </td>
         </tr>
         <tr>
@@ -88,7 +88,7 @@
         </tr>
         <tr>
           <td>
-            <h3>
+            <h3 class:"form-size">
               <%= f.radio_button :gender, :男性 %>
               <%= f.label :"男性" %>
               <%= f.radio_button :gender, :女性 %>
@@ -168,7 +168,7 @@
         </tr>
         <tr>
           <td>
-            <%= f.hidden_field :familycode_id, :value =>@familycode_id, readonly: true %>
+            <%= f.hidden_field :familycode_id, :value =>@familycode_id, readonly: true, class:"form-size" %>
             <h3><strong class="text-success">検索した家族コードを登録済み</strong></h3>
           </td>
         </tr>

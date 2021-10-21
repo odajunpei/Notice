@@ -162,16 +162,20 @@ table tr{
 /*スマホサイズ*/
 @media screen and (max-width: 425px) {
   h1 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   h2{
-    font-size: 1.1rem;
+    font-size: 1.0rem;
   }
   h3 {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 800;
   }
+
+  h4{
+  font-size: 0.7rem;
+}
 
   .form-size{
   width: 100%;
