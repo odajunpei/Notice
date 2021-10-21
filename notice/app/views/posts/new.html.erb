@@ -38,38 +38,39 @@
       <% end %>
       <% end %>
       </div>
-    <!--<div class="col-md-1"></div>-->
-    <div class="col-xs-12 col-sm-6 offset-sm-1 col-md-6 offset-md-1">
-      <div class="submitarea">
-        <div class="submitbtn">
-          <%= form_with model: @post,url:posts_path, local:true do |f| %>
-            <%= f.hidden_field :post, :value => "おはよう" %>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.submit "おはよう", class: "btn-primary post-size"  %>
-          <% end %>
-        </div>
-        <div class="submitbtn">
-          <%= form_with model: @post,url:posts_path, local:true do |f| %>
-            <%= f.hidden_field :post, :value => "ご飯食べた" %>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.submit "ご飯食べたよ", class: "btn-primary post-size"  %>
-          <% end %>
-        </div>
-        <div class="submitbtn">
-          <%= form_with model: @post,url:posts_path, local:true do |f| %>
-            <%= f.hidden_field :post, :value => "おやすみ" %>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.submit "おやすみ", class: "btn-primary post-size" %>
-          <% end %>
-        </div>
-        <div class="submitbtn">
-          <%= form_with model: @post,url:posts_path, local:true do |f| %>
-            <%= f.hidden_field :post, :value => "SOS" %>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.submit "SOS", class: "btn-danger post-size" %>
-          <% end %>
+    <!--<div class="fadein">-->
+      <div class="col-xs-12 col-sm-6 offset-sm-1 col-md-6 offset-md-1">
+        <div class="submitarea">
+          <div class="submitbtn">
+            <%= form_with model: @post,url:posts_path, local:true do |f| %>
+              <%= f.hidden_field :post, :value => "おはよう" %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.submit "おはよう", class: "btn-primary post-size fadein"  %>
+            <% end %>
+          </div>
+          <div class="submitbtn">
+            <%= form_with model: @post,url:posts_path, local:true do |f| %>
+              <%= f.hidden_field :post, :value => "ご飯食べた" %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.submit "ご飯食べたよ", class: "btn-primary post-size fadein"  %>
+            <% end %>
+          </div>
+          <div class="submitbtn">
+            <%= form_with model: @post,url:posts_path, local:true do |f| %>
+              <%= f.hidden_field :post, :value => "おやすみ" %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.submit "おやすみ", class: "btn-primary post-size fadein" %>
+            <% end %>
+          </div>
+          <div class="submitbtn">
+            <%= form_with model: @post,url:posts_path, local:true do |f| %>
+              <%= f.hidden_field :post, :value => "SOS" %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.submit "SOS", class: "btn-danger post-size" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <!--</div>-->
 </div>
