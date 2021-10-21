@@ -21,7 +21,6 @@
 .background_image{
   background-image: image-url("background.jpg") ;
   height: 100%;
-  font-family: cursive;
   color: #2f4f4f;
 }
 
@@ -56,11 +55,13 @@
 
 .nav-item{
   margin: 0.3%;
-  white-space: nowrap
+  white-space: nowrap;
+
 }
 
 .navbar{
-  background-color:rgba(255,255,255,0.1);
+  background-color: rgba(255,255,255,0.1);
+  font-family: cursive;
 }
 
 .fr-margin{
@@ -85,6 +86,7 @@
 
 footer{
   background-color:rgba(255,255,255,0.5);
+  font-family: cursive;
 }
 
 .webtitle{
@@ -106,3 +108,4 @@ footer{
     vertical-align: top;
     border-top: none;
 }
+
