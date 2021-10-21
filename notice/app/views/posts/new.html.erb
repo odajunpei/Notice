@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12 col-sm-7 col-md-5">
+    <div class="col-xs-12 col-sm-5 col-md-5">
       <% @posts.each do |post| %>
-      <h1><%= post.user.nickname %>様の最新投稿↓</h1>
+      <h1>最新投稿↓</h1>
         <table class='table tablef'>
           <tr>
             <th>
@@ -15,8 +15,9 @@
           </tr>
         </table>
       <%= paginate @posts %>
-      <h1>家族からメッセージ</h1>
         <% post.comments.each do |comment| %>
+        <% if comment.present? %>
+          <h1>家族からメッセージ</h1>
           <table class='table'>
             <tbody>
               <tr>
@@ -35,9 +36,10 @@
           </table>
         <% end %>
       <% end %>
+      <% end %>
       </div>
     <!--<div class="col-md-1"></div>-->
-    <div class="col-xs-12 col-sm-6 col-md-6 offset-md-1">
+    <div class="col-xs-12 col-sm-6 offset-sm-1 col-md-6 offset-md-1">
       <div class="submitarea">
         <div class="submitbtn">
           <%= form_with model: @post,url:posts_path, local:true do |f| %>
