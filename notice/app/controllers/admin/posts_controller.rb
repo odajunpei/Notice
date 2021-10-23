@@ -2,12 +2,12 @@ class Admin::PostsController < ApplicationController
   before_action :authenticate_admin!
   helper_method :sort_column, :sort_direction
   def index
-    @posts = Post.all.order(sort_column+ ' ' + sort_direction)
+    @posts = Post.all.order(sort_column+ ' ' + sort_direction).page(params[:page]).per(10)
   end
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments.order(created_at: :desc)
+    @comments = @post.comments.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def destroy

@@ -58,6 +58,14 @@ gem 'rails-i18n'
 gem 'enum_help'
 gem 'ancestry'
 gem 'ransack'
+
+group :test do
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem "factory_bot_rails"
+  gem 'faker'
+end
+
 # #家族コード暗号化用
 gem 'dotenv-rails'
 #AWSデプロイ用記述

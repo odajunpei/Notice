@@ -4,7 +4,7 @@ before_action :set_q, only: [:index, :search]
 helper_method :sort_column, :sort_direction
 
   def index
-    @users = User.all.order(sort_column+ ' ' + sort_direction)
+    @users = User.all.order(sort_column+ ' ' + sort_direction).page(params[:page]).per(10)
   end
 
   def show
@@ -20,7 +20,7 @@ helper_method :sort_column, :sort_direction
   end
 
   def search
-    @results = @q.result
+    @results = @q.result.order(sort_column+ ' ' + sort_direction).page(params[:page]).per(10)
   end
 
   private
