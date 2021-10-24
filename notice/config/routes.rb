@@ -40,7 +40,9 @@ Rails.application.routes.draw do
       get 'search'
      end
     end
-    resources :posts
+    resources :posts, controllers: {
+    registrations: "posts"
+  }
     resources :familycodes do
       collection do
         get 'search'

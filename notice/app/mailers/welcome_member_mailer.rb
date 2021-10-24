@@ -7,6 +7,6 @@ class WelcomeMemberMailer < ApplicationMailer
   #
   def send_when_signup(email, name)
     @name = name
-    mail to:email, subject: '家族会員登録が完了致しました'
+    mail to:email, subject: '家族会員登録が完了致しました。'
   end
 end

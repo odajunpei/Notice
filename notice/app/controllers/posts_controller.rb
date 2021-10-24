@@ -7,7 +7,11 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
+    mail_member = Member.where(familycode_id: current_user.familycode_id)
     if @post.save
+      if @post.post == "SOS"
+        SosMailer.with(user: mail_member).send_when_sos(current_user).deliver
+      end
       redirect_to new_post_path
     end
   end

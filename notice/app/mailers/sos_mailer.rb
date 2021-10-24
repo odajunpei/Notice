@@ -5,8 +5,14 @@ class SosMailer < ApplicationMailer
   #
   #   en.sos_mailer.send_when_sos.subject
   #
-  def send_when_sos
-    @name = name
-    mail to:email, subject: '[緊急]ご家族様よりSOS投稿がされました。'
+  def send_when_sos(current_user)
+    user = current_user
+    mail_member = Member.where(familycode_id: user.familycode_id)
+    @name = user.name
+    if mail_member.present?
+      mail_member.each do |member|
+        mail(to: member.email, subject: '[緊急]ご家族様よりSOS投稿がされました。')
+      end
+    end
   end
 end
