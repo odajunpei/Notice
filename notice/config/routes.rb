@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'inquiry/thanks'
   devise_for :admins
   devise_for :members
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+  }
 
   root to: 'homes#top'
   resources :posts do
