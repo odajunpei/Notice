@@ -18,9 +18,10 @@ class Members::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-      #super
-  # end
+  def create
+      super
+      WelcomeMemberMailer.send_when_signup(params[:member][:email],params[:member][:name]).deliver
+  end
 
   # GET /resource/edit
   # def edit

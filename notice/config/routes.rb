@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get 'inquiry/confirm'
   get 'inquiry/thanks'
   devise_for :admins
-  devise_for :members
+  devise_for :members,  controllers: {
+    registrations: "members/registrations"
+  }
   devise_for :users, controllers: {
     registrations: "users/registrations"
   }
