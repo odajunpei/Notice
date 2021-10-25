@@ -1,0 +1,55 @@
+<div class="container-fuluid">
+  <div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-4">
+      <%= search_form_for @q, url: search_admin_inquiries_path do |f| %>
+        <%= f.label :email_cont, 'メールアドレス' %>
+        <%= f.search_field :email_cont %>
+        <% f.submit '検索' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 offset-1">
+      <h1>お問い合わせ一覧</h1>
+      <table class="table tablef">
+        <thread>
+          <tr>
+            <th><%= sorttable "id", "ID" %></th>
+            <th><%= sorttable "name", "氏名" %></th>
+            <th><%= sorttable "email", "メールアドレス" %></th>
+            <th><%= sorttable "title","タイトル" %></th>
+            <th><%= sorttable "replyok", "返信" %></th>
+            <th><%= sorttable "created_at", "登録日時" %></th>
+          </tr>
+        </thread>
+        <tbody>
+          <% @inquiries.each do |inquiry| %>
+        <tr>
+          <td>
+            <%= inquiry.id %>
+          </td>
+          <td>
+            <%= inquiry.name %>
+          </td>
+          <td>
+            <%= inquiry.email %>
+          </td>
+          <td>
+            <%= link_to edit_admin_inquiry_path(inquiry) do %>
+              <%= inquiry.title %>
+            <% end %>
+          </td>
+          <td>
+            <%= inquiry.replyok %>
+          </td>
+          <td>
+            <%= inquiry.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+          </td>
+        </tbody>
+      　<% end %>
+      </table>
+      <%= paginate @inquiries %>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,8 @@
-class Inquiry
-  include ActiveModel::Model
+class Inquiry < ApplicationRecord
 
-  attr_accessor :name, :email, :message
+
+  enum title: {本ウェブサイトの使い方:0, 本ウェブサイトの問題点:1, 本ウェブサイトへの質問:2, 管理者への質問:3, その他:4}
 
   validates :name, :presence => {:message => '名前を入力してください'}
   validates :email, :presence => {:message => 'メールアドレスを入力してください'}
-
 end

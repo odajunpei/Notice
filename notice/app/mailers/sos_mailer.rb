@@ -9,6 +9,7 @@ class SosMailer < ApplicationMailer
     user = current_user
     mail_member = Member.where(familycode_id: user.familycode_id)
     @name = user.name
+    @telephone_number = user.telephone_number
     if mail_member.present?
       mail_member.each do |member|
         mail(to: member.email, subject: '[緊急]ご家族様よりSOS投稿がされました。')

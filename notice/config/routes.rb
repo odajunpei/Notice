@@ -24,9 +24,7 @@ Rails.application.routes.draw do
   resources :admins
 
   #お問い合わせ
-  get   'inquiry'         => 'inquiry#index'
-  post  'inquiry/confirm' => 'inquiry#confirm'
-  post  'inquiry/thanks'  => 'inquiry#thanks'
+  resources :inquiries, only: [:new, :show, :create, :edit, :update]
 
   get 'admin/sign_in' => 'admin#sign_in'
   namespace :admin do
@@ -35,14 +33,23 @@ Rails.application.routes.draw do
         get 'search'
       end
     end
+
+    resources :inquiries, only:[:index, :edit, :update] do
+      collection do
+        get 'search'
+      end
+    end
+
     resources :users do
      collection do
       get 'search'
      end
     end
+
     resources :posts, controllers: {
     registrations: "posts"
   }
+
     resources :familycodes do
       collection do
         get 'search'
