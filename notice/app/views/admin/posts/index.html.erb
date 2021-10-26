@@ -3,35 +3,35 @@
     <div class="col-md-10 offset-1">
       <h1>投稿一覧</h1>
       <table class="table">
-        <thread>
+        <thead>
           <tr>
-            <th><%= sorttable "id", "ID" %></th>
-            <th><%= sorttable "post", "投稿" %></th>
-            <th><%= sorttable "created_at", "投稿時間" %></th>
-            <th><%= sorttable "user.name_kana", "投稿者" %></th>
-            <th><%= sorttable "comments.count", "投稿コメント数" %></th>
+            <th class="text-center"><%= sorttable "id", "ID" %></th>
+            <th class="text-center"><%= sorttable "post", "投稿" %></th>
+            <th class="text-center"><%= sorttable "created_at", "投稿時間" %></th>
+            <th class="text-center"><%= sorttable "user.name_kana", "投稿者" %></th>
+            <th class="text-center"><%= sorttable "comments.count", "投稿コメント数" %></th>
           </tr>
-        </thread>
+        </thead>
         <% @posts.each do |post| %>
         <tbody>
         <tr>
-          <th>
+          <th class="text-center">
             <%= post.id %>
           </th>
-          <td>
+          <td class="text-center">
             <%= link_to admin_post_path(post) do %>
               <%= post.post %>
             <% end %>
           </td>
-          <td>
+          <td class="text-center">
             <%= post.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
           </td>
-          <td>
+          <td class="text-center">
             <%= link_to admin_user_path(post.user) do %>
               <%= post.user.name %>
             <% end %>
           </td>
-          <td>
+          <td class="text-center">
             <%= post.comments.count %>
           </td>
         </tbody>

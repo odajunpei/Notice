@@ -13,33 +13,33 @@
     <div class="col-md-10 offset-1">
       <h1>家族コード一覧</h1>
       <table class="table">
-        <thread>
+        <thead>
           <tr>
-            <th><%= sorttable "id", "ID" %></th>
-            <th><%= sorttable "famcode", "家族コード" %></th>
-            <th><%= sorttable "created_at", "家族コード作成日時" %></th>
-            <th><%= sorttable "users.count", "投稿会員数" %></th>
-            <th><%= sorttable "members.count", "家族会員数" %></th>
+            <th class="text-center"><%= sorttable "id", "ID" %></th>
+            <th class="text-center"><%= sorttable "famcode", "家族コード" %></th>
+            <th class="text-center"><%= sorttable "created_at", "家族コード作成日時" %></th>
+            <th class="text-center"><%= sorttable "users.count", "投稿会員数" %></th>
+            <th class="text-center"><%= sorttable "members.count", "家族会員数" %></th>
           </tr>
-        </thread>
+        </thead>
         <% @familycodes.each do |familycode| %>
         <tbody>
         <tr>
-          <th>
+          <th class="text-center">
             <%= familycode.id %>
           </th>
-          <td>
+          <td class="text-center">
           <%= link_to admin_familycode_path(familycode) do %>
             <%= familycode.famcode %>
           <% end %>
           </td>
-          <td>
+          <td class="text-center">
             <%= familycode.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
           </td>
-          <td>
+          <td class="text-center">
             <%= familycode.users.count %>
           </td>
-          <td>
+          <td class="text-center">
             <%= familycode.members.count %>
           </td>
         </tbody>

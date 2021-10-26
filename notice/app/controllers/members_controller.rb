@@ -24,12 +24,17 @@ class MembersController < ApplicationController
     @member = Member.find(current_member.id)
   end
 
-
+  def withdraw
+    @member = Member.find(current_member.id)
+    @member.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
+  end
 
   private
 
   def member_params
-    params.require(:member).permit(:name, :name_kana, :telephone_number, :birth_date, :address, :email, :is_active, :profile_image, :familycode_id, :gender)
+    params.require(:member).permit(:name, :name_kana, :telephone_number, :birth_date, :address, :email, :is_deleted, :profile_image, :familycode_id, :gender)
   end
 
 

@@ -13,47 +13,47 @@
     <div class="col-md-10 offset-1">
       <h1>投稿会員検索結果</h1>
       <table class="table">
-        <thread>
+        <thead>
           <tr>
-            <th>ID</th>
-            <th>氏名</th>
-            <th>性別</th>
-            <th>都道府県</th>
-            <th>電話番号</th>
-            <th>メールアドレス</th>
-            <th><%= sort_link(@q, :created_at, "登録日時") %></th>
+            <th class="text-center">ID</th>
+            <th class="text-center">氏名</th>
+            <th class="text-center">性別</th>
+            <th class="text-center">都道府県</th>
+            <th class="text-center">電話番号</th>
+            <th class="text-center">メールアドレス</th>
+            <th class="text-center"><%= sort_link(@q, :created_at, "登録日時") %></th>
           </tr>
-        </thread>
+        </thead>
         <% @results.each do |user| %>
         <tbody>
         <tr>
-          <th>
+          <th class="text-center">
             <%= user.id %>
           </th>
-          <td>
+          <td class= "text-center">
             <%= link_to admin_user_path(user) do %>
               <%= user.name %>
             <% end %>
           </td>
-          <td>
+          <td class= "text-center">
             <%= user.gender %>
           </td>
-          <td>
+          <td class= "text-center">
             <%= user.address %>
           </td>
-          <td>
+          <td class= "text-center">
             <%= user.telephone_number %>
           </td>
-          <td>
+          <td class= "text-center">
             <%= user.email %>
           </td>
-          <td>
+          <td class= "text-center">
             <%= user.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
           </td>
         </tbody>
         <% end %>
       </table>
-      <%= paginate @users %>
+      <%= paginate @results %>
     </div>
   </div>
 </div>

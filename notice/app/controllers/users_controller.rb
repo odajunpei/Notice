@@ -18,12 +18,19 @@ class UsersController < ApplicationController
   end
 
   def leave
-    @user = user.find(current_user.id)
+    @user = User.find(current_user.id)
+  end
+
+  def withdraw
+    @user = User.find(current_user.id)
+    @user.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :name_kana, :telephone_number, :birth_date, :address, :fire, :email, :is_active, :profile_image, :familycode_id, :gender)
+    params.require(:user).permit(:name, :name_kana, :telephone_number, :birth_date, :address, :fire, :email, :is_deleted, :profile_image, :familycode_id, :gender)
   end
 end

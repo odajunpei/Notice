@@ -24,7 +24,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @inquiries.each do |inquiry| %>
+          <% @results.each do |inquiry| %>
         <tr>
           <td class="text-center">
             <%= inquiry.id %>
@@ -49,7 +49,7 @@
         </tbody>
       　<% end %>
       </table>
-      <%= paginate @inquiries %>
+      <%= paginate @results %>
     </div>
   </div>
 </div>

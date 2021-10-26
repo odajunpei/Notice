@@ -13,19 +13,19 @@
     <div class="col-md-10 offset-1">
       <h1>家族コード一覧</h1>
       <table class="table">
-        <thread>
+        <thead>
           <tr>
-            <th><%= sorttable "id", "ID" %></th>
-            <th><%= sorttable "famcode", "家族コード" %></th>
-            <th><%= sorttable "created_at", "家族コード作成日時" %></th>
-            <th><%= sorttable "users.count", "投稿会員数" %></th>
-            <th><%= sorttable "members.count", "家族会員数" %></th>
+            <th class="text-center"><%= sorttable "id", "ID" %></th>
+            <th class="text-center"><%= sorttable "famcode", "家族コード" %></th>
+            <th class="text-center"><%= sorttable "created_at", "家族コード作成日時" %></th>
+            <th class="text-center"><%= sorttable "users.count", "投稿会員数" %></th>
+            <th class="text-center"><%= sorttable "members.count", "家族会員数" %></th>
           </tr>
-        </thread>
+        </thead>
         <% @results.each do |familycode| %>
         <tbody>
         <tr>
-          <th>
+          <th class="text-center">
             <%= familycode.id %>
           </th>
           <td>
@@ -45,7 +45,7 @@
         </tbody>
         <% end %>
       </table>
-      <%= paginate @members %>
+      <%= paginate @results %>
     </div>
   </div>
 </div>

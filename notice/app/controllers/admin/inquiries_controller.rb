@@ -13,10 +13,16 @@ class Admin::InquiriesController < ApplicationController
   def update
     @inquiry = Inquiry.find(params[:id])
     if @inquiry.update(inquiry_params)
+      ReplyMailer.reply_inquiry(@inquiry).deliver
       redirect_to edit_admin_inquiry_path(@inquiry)
     else
       render :edit
     end
+  end
+
+  def search
+    
+    @results = @q.result.order(sort_column+ ' ' + sort_direction).page(params[:page]).per(10)
   end
 
 
