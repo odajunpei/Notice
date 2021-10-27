@@ -9,11 +9,6 @@ class User < ApplicationRecord
 
   attachment :profile_image
 
-  validates :name, presence: true
-  validates :name_kana, presence: true
-  validates :telephone_number, presence: true
-  validates :familycode_id, presence: true
-
     enum address_area:{
      "---":0,
      北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
@@ -28,4 +23,11 @@ class User < ApplicationRecord
    }
 
    enum gender: {男性:1, 女性:2, 回答無し: 3}
+
+  validates :name, length: { in: 2..20 }
+  validates :name_kana, length: { in: 2..20 }
+  validates :telephone_number, length: { in: 10...11 }
+  validates :familycode_id, presence: true
+  validates :nickname, length: { in: 1..10 }
+  validates :email, uniqueness: true
 end

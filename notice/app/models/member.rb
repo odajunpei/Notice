@@ -7,17 +7,11 @@ class Member < ApplicationRecord
   # has_many :family_codes
   # has_many :member_familycodes
   belongs_to :familycode
-  # , through: :member_familycodes
   has_many :comments, dependent: :destroy
 
   attachment :profile_image
-  validates :name, presence: true
-  validates :name_kana, presence: true
-  validates :telephone_number, presence: true
-  validates :familycode_id, presence: true
-  validates :nickname, presence:true
-  validates :address, presence:true
-  validates :birth_date, presence:true
+
+
 
   #住所選択用
   enum address_area:{
@@ -34,4 +28,12 @@ class Member < ApplicationRecord
    }
 
    enum gender: {男性:1, 女性:2, 回答無し: 3}
+
+  validates :name, length: { minimum: 2, maximum: 20 }
+  validates :name_kana, length: { in: 2..20 }
+  validates :telephone_number, length: { in: 10...11 }
+  validates :familycode_id, presence: true
+  validates :nickname, length: { in: 1..10 }
+  validates :email, uniqueness: true
+
 end

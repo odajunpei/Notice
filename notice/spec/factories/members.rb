@@ -1,0 +1,12 @@
+FactoryBot.define do
+  factory :member do
+    name { Faker::Lorem.characters(number: 10) }
+    name_kana {Faker::Lorem.characters(number: 10)}
+    nickname { Faker::Lorem.characters(number: 5)}
+    telephone_number { Faker::Lorem.characters(number: 10)}
+    familycode_id { Faker::Lorem.characters(number: 5)}
+    email { Faker::Internet.email }
+    password { 'password' }
+    password_confirmation { 'password' }
+  end
+end
