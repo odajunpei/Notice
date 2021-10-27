@@ -110,36 +110,8 @@
           </th>
         </tr>
         <tr>
-          <th>
-            <h3><%= f.label :password, "パスワード" %></h3>
-          </th>
-        </tr>
-        <tr>
           <td>
-            <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br />
-            <%= f.password_field :password, autocomplete: "new-password", class:"form-size" %>
-          </td>
-        </tr>
-        <tr>
-          <th>
-            <h3><%= f.label :password_confirmation, "パスワード確認"%></h3>
-          </th>
-        </tr>
-        <tr>
-          <td>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-size" %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-size" %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-size" %>
+            <%= f.text_field :email, class:"form-size" %>
           </td>
         </tr>
         <tr>
@@ -152,7 +124,7 @@
             <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %><br />
-            <%= f.password_field :password, autocomplete: "new-password", class:"form-size" %>
+            <%= f.password_field :password, placeholder: "変更時のみ入力下さい", autocomplete: "new-password", class:"form-size" %>
           </td>
         </tr>
         <tr>
@@ -162,7 +134,7 @@
         </tr>
         <tr>
           <td>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-size" %>
+            <%= f.password_field :password_confirmation, placeholder: "変更時のみ入力下さい", autocomplete: "new-password", class:"form-size" %>
           </td>
         </tr>
         <tr>

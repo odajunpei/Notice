@@ -7,7 +7,13 @@
         <tbody>
             <tr>
               <td>
-                <%= attachment_image_tag post.user, :profile_image, size:"100x100",format: 'jpeg', fallback:"grand.png" %>
+                <% if post.user.gender == "男性" %>
+                  <%= attachment_image_tag post.user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand-papa.png" %>
+                <% elsif post.user.gender == "女性" %>
+                  <%= attachment_image_tag post.user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand-mama.png" %>
+                <% else %>
+                  <%= attachment_image_tag post.user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand.png" %>
+                <% end %>
               </td>
               <td>
               <%= link_to post_path(post.id) do %>

@@ -1,7 +1,7 @@
 <div class="container-fuluid">
   <div class="row">
     <div class="col-md-10 offset-1">
-      <h1>投稿一覧</h1>
+      <h1>投稿一覧(現在<%= @posts.count %>個の投稿)</h1>
       <table class="table">
         <thead>
           <tr>
@@ -9,7 +9,7 @@
             <th class="text-center"><%= sorttable "post", "投稿" %></th>
             <th class="text-center"><%= sorttable "created_at", "投稿時間" %></th>
             <th class="text-center"><%= sorttable "user.name_kana", "投稿者" %></th>
-            <th class="text-center"><%= sorttable "comments.count", "投稿コメント数" %></th>
+            <th class="text-center">投稿コメント数</th>
           </tr>
         </thead>
         <% @posts.each do |post| %>

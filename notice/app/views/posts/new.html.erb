@@ -6,7 +6,13 @@
         <table class='table tablef'>
           <tr>
             <th>
-              <%= attachment_image_tag current_user, :profile_image, size:"100x100", fallback: "grand.png" %><br>
+              <% if current_user.gender == "男性" %>
+                <%= attachment_image_tag current_user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand-papa.png" %>
+              <% elsif current_user.gender == "女性" %>
+                <%= attachment_image_tag current_user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand-mama.png" %>
+              <% else %>
+                <%= attachment_image_tag current_user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand.png" %>
+              <% end %>
             </th>
             <td>
               <h1><%= post.post %></h1><br>
@@ -22,7 +28,14 @@
             <tbody>
               <tr>
                 <td>
-                  <%= attachment_image_tag comment.member, :profile_image, size:"150x150", fallback: "no-image.jpg" %><br>
+                  <% if comment.member.gender == "男性" %>
+                    <%= attachment_image_tag comment.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"men.png" %><br>
+                  <% elsif comment.member.gender == "女性" %>
+                    <%= attachment_image_tag comment.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"women.png" %><br>
+                  <% else %>
+                    <%= attachment_image_tag comment.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"no-image.jpg" %><br>
+                  <% end %>
+                  <%= comment.member.nickname %>
                   <h1><%= comment.member.nickname %></h1>
                 </td>
                 <td>

@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
   validates :name, length: { in: 2..20 }
   validates :name_kana, length: { in: 2..20 }
-  validates :telephone_number, length: { in: 10...11 }
+  validates :telephone_number, length: { minimum: 10, maximum: 11 }
   validates :familycode_id, presence: true
   validates :nickname, length: { in: 1..10 }
   validates :email, uniqueness: true

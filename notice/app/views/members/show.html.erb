@@ -12,7 +12,13 @@
         </tr>
         <tr>
           <td class:"text-center">
-            <%= attachment_image_tag @member, :profile_image, size:"150x150", format: 'jpeg', fallback:"no-image.jpg" %>
+            <% if @member.gender == "男性" %>
+              <%= attachment_image_tag @member, :profile_image, size:"150x150", format: 'jpeg', fallback:"men.png" %>
+            <% elsif @member.gender == "女性" %>
+              <%= attachment_image_tag @member, :profile_image, size:"150x150", format: 'jpeg', fallback:"women.png" %>
+            <% else %>
+              <%= attachment_image_tag @member, :profile_image, size:"150x150", format: 'jpeg', fallback:"no-image.jpg" %>
+            <% end %>
           </td>
         </tr>
         <tr>

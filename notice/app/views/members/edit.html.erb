@@ -116,6 +116,29 @@
         </tr>
         <tr>
           <th>
+            <h3><%= f.label :password, "パスワード" %></h3>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, placeholder: "変更時のみ入力下さい", autocomplete: "new-password", class:"form-size" %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <h3><%= f.label :password_confirmation, "パスワード確認"%></h3>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <%= f.password_field :password_confirmation, placeholder: "変更時のみ入力下さい", autocomplete: "new-password", class:"form-size" %>
+          </td>
+        </tr>
+        <tr>
+          <th>
             <h3><%= f.label :famcode, "家族コード" %></h3>
           </th>
         </tr>

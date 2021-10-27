@@ -6,7 +6,13 @@
                 <table class="table tablef">
                     <tr>
                         <th>
-                            <%= attachment_image_tag comment.member, :profile_image, fallback: "no-image.jpg", class:"comment-image", size: "40x40" %><br>
+                            <% if comment.member.gender == "男性" %>
+                              <%= attachment_image_tag comment.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"men.png" %><br>
+                            <% elsif comment.member.gender == "女性" %>
+                              <%= attachment_image_tag comment.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"women.png" %><br>
+                            <% else %>
+                              <%= attachment_image_tag comment.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"no-image.jpg" %><br>
+                            <% end %>
                             <%= comment.member.nickname %>
                         </th>
                         <td>

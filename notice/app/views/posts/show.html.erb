@@ -6,7 +6,13 @@
         <tbody>
           <tr class="margin-0">
             <td class="text-center">
-              <%= attachment_image_tag @post.user, :profile_image, size:"150x150", fallback: "grand.png" %>
+              <% if @post.user.gender == "男性" %>
+                <%= attachment_image_tag @post.user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand-papa.png" %>
+              <% elsif @post.user.gender == "女性" %>
+                <%= attachment_image_tag @post.user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand-mama.png" %>
+              <% else %>
+                <%= attachment_image_tag @post.user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand.png" %>
+              <% end %>
             </td>
           </tr>
           <tr>
