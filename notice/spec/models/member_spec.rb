@@ -6,8 +6,8 @@ RSpec.describe 'Memberモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     subject { member.valid? }
 
-    let!(:member) { create(:member) }
-    let(:member) { build(:member) }
+    let!(:familycode) { create(:familycode) }
+    let!(:member) { build(:member, familycode_id: familycode.id) }
 
     context 'nameカラム' do
       it '空欄でないこと' do

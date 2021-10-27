@@ -4,8 +4,8 @@ RSpec.describe "Userモデルのテスト", type: :model do
   describe 'バリデーションのテスト' do
     subject { user.valid? }
 
-    let!(:user) { create(:user) }
-    let(:user) { build(:user) }
+    let!(:familycode) { create(:familycode) }
+    let!(:user) { build(:user, familycode_id: familycode.id) }
 
     context 'nameカラム' do
       it '空欄でないこと' do
