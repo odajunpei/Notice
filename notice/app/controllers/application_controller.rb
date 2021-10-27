@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
       when User
         user_path(current_user)
       when Admin
-        admin_familycodes_path
+        admin_inquiries_path
       end
     end
 
