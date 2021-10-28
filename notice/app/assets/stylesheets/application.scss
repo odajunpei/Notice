@@ -221,7 +221,7 @@ h4{
 /*スマホサイズ*/
 @media screen and (max-width: 425px) {
   h1 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   h2{
@@ -275,6 +275,10 @@ iframe{
     opacity: 0;
     animation-delay: 1s;
     animation: fadein 1s ease forwards;
+}
+
+.smart{
+  text-align: center;
 }
 
 }

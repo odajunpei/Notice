@@ -8,12 +8,13 @@
             <tr>
               <td>
                 <% if post.user.gender == "男性" %>
-                  <%= attachment_image_tag post.user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand-papa.png" %>
+                  <%= attachment_image_tag post.user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand-papa.png" %><br>
                 <% elsif post.user.gender == "女性" %>
-                  <%= attachment_image_tag post.user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand-mama.png" %>
+                  <%= attachment_image_tag post.user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand-mama.png" %><br>
                 <% else %>
-                  <%= attachment_image_tag post.user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand.png" %>
+                  <%= attachment_image_tag post.user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand.png" %><br>
                 <% end %>
+                <h1 class="smart"><%= post.user.nickname %></h1>
               </td>
               <td>
               <%= link_to post_path(post.id) do %>
