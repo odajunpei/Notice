@@ -27,8 +27,13 @@
           </tr>
           <tr>
             <td class="text-center">
-              <h1><%= @post.post %></h1>
-              <h2><%= @post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></h2>
+              <% if @post.post == "SOS" %>
+                <h1 class="text-danger"><strong><%= @post.post %></strong></h1>
+                <h2 class="text-danger"><%= @post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></h2>
+              <% else %>
+                <h1><strong><%= @post.post %></strong></h1>
+                <h2><%= @post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></h2>
+              <% end %>
             </td>
           </tr>
         </tbody>
