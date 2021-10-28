@@ -86,7 +86,7 @@
         </tr>
         <tr>
           <th>
-            <h3><%= f.label :birth_date, "生年月日" %></h3>
+            <%= date_select_ja(f.date_select(:birth_date, start_year:1900, end_year:2018)) %>
           </th>
         </tr>
         <tr>

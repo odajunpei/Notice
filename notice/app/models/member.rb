@@ -33,7 +33,7 @@ class Member < ApplicationRecord
   validates :name_kana, length: { minimum: 2, maximum: 20 }
   validates :telephone_number, length: { minimum: 10, maximum: 11 }
   validates :familycode_id, presence: true
-  validates :nickname, length: { minimum: 2, maximum: 10 }
+  validates :nickname, length: { minimum: 1, maximum: 10 }
   validates :email, uniqueness: true
 
 end

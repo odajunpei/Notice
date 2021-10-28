@@ -7,6 +7,7 @@ RSpec.describe "Userモデルのテスト", type: :model do
     let!(:familycode) { create(:familycode) }
     let!(:user) { build(:user, familycode_id: familycode.id) }
 
+
     context 'nameカラム' do
       it '空欄でないこと' do
         user.name = ''
@@ -55,29 +56,30 @@ RSpec.describe "Userモデルのテスト", type: :model do
 
     context 'nicknameカラム' do
       it '空欄でないこと' do
-        user.name_kana = ''
+        user.nickname = ''
         is_expected.to eq false
       end
       it '1文字以上であること: 0文字は×' do
-        user.name_kana = Faker::Lorem.characters(number: 0)
+        user.nickname = Faker::Lorem.characters(number: 0)
         is_expected.to eq false
       end
       it '1文字以上であること: 1文字は〇' do
-        user.name_kana = Faker::Lorem.characters(number: 1)
+        user.nickname = Faker::Lorem.characters(number: 1)
         is_expected.to eq true
       end
       it '10文字以下であること: 10文字は〇' do
-        user.name_kana = Faker::Lorem.characters(number: 10)
+        user.nickname = Faker::Lorem.characters(number: 10)
         is_expected.to eq true
       end
       it '10文字以下であること: 11文字は×' do
-        user.name_kana = Faker::Lorem.characters(number: 11)
+        user.nickname = Faker::Lorem.characters(number: 11)
         is_expected.to eq false
       end
     end
 
     context 'emailカラム' do
       it '一意性があること' do
+        let(:other_user) { build(:user) }
         user.email = other_user.email
         is_expected.to eq false
       end

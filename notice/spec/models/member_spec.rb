@@ -57,46 +57,23 @@ RSpec.describe 'Memberモデルのテスト', type: :model do
 
     context 'nicknameカラム' do
       it '空欄でないこと' do
-        member.name_kana = ''
+        member.nickname = ''
         is_expected.to eq false
       end
       it '1文字以上であること: 0文字は×' do
-        member.name_kana = Faker::Lorem.characters(number: 0)
+        member.nickname = Faker::Lorem.characters(number: 0)
         is_expected.to eq false
       end
       it '1文字以上であること: 1文字は〇' do
-        member.name_kana = Faker::Lorem.characters(number: 1)
+        member.nickname = Faker::Lorem.characters(number: 1)
         is_expected.to eq true
       end
       it '10文字以下であること: 10文字は〇' do
-        member.name_kana = Faker::Lorem.characters(number: 10)
+        member.nickname = Faker::Lorem.characters(number: 10)
         is_expected.to eq true
       end
       it '10文字以下であること: 11文字は×' do
-        member.name_kana = Faker::Lorem.characters(number: 11)
-        is_expected.to eq false
-      end
-    end
-
-    context 'nicknameカラム' do
-      it '空欄でないこと' do
-        member.name_kana = ''
-        is_expected.to eq false
-      end
-      it '1文字以上であること: 0文字は×' do
-        member.name_kana = Faker::Lorem.characters(number: 0)
-        is_expected.to eq false
-      end
-      it '1文字以上であること: 1文字は〇' do
-        member.name_kana = Faker::Lorem.characters(number: 1)
-        is_expected.to eq true
-      end
-      it '10文字以下であること: 10文字は〇' do
-        member.name_kana = Faker::Lorem.characters(number: 10)
-        is_expected.to eq true
-      end
-      it '10文字以下であること: 11文字は×' do
-        member.name_kana = Faker::Lorem.characters(number: 11)
+        member.nickname = Faker::Lorem.characters(number: 11)
         is_expected.to eq false
       end
     end
