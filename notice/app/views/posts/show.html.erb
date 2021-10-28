@@ -19,7 +19,7 @@
             <td class="text-center">
               <h1><%= @post.user.nickname %></h1><br>
               <% if @post.post == "SOS" %>
-                <h1 class="text-danger">電話番号:<%= link_to @post.user.telephone_number, "tel:" + @post.user.telephone_number %></h1>
+                <h1>TEL:<%= link_to @post.user.telephone_number, "tel:" + @post.user.telephone_number %></h1>
               <% end %>
             </td>
           </tr>

@@ -68,7 +68,7 @@
         </tr>
         <tr>
           <td>
-            <h2><%= @member.telephone_number %></h2>
+            <h2><%= link_to @member.telephone_number, "tel:" + @member.telephone_number %></h2>
           </td>
         </tr>
         <tr>
