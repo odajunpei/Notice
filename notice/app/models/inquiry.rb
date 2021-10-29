@@ -5,6 +5,5 @@ class Inquiry < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true
-  validates :inquiry, length: {minimum: 10}
-  # validates :reply, length: {minimum: 10}
+  validates :inquiry, presence:true
 end

@@ -4,7 +4,7 @@ ja:
     attributes:
       member:
         current_password: "現在のパスワード"
-        email: "メールアドレス"
+        Email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "次回から自動的にログイン"
@@ -12,8 +12,8 @@ ja:
         name_kana: "カナ氏名"
         nickname: "ニックネーム"
         address: "都道府県"
-        gender: "性別"
-        birth_date: "誕生日"
+        # gender: "性別"
+        # birth_date: "誕生日"
         telephone_number: "電話番号"
 
     attributes:
