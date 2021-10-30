@@ -7,7 +7,7 @@ class InquiriesController < ApplicationController
     @inquiry = Inquiry.new(inquiry_params)
     if @inquiry.save
       InquiryMailer.received_email(@inquiry).deliver
-      redirect_to inquiry_path(@inquiry)
+      redirect_to "/inquiries/#{@inquiry.name}/#{@inquiry.id}"
     else
       render :new
     end
@@ -25,7 +25,7 @@ class InquiriesController < ApplicationController
     @inquiry = Inquiry.find(params[:id])
     if @inquiry.update(inquiry_params)
       InquiryMailer.received_email(@inquiry).deliver
-      redirect_to inquiry_path(@inquiry)
+      redirect_to "/inquiries/#{@inquiry.name}/#{@inquiry.id}"
     else
       render :edit
     end
