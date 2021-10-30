@@ -7,7 +7,7 @@ class Inquiry < ApplicationRecord
   validates :email, presence: true
   validates :inquiry, presence:true
 
-def to_param
-  return self.name
-end
+# def to_param
+#   return self.name
+# end
 end

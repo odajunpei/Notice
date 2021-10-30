@@ -21,7 +21,7 @@ class Admin::InquiriesController < ApplicationController
   end
 
   def search
-    
+
     @results = @q.result.order(sort_column+ ' ' + sort_direction).page(params[:page]).per(10)
   end
 
