@@ -78,13 +78,6 @@ RSpec.describe 'Memberモデルのテスト', type: :model do
       end
     end
 
-    context 'emailカラム' do
-      it '一意性があること' do
-        member.email = other_member.email
-        is_expected.to eq false
-      end
-    end
-
     context 'familycode_idカラム' do
       it '空欄でないこと' do
         member.familycode_id = ''

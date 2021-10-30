@@ -27,7 +27,13 @@ class Member < ApplicationRecord
     沖縄県:47
    }
 
+  #性別選択用
    enum gender: {男性:1, 女性:2, 回答無し: 3}
+
+  #退会機能
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
 
   validates :name, length: { minimum: 2, maximum: 20 }
   validates :name_kana, length: { minimum: 2, maximum: 20 }

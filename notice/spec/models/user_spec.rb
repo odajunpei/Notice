@@ -77,13 +77,6 @@ RSpec.describe "Userモデルのテスト", type: :model do
       end
     end
 
-    context 'emailカラム' do
-      it '一意性があること' do
-        let(:other_user) { build(:user) }
-        user.email = other_user.email
-        is_expected.to eq false
-      end
-    end
 
     context 'familycode_idカラム' do
       it '空欄でないこと' do

@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   attachment :profile_image
 
+  #住所用
     enum address_area:{
      "---":0,
      北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
@@ -22,7 +23,13 @@ class User < ApplicationRecord
      沖縄県:47
    }
 
-   enum gender: {男性:1, 女性:2, 回答無し: 3}
+#性別
+  enum gender: {男性:1, 女性:2, 回答無し: 3}
+
+  #退会機能
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
 
   validates :name, length: { in: 2..20 }
   validates :name_kana, length: { minimum: 2, maximum: 20 }
