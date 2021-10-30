@@ -17,19 +17,19 @@ class InquiriesController < ApplicationController
     @inquiry = Inquiry.find(params[:id])
   end
 
-  def edit
-    @inquiry = Inquiry.find(params[:id])
-  end
+  # def edit
+  #   @inquiry = Inquiry.find(params[:id])
+  # end
 
-  def update
-    @inquiry = Inquiry.find(params[:id])
-    if @inquiry.update(inquiry_params)
-      InquiryMailer.received_email(@inquiry).deliver
-      redirect_to "/inquiries/#{@inquiry.name}/#{@inquiry.id}"
-    else
-      render :edit
-    end
-  end
+  # def update
+  #   @inquiry = Inquiry.find(params[:id])
+  #   if @inquiry.update(inquiry_params)
+  #     InquiryMailer.received_email(@inquiry).deliver
+  #     redirect_to "/inquiries/#{@inquiry.name}/#{@inquiry.id}"
+  #   else
+  #     render :edit
+  #   end
+  # end
 
   private
 

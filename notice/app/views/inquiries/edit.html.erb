@@ -1,52 +1,52 @@
-<div class="container-fuluid">
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
-        <div class="page-title mt-3">
-          <h1>お問い合わせ内容編集</h1>
-        </div>
-        <% if @inquiry.errors.any? %>
-          <div class="alert alert-danger" role="alert">
-            <strong>入力内容にエラーがあります</strong>
-            <ul>
-              <% @inquiry.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <%= form_with model:@inquiry, url:inquiry_path, method: :patch, local:true do |f| %>
-        <table class="table tablef">
-          <tr>
-            <th><h3>名前<span class="text-danger">（必須）</span></h3></th>
-          </tr>
-          <tr>
-            <td><%= f.text_field :name, class:"form-size" %></td>
-          </tr>
-          <tr>
-            <th><h3>メールアドレス<span class="text-danger">（必須）</span></h3></th>
-          </tr>
-          <tr>
-            <td><%= f.text_field :email, class:"form-size" %></td>
-          </tr>
-          <tr>
-            <th><h3>件名</h3></th>
-          </tr>
-          <tr>
-            <td><%= f.select :title, Inquiry.titles.keys, {}, class:"form-size" %></td>
-          </tr>
-          <tr>
-            <th><h3>お問い合わせ内容</h3></th>
-          </tr>
-          <tr>
-            <td><%= f.text_area :inquiry, class:"form-size" %></td>
-          </tr>
-          <tr>
-            <td class="text-center">
-              <%= f.submit 'お問い合わせ内容を更新する。', class: 'btn btn-outline-dark text-center form-size' %>
-            </td>
-          </tr>
-        </table>
-      <% end %>
-    </div>
-  </div>
-</div>
+<!--<div class="container-fuluid">-->
+<!--  <div class="row">-->
+<!--    <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3">-->
+<!--        <div class="page-title mt-3">-->
+<!--          <h1>お問い合わせ内容編集</h1>-->
+<!--        </div>-->
+<!--        <#% if @inquiry.errors.any? %>-->
+<!--          <div class="alert alert-danger" role="alert">-->
+<!--            <strong>入力内容にエラーがあります</strong>-->
+<!--            <ul>-->
+<!--              <#% @inquiry.errors.full_messages.each do |msg| %>-->
+<!--                <li><#%= msg %></li>-->
+<!--              <#% end %>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--        <#% end %>-->
+<!--        <#%= form_with model:@inquiry, url:"/inquiries/#{@inquiry.name}/#{@inquiry.id}", method: :patch, local:true do |f| %>-->
+<!--        <table class="table tablef">-->
+<!--          <tr>-->
+<!--            <th><h3>名前<span class="text-danger">（必須）</span></h3></th>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td><#%= f.text_field :name, class:"form-size" %></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <th><h3>メールアドレス<span class="text-danger">（必須）</span></h3></th>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td><#%= f.text_field :email, class:"form-size" %></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <th><h3>件名</h3></th>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td><#%= f.select :title, Inquiry.titles.keys, {}, class:"form-size" %></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <th><h3>お問い合わせ内容</h3></th>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td><#%= f.text_area :inquiry, class:"form-size" %></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td class="text-center">-->
+<!--              <#%= f.submit 'お問い合わせ内容を更新する。', class: 'btn btn-outline-dark text-center form-size' %>-->
+<!--            </td>-->
+<!--          </tr>-->
+<!--        </table>-->
+<!--      <#% end %>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
