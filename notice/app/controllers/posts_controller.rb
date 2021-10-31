@@ -9,10 +9,12 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-    mail_member = Member.where(familycode_id: current_user.familycode_id)
+    mail_members = Member.where(familycode_id: current_user.familycode_id)
     if @post.save
-      if @post.post == "SOS"
-        SosMailer.with(user: mail_member).send_when_sos(current_user).deliver
+      if @post.post == "SOS" && mail_members.present?
+        mail_members.each do |member|
+          SosMailer.send_when_sos(member.email, current_user).deliver
+        end
       end
       redirect_to new_post_path
     end
