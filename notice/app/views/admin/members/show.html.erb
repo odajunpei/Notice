@@ -16,7 +16,7 @@
             氏名(コメント数)
           </th>
           <th>
-            <%= @member.name %>(<%= @member.comments.count %>)
+            <%= @member.name %>
           </th>
         </tr>
         <tr>
@@ -72,6 +72,14 @@
           <th>
             <%= @member.email %>
           </th>
+        </tr>
+        <tr>
+          <th>
+            コメント感情分析スコア合計<br>(コメント数)
+          </th>
+          <td>
+            <%= @member_score %><br>(<%= @member.comments.count %>)
+          </td>
         </tr>
         <tr>
           <th>

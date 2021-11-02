@@ -11,6 +11,7 @@ module Notice
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.paths.add 'lib', eager_load: true # 追加
     config.i18n.default_locale = :ja #日本語化
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local

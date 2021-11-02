@@ -9,7 +9,7 @@
             <th class="text-center"><%= sorttable "post", "投稿" %></th>
             <th class="text-center"><%= sorttable "created_at", "投稿時間" %></th>
             <th class="text-center"><%= sorttable "user.name_kana", "投稿者" %></th>
-            <th class="text-center">投稿コメント数</th>
+            <th class="text-center">コメント感情スコア合計(コメント数)</th>
           </tr>
         </thead>
         <% @posts.each do |post| %>
@@ -32,7 +32,7 @@
             <% end %>
           </td>
           <td class="text-center">
-            <%= post.comments.count %>
+            <%= post.comments.all.sum(:score) %>(<%= post.comments.count %>回)
           </td>
         </tbody>
         <% end %>

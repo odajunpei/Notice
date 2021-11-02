@@ -8,6 +8,7 @@
             <th class="text-center">ID</th>
             <th class="text-center">氏名</th>
             <th class="text-center">投稿</th>
+            <th class="text-center">コメント感情値合計(コメント数)</th>
             <th class="text-center">投稿時間</th>
           </tr>
         </thread>
@@ -20,6 +21,7 @@
               <% end %>
             </td>
             <td class="text-center"><%= @post.post %></td>
+            <td class="text-center"><%= @post_score %>(<%= @post.comments.count %>)</td>
             <td class="text-center"><%= @post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
           </tr>
         </tbody>
@@ -48,7 +50,7 @@
           　     <td class="text-center">
           　       <%= comment.member.name %>
           　     </td>
-          　     <td class="text-center">>
+          　     <td class="text-center">
           　       <%=comment.comment %>
           　     </td>
           　     <td class="text-center">

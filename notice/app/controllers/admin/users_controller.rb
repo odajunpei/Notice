@@ -11,6 +11,7 @@ helper_method :sort_column, :sort_direction
     @user = User.find(params[:id])
     @familymembers = Member.where(familycode_id: @user.familycode_id)
     @familyusers = User.where(familycode_id: @user.familycode_id)
+    @user_score = @user.posts.comments.all.sum(:score)
   end
 
   def destroy

@@ -22,6 +22,10 @@ class Members::RegistrationsController < Devise::RegistrationsController
       super
       if @member.save
         WelcomeMemberMailer.send_when_signup(params[:member][:email],params[:member][:name]).deliver
+        # tags = Vision.get_image_data(@member.profile_image)
+        # tags.each do |tag|
+        #   member.tags.create(name: tag)
+        # end
       end
   end
 
@@ -70,5 +74,4 @@ class Members::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-
 end

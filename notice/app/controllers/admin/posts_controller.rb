@@ -8,6 +8,7 @@ class Admin::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments.order(created_at: :desc).page(params[:page]).per(10)
+    @post_score = @post.comments.all.sum(:score)
   end
 
   def destroy

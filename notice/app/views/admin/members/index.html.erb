@@ -21,6 +21,7 @@
             <th class="text-center"><%= sorttable "address","都道府県" %></th>
             <th class="text-center"><%= sorttable "telephone_number", "電話番号" %></th>
             <th class="text-center"><%= sorttable "email", "メールアドレス" %></th>
+            <th class="text-center">コメントスコア合計値(コメント数)</th>
             <th class="text-center"><%= sorttable "is_deleted", "ステータス" %></th>
             <th class="text-center"><%= sorttable "created_at", "登録日時" %></th>
           </tr>
@@ -47,6 +48,9 @@
           </td>
           <td class="text-center">
             <%= member.email %>
+          </td>
+          <td class="text-center">
+            <%= member.comments.all.sum(:score) %>(<%= member.comments.count %>回)
           </td>
           <td class="text-center">
             <% if member.is_deleted? %>

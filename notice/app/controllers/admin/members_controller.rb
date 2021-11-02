@@ -10,6 +10,7 @@ class Admin::MembersController < ApplicationController
     @member = Member.find(params[:id])
     @familymembers = Member.where(familycode_id: @member.familycode_id)
     @familyusers = User.where(familycode_id: @member.familycode_id)
+    @member_score = @member.comments.all.sum(:score)
   end
 
   def destroy
