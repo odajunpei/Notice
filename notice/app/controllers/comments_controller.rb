@@ -21,6 +21,6 @@ before_action :authenticate_member!
   private
 
   def comment_params
-    params.require(:comment).permit(:comment,:post_id,:member_id)
+    params.require(:comment).permit(:comment,:post_id,:member_id, :score)
   end
 end
