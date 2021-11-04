@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :familycodes, only: [:new, :create, :destroy]
   get 'familycodes/result' => 'familycodes#result'
   resources :members
+  resources :questions
   resources :users
   get 'users/show' => 'users#show'
   resources :admins
@@ -52,6 +53,8 @@ Rails.application.routes.draw do
       get 'search'
      end
     end
+
+
 
     resources :posts, controllers: {
     registrations: "posts"
