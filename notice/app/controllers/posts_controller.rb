@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @posts = current_user.posts.order("created_at DESC").page(params[:page]).per(1)   #直近3件の投稿に対するコメントを表示する。
-    @question = Question.find_by(user_id: current_user.nickname)
+    @question = Question.where(user_id: current_user.id)
   end
 
   def create

@@ -16,19 +16,26 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @user = User.find_by(id: @question.user_id)
   end
 
   def index
-    @questions = Question.all
+    @questions = Question.where(member_id: current_member.id)
   end
 
   def update
-    @question = Question.find_by(user_id: current_user.nickname)
+    @question = Question.find(params[:id])
     if @question.update(question_params)
       redirect_to new_post_path
-    # else
-    #   render :new_post_path
+    else
+      render :new_post_path
     end
+  end
+
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to questions_path
   end
 
 

@@ -23,7 +23,7 @@
         </tr>
         <tr>
           <td>
-            <%= f.select :user_id, @users.collect{ |u| [u.nickname] }, class:"form-size" %>
+            <%= f.select :user_id, @users.collect{ |u| [ u.name, u.id] }, class:"form-size" %>
           </td>
         </tr>
         <tr>

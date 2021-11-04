@@ -1,116 +1,117 @@
-<% if @question.user_answer.nil? %>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 col-sm-10 offset-sm 1 col-md-8 offset-md-2">
-        <h1><%= @question.body %></h1>
-        <div class="questionbtn">
-          <%= form_with model: @question,url:question_path(@question), method: :patch, local:true do |f| %>
-            <%= f.hidden_field :user_answer, :value => @question.choices1 %>
-            <%= f.submit @question.choices1, class: "btn-primary post-size"  %>
-          <% end %>
-        </div>
-        <div class="questionbtn">
-          <%= form_with model: @question,url:question_path(@question), method: :patch, local:true do |f| %>
-            <%= f.hidden_field :user_answer, :value => @question.choices2 %>
-            <%= f.submit @question.choices2, class: "btn-primary post-size"  %>
-          <% end %>
-        </div>
-        <% if @question.choices3.present? %>
+<% @question.each do |question| %>
+  <% if question.user_answer.nil? %>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-sm-10 offset-sm 1 col-md-8 offset-md-2">
+          <h1><%= question.body %></h1>
           <div class="questionbtn">
-            <%= form_with model: @question,url:question_path(@question), method: :patch, local:true do |f| %>
-              <%= f.hidden_field :user_answer, :value => @question.choices3 %>
-              <%= f.submit @question.choices3, class: "btn-primary post-size" %>
+            <%= form_with model: question,url:question_path(question), method: :patch, local:true do |f| %>
+              <%= f.hidden_field :user_answer, :value => question.choices1 %>
+              <%= f.submit question.choices1, class: "btn-primary post-size"  %>
             <% end %>
           </div>
-        <% end %>
+          <div class="questionbtn">
+            <%= form_with model: question,url:question_path(question), method: :patch, local:true do |f| %>
+              <%= f.hidden_field :user_answer, :value => question.choices2 %>
+              <%= f.submit question.choices2, class: "btn-primary post-size"  %>
+            <% end %>
+          </div>
+          <% if question.choices3.present? %>
+            <div class="questionbtn">
+              <%= form_with model: question,url:question_path(question), method: :patch, local:true do |f| %>
+                <%= f.hidden_field :user_answer, :value => question.choices3 %>
+                <%= f.submit question.choices3, class: "btn-primary post-size" %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-<% else %>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 col-sm-5 col-md-5">
-        <% @posts.each do |post| %>
-          <h1>最新投稿↓</h1>
-          <table class='table tablef'>
-            <tr>
-              <th>
-                <% if current_user.gender == "男性" %>
-                  <%= attachment_image_tag current_user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand-papa.png" %>
-                <% elsif current_user.gender == "女性" %>
-                  <%= attachment_image_tag current_user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand-mama.png" %>
-                <% else %>
-                  <%= attachment_image_tag current_user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand.png" %>
-                <% end %>
-              </th>
-              <td>
-                <h1><%= post.post %></h1><br>
-                <h2><%= post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></h2>
-              </td>
-            </tr>
-          </table>
-          <%= paginate @posts %>
-          <% post.comments.each do |comment| %>
-            <% if comment.present? %>
-              <h1>家族からメッセージ</h1>
-              <table class='table'>
-                <tbody>
-                  <tr>
-                    <td>
-                      <% if comment.member.gender == "男性" %>
-                        <%= attachment_image_tag comment.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"men.png" %><br>
-                      <% elsif comment.member.gender == "女性" %>
-                        <%= attachment_image_tag comment.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"women.png" %><br>
-                      <% else %>
-                        <%= attachment_image_tag comment.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"no-image.jpg" %><br>
-                      <% end %>
-                      <h1><%= comment.member.nickname %></h1>
-                    </td>
-                    <td>
-                      <h1>
-                        <%= comment.comment %><br>
-                        (<%= post.created_at.strftime('%Y/%m/%d %H:%M:%S') %>)
-                      </h1>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+  <% end %>
+<% end %>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-sm-5 col-md-5">
+          <% @posts.each do |post| %>
+            <h1>最新投稿↓</h1>
+            <table class='table tablef'>
+              <tr>
+                <th>
+                  <% if current_user.gender == "男性" %>
+                    <%= attachment_image_tag current_user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand-papa.png" %>
+                  <% elsif current_user.gender == "女性" %>
+                    <%= attachment_image_tag current_user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand-mama.png" %>
+                  <% else %>
+                    <%= attachment_image_tag current_user, :profile_image, size:"150x150", format: 'jpeg', fallback:"grand.png" %>
+                  <% end %>
+                </th>
+                <td>
+                  <h1><%= post.post %></h1><br>
+                  <h2><%= post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></h2>
+                </td>
+              </tr>
+            </table>
+            <%= paginate @posts %>
+            <% post.comments.each do |comment| %>
+              <% if comment.present? %>
+                <h1>家族からメッセージ</h1>
+                <table class='table'>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <% if comment.member.gender == "男性" %>
+                          <%= attachment_image_tag comment.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"men.png" %><br>
+                        <% elsif comment.member.gender == "女性" %>
+                          <%= attachment_image_tag comment.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"women.png" %><br>
+                        <% else %>
+                          <%= attachment_image_tag comment.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"no-image.jpg" %><br>
+                        <% end %>
+                        <h1><%= comment.member.nickname %></h1>
+                      </td>
+                      <td>
+                        <h1>
+                          <%= comment.comment %><br>
+                          (<%= post.created_at.strftime('%Y/%m/%d %H:%M:%S') %>)
+                        </h1>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
-      </div>
-      <div class="col-xs-12 col-sm-6 offset-sm-1 col-md-6 offset-md-1">
-        <div class="submitarea">
-          <div class="submitbtn">
-            <%= form_with model: @post,url:posts_path, local:true do |f| %>
-              <%= f.hidden_field :post, :value => "おはよう" %>
-              <%= f.hidden_field :user_id, :value => current_user.id %>
-              <%= f.submit "おはよう", class: "btn-primary post-size fadein"  %>
-            <% end %>
-          </div>
-          <div class="submitbtn">
-            <%= form_with model: @post,url:posts_path, local:true do |f| %>
-              <%= f.hidden_field :post, :value => "ご飯食べた" %>
-              <%= f.hidden_field :user_id, :value => current_user.id %>
-              <%= f.submit "ご飯食べたよ", class: "btn-primary post-size fadein"  %>
-            <% end %>
-          </div>
-          <div class="submitbtn">
-            <%= form_with model: @post,url:posts_path, local:true do |f| %>
-              <%= f.hidden_field :post, :value => "おやすみ" %>
-              <%= f.hidden_field :user_id, :value => current_user.id %>
-              <%= f.submit "おやすみ", class: "btn-primary post-size fadein" %>
-            <% end %>
-          </div>
-          <div class="submitbtn">
-            <%= form_with model: @post,url:posts_path, local:true do |f| %>
-              <%= f.hidden_field :post, :value => "SOS" %>
-              <%= f.hidden_field :user_id, :value => current_user.id %>
-              <%= f.submit "SOS", class: "btn-danger post-size" %>
-            <% end %>
+        </div>
+        <div class="col-xs-12 col-sm-6 offset-sm-1 col-md-6 offset-md-1">
+          <div class="submitarea">
+            <div class="submitbtn">
+              <%= form_with model: @post,url:posts_path, local:true do |f| %>
+                <%= f.hidden_field :post, :value => "おはよう" %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <%= f.submit "おはよう", class: "btn-primary post-size"  %>
+              <% end %>
+            </div>
+            <div class="submitbtn">
+              <%= form_with model: @post,url:posts_path, local:true do |f| %>
+                <%= f.hidden_field :post, :value => "ご飯食べた" %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <%= f.submit "ご飯食べたよ", class: "btn-primary post-size"  %>
+              <% end %>
+            </div>
+            <div class="submitbtn">
+              <%= form_with model: @post,url:posts_path, local:true do |f| %>
+                <%= f.hidden_field :post, :value => "おやすみ" %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <%= f.submit "おやすみ", class: "btn-primary post-size" %>
+              <% end %>
+            </div>
+            <div class="submitbtn">
+              <%= form_with model: @post,url:posts_path, local:true do |f| %>
+                <%= f.hidden_field :post, :value => "SOS" %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <%= f.submit "SOS", class: "btn-danger post-size" %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-<% end %>

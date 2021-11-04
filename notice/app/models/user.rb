@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   belongs_to :familycode
   has_many :posts, dependent: :destroy
+  has_many :questions, dependent: :destroy
 
   attachment :profile_image
 
