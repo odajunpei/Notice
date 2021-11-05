@@ -1,5 +1,8 @@
 class QuestionsController < ApplicationController
 
+  before_action :authenticate_user!, only: [:update]
+  before_action :authenticate_member!, only:[:new, :create, :destroy, :index, :show]
+
   def new
     @question = Question.new
     @users =  User.where(familycode_id: current_member.familycode_id)
@@ -8,6 +11,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
+      ActionCable.server.broadcast 'question_channel', content: @question
       redirect_to question_path(@question)
     else
       render :new
