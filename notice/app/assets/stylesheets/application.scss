@@ -47,6 +47,9 @@
 //     }
 // }
 
+.card{
+  margin: 2%;
+}
 .background_image{
   background-image: image-url("background.jpg") ;
   height: 100%;
@@ -79,6 +82,13 @@ iframe{
   width: 100%;
   height: 25%;
   font-size: 550%;
+  margin: 1%;
+}
+
+.questionbtn{
+  width: 100%;
+  height: 25%;
+  font-size: 500%;
   margin: 1%;
 }
 
@@ -203,6 +213,10 @@ table tr{
   width: 100%;
 }
 
+.question-size{
+  width: 60%;
+}
+
 /*タブレット横置き*/
 @media screen and (max-width:1024px) {
 .submitarea{
@@ -210,6 +224,13 @@ table tr{
 }
 
 .submitbtn{
+  width: 100%;
+  height: 25%;
+  font-size: 2.5rem;
+  margin: 1%;
+}
+
+.questionbtn{
   width: 100%;
   height: 25%;
   font-size: 2.5rem;
@@ -278,6 +299,14 @@ iframe{
   width: 320px;
   height: 25%;
   font-size: 3rem;
+  margin: 1%;
+  padding: 0px;
+}
+
+.questionbtn{
+  width: 320px;
+  height: 25%;
+  font-size: 1.5rem;
   margin: 1%;
   padding: 0px;
 }

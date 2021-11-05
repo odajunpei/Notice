@@ -2,28 +2,43 @@
   <% if question.user_answer.nil? %>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-xs-12 col-sm-10 offset-sm 1 col-md-8 offset-md-2">
-          <h1><%= question.body %></h1>
-          <div class="questionbtn">
-            <%= form_with model: question,url:question_path(question), method: :patch, local:true do |f| %>
-              <%= f.hidden_field :user_answer, :value => question.choices1 %>
-              <%= f.submit question.choices1, class: "btn-primary post-size"  %>
+        <div class="col-xs-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2">
+          <div class="card w-60 text-center">
+            <h1 class="text-center"><strong><%= question.user.nickname %>様から質問</strong></h1>
+            <div class="card-image-top text-center">
+            <% if question.member.gender == "男性" %>
+              <%= attachment_image_tag question.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"men.png" %>
+            <% elsif question.member.gender == "女性" %>
+              <%= attachment_image_tag question.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"women.png" %>
+            <% else %>
+              <%= attachment_image_tag question.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"no-image.jpg" %>
             <% end %>
-          </div>
-          <div class="questionbtn">
-            <%= form_with model: question,url:question_path(question), method: :patch, local:true do |f| %>
-              <%= f.hidden_field :user_answer, :value => question.choices2 %>
-              <%= f.submit question.choices2, class: "btn-primary post-size"  %>
-            <% end %>
-          </div>
-          <% if question.choices3.present? %>
+            </div>
+            <h1 class="text-center"><%= question.body %></h1>
+            <h2 class="text-center">(<%= question.created_at.strftime('%Y/%m/%d %H:%M:%S') %>)</h2>
+            <div class="text-center">
             <div class="questionbtn">
               <%= form_with model: question,url:question_path(question), method: :patch, local:true do |f| %>
-                <%= f.hidden_field :user_answer, :value => question.choices3 %>
-                <%= f.submit question.choices3, class: "btn-primary post-size" %>
+                <%= f.hidden_field :user_answer, :value => question.choices1 %>
+                <%= f.submit question.choices1, class: "btn-primary question-size"  %>
               <% end %>
             </div>
-          <% end %>
+            <div class="questionbtn">
+              <%= form_with model: question,url:question_path(question), method: :patch, local:true do |f| %>
+                <%= f.hidden_field :user_answer, :value => question.choices2 %>
+                <%= f.submit question.choices2, class: "btn-primary question-size"  %>
+              <% end %>
+            </div>
+            <% if question.choices3.present? %>
+              <div class="questionbtn">
+                <%= form_with model: question,url:question_path(question), method: :patch, local:true do |f| %>
+                  <%= f.hidden_field :user_answer, :value => question.choices3 %>
+                  <%= f.submit question.choices3, class: "btn-primary question-size" %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+          </div>
         </div>
       </div>
     </div>
@@ -33,7 +48,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-5 col-md-5">
           <% @posts.each do |post| %>
-            <h1>最新投稿↓</h1>
+            <h1>最新投稿↓<%= link_to "", new_post_path, class: "redirectbtn fas fa-sync-alt" %></h1>
             <table class='table tablef'>
               <tr>
                 <th>
