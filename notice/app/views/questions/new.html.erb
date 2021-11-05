@@ -18,7 +18,7 @@
       <table class="table tablef">
         <tr>
           <th>
-            <%= f.label :user_id, "質問相手" %>
+            <%= f.label :user_id, "質問相手" %><span class="text-danger">(必須)</span>
           </th>
         </tr>
         <tr>
@@ -28,7 +28,7 @@
         </tr>
         <tr>
           <th>
-            <%= f.label :body, "質問内容" %>
+            <%= f.label :body, "質問内容" %><span class="text-danger">(必須)</span>
           </th>
         </tr>
         <tr>
@@ -38,7 +38,7 @@
         </tr>
         <tr>
           <th>
-            <%= f.label :choices1, "回答選択肢1" %>
+            <%= f.label :choices1, "回答選択肢1" %><span class="text-danger">(必須 10文字以内)</span>
           </th>
         </tr>
         <tr>
@@ -48,7 +48,7 @@
         </tr>
         <tr>
           <th>
-            <%= f.label :choices2, "回答選択肢2" %>
+            <%= f.label :choices2, "回答選択肢2" %><span class="text-danger">(必須 10文字以内)</span>
           </th>
         </tr>
         <tr>
@@ -58,7 +58,7 @@
         </tr>
         <tr>
           <th>
-            <%= f.label :choices3, "回答選択肢3" %>
+            <%= f.label :choices3, "回答選択肢3" %><span>(任意 10文字以内)</span>
           </th>
         </tr>
         <tr>
