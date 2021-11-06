@@ -9,6 +9,7 @@
 
    received: function(data) {
      // Called when there's incoming data on the websocket for this channel
+     console.log(data);
       const html = `<p>${data.content.body}</p>
                     <p>${data.content.member.nickname}</p>
                     <p>${data.content.member.profile_image}</p>
