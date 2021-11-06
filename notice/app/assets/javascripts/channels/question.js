@@ -12,9 +12,9 @@
 //   }
 // });
 
-import question from "./question"
+import consumer from "./consumer"
 
-question.subscriptions.create("QuestionChannel", {
+consumer.subscriptions.create("QuestionChannel", {
   received(data) {
     // 以下で使用
     const html = `<p>${data.content.text}</p>`;

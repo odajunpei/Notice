@@ -4,7 +4,7 @@ before_action :authenticate_member!
      @post = Post.find(params[:post_id])
      @comment = @post.comments.build(comment_params)
      @comment.member_id = current_member.id
-     @comment.score = Language.get_data(comment_params[:comment])
+     @comment.score = Language.get_data(comment_params[:comment]) 
      @comment.save(comment_params)
      @comments = @post.comments
      render :index
