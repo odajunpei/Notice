@@ -13,17 +13,14 @@
       const html = `<div class="conteiner-fluid">
                         <div class="row">
                             <div class="col-xs-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2">
-                                <div class~"card w-60 text-center">
+                                <div class~"card w-60 text-center bg-info">
                                     <h1 class="text-center">
                                         <strong>${data.content.nickname}様から質問</strong>
                                     </h1>
-                                    <div class="card-image-top text-center">
-                                        <img class="attachment ${data.content.profile_image} fallback" src="/assets/men-40b9bb0….png" width="150" height="150">
-                                    </div>
                                     <h1 class="text-center">${data.content.body}</h1>
                                     <h1 class="text-center">${data.content.created_at}</h1>
                                     <h1 class="text-center text-danger">
-                                        質問を確認する.
+                                      <input type="button" value="質問を確認する。" onclick="window.location.reload();" />
                                     </h1>
                                 </div>
                             </div>
