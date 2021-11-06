@@ -10,16 +10,26 @@
    received: function(data) {
      // Called when there's incoming data on the websocket for this channel
      console.log(data);
-      const html = `<p>${data.content.body}</p>
-                    <p>${data.content.nickname}</p>;
-                    // <p>${data.content.profile_image}</p>
-                    // <p>${data.content.created_at}</p>
-                    // <p>${data.content.choices1}</p>
-                    // <p>${data.content.choices2}</p>
-                    // <p>${data.content.choices3}</p>`;
+      const html = `<div class="conteiner-fluid">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2">
+                                <div class~"card w-60 text-center">
+                                    <h1 class="text-center">
+                                        <strong>${data.content.nickname}様から質問</strong>
+                                    </h1>
+                                    <div class="card-image-top text-center">
+                                        <img class="attachment ${data.content.profile_image} fallback" src="/assets/men-40b9bb0….png" width="150" height="150">
+                                    </div>
+                                    <h1 class="text-center">${data.content.body}</h1>
+                                    <h1 class="text-center">${data.content.created_at}</h1>
+                                    <h1 class="text-center text-danger">
+                                        質問を確認する.
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
       const messages = document.getElementById('messages');
-    //   const newMessage = document.getElementById('message_text');
       messages.insertAdjacentHTML('afterbegin', html);
-    //   newMessage.value='';
    }
  });
