@@ -9,10 +9,10 @@
 
    received: function(data) {
      // Called when there's incoming data on the websocket for this channel
-      const html = `<p>${data.content.text}</p>`;
+      const html = `<p>${data.content}</p>`;
       const messages = document.getElementById('messages');
-      const newMessage = document.getElementById('message_text');
+    //   const newMessage = document.getElementById('message_text');
       messages.insertAdjacentHTML('afterbegin', html);
-      newMessage.value='';
+    //   newMessage.value='';
    }
  });
