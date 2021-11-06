@@ -11,9 +11,9 @@
      // Called when there's incoming data on the websocket for this channel
       const html = `<p>${data.content.text}</p>`;
       const messages = document.getElementById('questions');
-      const newMessage = document.getElementById('question_text');
+      // const newMessage = document.getElementById('question_text');
       messages.insertAdjacentHTML('afterbegin', html);
-      newMessage.value='';
+      // newMessage.value='';
    }
  });
 

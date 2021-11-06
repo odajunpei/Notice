@@ -1,3 +1,4 @@
+<div id="messages">
 <% @question.each do |question| %>
   <% if question.user_answer.nil? %>
     <div class="container-fluid">
@@ -44,6 +45,7 @@
     </div>
   <% end %>
 <% end %>
+</div>
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12 col-sm-5 col-md-5">
