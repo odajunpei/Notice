@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      ActionCable.server.broadcast 'question_channel', content: {nickname: @question.member.nickname, body: @question.body, profile_image: @question.member.profile_image, created_at: @question.created_at.strftime('%Y/%m/%d %H:%M:%S'), choices1: @question.choices1, choices2: @question.choices2, choices3: @question.choices3}
+      ActionCable.server.broadcast 'question_channel', content: {nickname: @question.member.nickname, body: @question.body,　created_at: @question.created_at.strftime('%Y/%m/%d %H:%M:%S')}
       redirect_to question_path(@question)
     else
       render :new

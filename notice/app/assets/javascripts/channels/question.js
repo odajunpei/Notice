@@ -13,14 +13,14 @@
       const html = `<div class="conteiner-fluid">
                         <div class="row">
                             <div class="col-xs-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2">
-                                <div class~"card w-60 text-center bg-info">
+                                <div class="card w-60 text-center bg-info">
                                     <h1 class="text-center">
-                                        <strong>${data.content.nickname}様から質問</strong>
+                                        <strong>${data.content.nickname}様から質問が来ています。</strong>
                                     </h1>
                                     <h1 class="text-center">${data.content.body}</h1>
                                     <h1 class="text-center">${data.content.created_at}</h1>
                                     <h1 class="text-center text-danger">
-                                      <input type="button" value="質問を確認する。" onclick="window.location.reload();" />
+                                      <input type="button" class="btn-success" value="確認する。" onclick="window.location.reload();" />
                                     </h1>
                                 </div>
                             </div>
