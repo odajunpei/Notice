@@ -7,12 +7,12 @@
           <div class="card w-60 text-center">
             <h1 class="text-center"><strong><%= question.member.nickname %>様から質問</strong></h1>
             <div class="card-image-top text-center">
-            <% if question.member.gender == "男性" %>
-              <%= attachment_image_tag question.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"men.png" %>
-            <% elsif question.member.gender == "女性" %>
-              <%= attachment_image_tag question.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"women.png" %>
-            <% else %>
-              <%= attachment_image_tag question.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"no-image.jpg" %>
+              <% if question.member.gender == "男性" %>
+                <%= attachment_image_tag question.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"men.png" %>
+              <% elsif question.member.gender == "女性" %>
+                <%= attachment_image_tag question.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"women.png" %>
+              <% else %>
+                <%= attachment_image_tag question.member, :profile_image, size:"150x150", format: 'jpeg', fallback:"no-image.jpg" %>
             <% end %>
             </div>
             <h1 class="text-center"><%= question.body %></h1>
