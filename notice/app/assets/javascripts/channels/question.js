@@ -21,7 +21,7 @@
                                     <h1 class="text-center">${data.content.body}</h1>
                                     <h1 class="text-center">${data.content.created_at}</h1>
                                     <h1 class="text-center text-danger">
-                                      <input type="button" class="btn-success" value="確認する。" onclick="window.location.reload();" />
+                                      <input type="button" class="btn-success" value="全て表示" onclick="window.location.reload();" />
                                     </h1>
                                 </div>
                             </div>
