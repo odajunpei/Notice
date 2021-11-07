@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.where(member_id: current_member.id)
+    @questions = Question.where(member_id: current_member.id).order(created_at: :desc).page(params[:page])
   end
 
   def update

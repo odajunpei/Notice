@@ -26,7 +26,7 @@
             </td>
             <td class="text-center">
               <% if question.user_answer.blank? %>
-                <p class="text-danger">未返信</p>
+                <p class="text-danger">返信待ち</p>
               <% else %>
                 <%= question.user_answer %>
               <% end %>
@@ -34,6 +34,7 @@
         </tbody>
         <% end %>
       </table>
+      <%= paginate @questions %>
     </div>
   </div>
 </div>
