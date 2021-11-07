@@ -58,6 +58,7 @@ gem 'rails-i18n'
 gem 'enum_help'
 gem 'ancestry'
 gem 'ransack'
+gem 'hashid-rails', '~> 1.0'
 
 group :test do
   gem 'capybara'
