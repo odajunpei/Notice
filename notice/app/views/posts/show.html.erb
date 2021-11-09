@@ -18,6 +18,7 @@
           <tr>
             <td class="text-center">
               <h1><%= @post.user.nickname %></h1><br>
+              <%= link_to "質問する", new_question_path, class:"btn btn-success" %>
               <% if @post.post == "SOS" %>
                 <h1>TEL:<%= link_to @post.user.telephone_number, "tel:" + @post.user.telephone_number %></h1>
               <% end %>
