@@ -113,6 +113,7 @@ iframe{
 .navbar{
   background-color: rgba(255,255,255,0.5);
   font-family: cursive;
+  font-weight : 600;
 }
 
 .fr-margin{
@@ -139,11 +140,12 @@ iframe{
 
 footer{
   background-color:rgba(255,255,255,0.5);
-  font-family: cursive;
+  // font-family: cursive;
+  font-weight : 600;
 }
 
 .webtitle{
-  font-weight: bold;
+  font-weight : 600;
   font-size: 200%;
 }
 
@@ -317,7 +319,7 @@ iframe{
 }
 
 .post-size{
-  width: 300px;
+  width: 250px;
   margin: 1%;
 
 }

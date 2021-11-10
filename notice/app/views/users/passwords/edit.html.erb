@@ -9,7 +9,7 @@
         <div class="field">
           <h1><%= f.label :password, "新しいパスワード" %></h1><br />
           <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+            <em>(<%= @minimum_password_length %>文字)</em><br />
           <% end %>
           <%= f.password_field :password, autofocus: true, autocomplete: "新しいパスワードを入力", class:"form-size" %>
         </div>
