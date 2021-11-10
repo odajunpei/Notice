@@ -88,7 +88,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # passwordリセット機能
-  config.action_mailer.default_url_options = { host: 'localhost', port: 587 }
+  config.action_mailer.default_url_options = { protocol: 'https', host: 'https://familykamatyo.jp' }
 
   #お問い合わせ機能
   config.action_mailer.raise_delivery_errors = true
