@@ -15,19 +15,19 @@
           <th>
             氏名(コメント数)
           </th>
-          <th>
-            <%= @member.name %>
-          </th>
+          <td>
+            <%= @member.name %>(<%= @member.comments.count %>)
+          </td>
         </tr>
         <tr>
           <th>
             氏名カナ
           </th>
-          <th>
+          <td>
             <%= @member.name_kana %>
-          </th>
+          </td>
         </tr>
-             <tr>
+        <tr>
           <th>
             ニックネーム
           </th>
@@ -45,17 +45,17 @@
           <th>
             電話番号
           </th>
-          <th>
+          <td>
             <%= @member.telephone_number %>
-          </th>
+          </td>
         </tr>
         <tr>
           <th>
             生年月日
           </th>
-          <th>
+          <td>
             <%= @member.birth_date %>
-          </th>
+          </td>
         </tr>
          <tr>
           <th>
@@ -69,9 +69,9 @@
           <th>
             メールアドレス
           </th>
-          <th>
+          <td>
             <%= @member.email %>
-          </th>
+          </td>
         </tr>
         <tr>
           <th>

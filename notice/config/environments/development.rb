@@ -53,6 +53,9 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.web_console.whitelisted_ips = '14.10.0.192' #家族コード検索機能実装中にエラー発生のため追記
 
+  # passwordリセット機能
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   #お問い合わせ機能
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp

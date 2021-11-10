@@ -59,6 +59,8 @@ gem 'enum_help'
 gem 'ancestry'
 gem 'ransack'
 gem 'hashid-rails', '~> 1.0'
+gem 'chartkick'
+gem 'groupdate'
 
 group :test do
   gem 'capybara'
