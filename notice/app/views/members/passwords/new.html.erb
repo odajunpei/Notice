@@ -1,25 +1,29 @@
-<%= form_with model: @member, url: member_password_path, class: 'registration-main', local: true do |f| %>
-<div class='form-wrap'>
-  <div class='form-header'>
-    <h1 class='form-header-text'>
-      パスワード再設定
-    </h1>
-  </div>
-
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">メールアドレス</label>
-      <span class="indispensable">必須</span>
+<div class="container-fluid">
+  <div class="row">
+    <div class= "col-xs-12 col-sm-12 col-md-10 offset-md-1 mt-3">
+      <h1>家族会員パスワード再設定</h1>
     </div>
-    <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
-  </div>
-  <div class="form-group">
-    <h2 class='form-bottom-text'>
-      入力されたメールアドレスにパスワード再設定メールを<br>送信します
-    </h2>
-  </div>
-  <div class='register-btn'>
-    <%= f.submit "会員登録" ,class:"register-red-btn" %>
+    <div class="col-xs-12 col-sm-12 col-md-4 offset-md-4 mt-4">
+      <%= form_with model: @member, url: member_password_path, class: 'registration-main', local: true do |f| %>
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <h1>メールアドレス</h1>
+          </div>
+          <%= f.email_field :email, class:"form-size", id:"email", placeholder:"ご登録頂きましたメールアドレス", autofocus: true %>
+        </div>
+        <div class="form-group">
+          <h2 class='text-danger text-left'>
+            パスワード再設定メールを送信します。
+          </h2>
+        </div>
+        <div class='register-btn'>
+          <%= f.submit "送信" ,class:"btn btn-success form-size" %>
+        </div>
+      <% end %>
+      <div class="text-left mt-5">
+        <h3><strong>送信が成功するとログイン画面に遷移します。</strong></h3>
+        <h3>※送信後も本画面が表示される方は、<br>お問い合わせページより、ご連絡願います。</h3>
+      </div>
+    </div>
   </div>
 </div>
-<% end %>
