@@ -6,13 +6,12 @@
     <div class="col-xs-12 col-sm-12 col-md-4 offset-md-4 mt-4">
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.hidden_field :reset_password_token %>
-          <div class="field">
-            <h1><%= f.label :password, "新しいパスワード" %></h1><br />
-            <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-            <% end %>
-            <%= f.password_field :password, autofocus: true, autocomplete: "新しいパスワードを入力", class:"form-size" %>
-          </div>
+        <div class="field">
+          <h1><%= f.label :password, "新しいパスワード" %></h1><br />
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+          <% end %>
+          <%= f.password_field :password, autofocus: true, autocomplete: "新しいパスワードを入力", class:"form-size" %>
         </div>
         <div class="field">
           <h1><%= f.label :password_confirmation, "パスワード再確認" %></h1><br />
