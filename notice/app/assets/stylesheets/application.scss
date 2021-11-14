@@ -32,6 +32,12 @@
   -webkit-animation: byeShutter 2.4s forwards;
   animation: byeShutter 3.5s forwards;
 }
+
+.slider {
+  background-image: image-url("grand-papa.png");
+  background-image: image-url("grand-mama.png");
+  height: 100%;
+}
 .opening {
   position: absolute;
   width: 200px;
