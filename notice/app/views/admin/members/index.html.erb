@@ -68,11 +68,4 @@
       <%= paginate @members %>
     </div>
   </div>
-    <div class="row">
-    <div class="col-md-10 offset-1">
-      <h1>登録者推移グラフ</h1>
-      <%= area_chart @members.group(:created_at).count %>
-    </div>
-  </div>
-</div>
 </div>
