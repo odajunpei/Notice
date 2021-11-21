@@ -21,7 +21,14 @@
 <!--  <img width="500" height="300" alt="">-->
 <!--</div>-->
 <div class="container-fluid">
-  <div class="mt-5"></div>
+    <div class ="row">
+      <div class="nav-item"><%= link_to '家族コード作成', new_familycode_path, class: "btn btn-danger" %></div>
+      <div class="nav-item"><%= link_to '家族会員登録', new_member_registration_path, class: "btn btn-danger" %></div>
+      <div class="nav-item"><%= link_to '家族会員ログイン', member_session_path, class: "btn btn-danger" %></div>
+      <div class="nav-item"><%= link_to '投稿会員登録', new_user_registration_path, class: "btn btn-danger" %></div>
+      <div class="nav-item"><%= link_to '投稿会員ログイン', user_session_path, class: "btn btn-danger" %></div>
+      <div class="nav-item"><%= link_to 'お問い合わせ', new_inquiry_path, class:"btn btn-dangar" %></div>
+    </div>
   <div class="row mt-5">
     <div class="col-xs-10 col-sm-10 col-md-10 offset-1 text-left margin-left-none">
       <div class="hidden_box">
