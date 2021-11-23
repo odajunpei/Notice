@@ -1,4 +1,4 @@
-# ふぁみりーかまちょ
+# Warm
 
 ## サイト概要
 祖父祖母の生活を家族が確認できるアプリです。
@@ -30,6 +30,9 @@ https://docs.google.com/spreadsheets/d/1gc8HUmY9g9iHl1bL68lI3VxOKnnxhQIYegAEj5dH
 ## 開発環境
 - OS：AmazonLinux
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
+- Webサーバ:Nginx
+- アプリケーションサーバ:Puma
+- DBサーバ:Mysql
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
