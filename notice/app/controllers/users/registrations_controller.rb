@@ -21,6 +21,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    # familycode = Familycode.find(params[:member][:familycode_id])
+    # @familycode = familycode.famcode
+    # @familycode_id = familycode.id
      super
      if @user.save
       WelcomeMailer.send_when_signup(params[:user][:email],params[:user][:name]).deliver

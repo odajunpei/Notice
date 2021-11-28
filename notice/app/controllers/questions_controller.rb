@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    @users =  User.where(familycode_id: current_member.familycode_id)
     if @question.save
       ActionCable.server.broadcast 'question_channel', content: {nickname: @question.member.nickname, body: @question.body, created_at: @question.created_at.strftime('%Y/%m/%d %H:%M:%S')}
       redirect_to question_path(@question)
