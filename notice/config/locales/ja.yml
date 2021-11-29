@@ -8,116 +8,62 @@ ja:
       truncate: "..."
 
 
-# ja:
-#   activerecord:
-#     models:
-#       attributes:
-#         member:
-#           current_password: "現在のパスワード"
-#           Email: "メールアドレス"
-#           password: "パスワード"
-#           password_confirmation: "確認用パスワード"
-#           remember_me: "次回から自動的にログイン"
-#           name: "氏名"
-#           name_kana: "カナ氏名"
-#           nickname: "ニックネーム"
-#           telephone_number: "電話番号"
+ja:
+  activerecord:
+    models:
+      user: 投稿会員
+      member: 家族会員
+      familycode: 家族コード
+      question: 質問
+      post: 投稿
+      comment: コメント
+      inquiry: お問い合わせ
+    attributes:
+      user:
+        name: 氏名
+        name_kana: カナ氏名
+        nickname: ニックネーム
+        telephone_number: 電話番号
+        birth_date: 誕生日
+        familycode_id: 家族コード
+        address: 都道府県
+        gender: 性別
+        email: メールアドレス
+        password: パスワード
 
-#       attributes:
-#         user:
-#           current_password: "現在のパスワード"
-#           email: "メールアドレス"
-#           password: "パスワード"
-#           password_confirmation: "確認用パスワード"
-#           remember_me: "次回から自動的にログイン"
-#           name: "氏名"
-#           name_kana: "カナ氏名"
-#           nickname: "ニックネーム"
-#           telephone_number: "電話番号"
+      member:
+        name: 氏名
+        name_kana: カナ氏名
+        nickname: ニックネーム
+        telephone_number: 電話番号
+        birth_date: 誕生日
+        familycode_id: 家族コード
+        address: 都道府県
+        gender: 性別
+        email: メールアドレス
+        password: パスワード
 
-#       attributes:
-#         admin:
-#           current_password: "現在のパスワード"
-#           email: "メールアドレス"
-#           password: "パスワード"
+      familycode:
+        famcode: 家族コード
+      
+      post:
+        post: 投稿
+      
+      comment:
+        comment: コメント
+      
+      inquiry:
+        name: 氏名
+        email: メールアドレス
+        title: タイトル
+        inquiry: 内容
+      
+      question:
+        body: 質問内容
+        choices1: 選択肢1
+        choices2: 選択肢2
+      
 
-#     models:
-#       attributes:
-#         familycode:
-#           famcode: "家族コード"
 
-#     attributes:
-#       post:
-#         post: "投稿"
-
-#     attributes:
-#       comment:
-#         comment: "コメント"
-
-#     devise:
-#       confirmations:
-#       confirmed: 'アカウントを登録しました。'
-#       send_instructions: 'アカウントの有効化について数分以内にメールでご連絡します。'
-#       send_paranoid_instructions: "あなたのメールアドレスが登録済みの場合、本人確認用のメールが数分以内に送信されます。"
-#     failure:
-#       already_authenticated: 'すでにログインしています。'
-#       inactive: 'アカウントが有効化されていません。メールに記載された手順にしたがって、アカウントを有効化してください。'
-#       invalid: "%{authentication_keys} もしくはパスワードが不正です。"
-#       locked: 'あなたのアカウントは凍結されています。'
-#       last_attempt: 'あなたのアカウントが凍結される前に、複数回の操作がおこなわれています。'
-#       not_found_in_database: "%{authentication_keys} もしくはパスワードが不正です。"
-#       timeout: 'セッションがタイムアウトしました。もう一度ログインしてください。'
-#       unauthenticated: 'アカウント登録もしくはログインしてください。'
-#       unconfirmed: 'メールアドレスの本人確認が必要です。'
-#     mailer:
-#       confirmation_instructions:
-#         subject: 'アカウントの有効化について'
-#       reset_password_instructions:
-#         subject: 'パスワードの再設定について'
-#       unlock_instructions:
-#         subject: 'アカウントの凍結解除について'
-#       password_change:
-#         subject: 'パスワードの変更について'
-#     omniauth_callbacks:
-#       failure: "%{kind} アカウントによる認証に失敗しました。理由：（%{reason}）"
-#       success: "%{kind} アカウントによる認証に成功しました。"
-#     passwords:
-#       no_token: "このページにはアクセスできません。パスワード再設定メールのリンクからアクセスされた場合には、URL をご確認ください。"
-#       send_instructions: 'パスワードの再設定について数分以内にメールでご連絡いたします。'
-#       send_paranoid_instructions: "あなたのメールアドレスが登録済みの場合、パスワード再設定用のメールが数分以内に送信されます。"
-#       updated: 'パスワードが正しく変更されました。'
-#       updated_not_active: 'パスワードが正しく変更されました。'
-#     registrations:
-#       destroyed: 'アカウントを削除しました。またのご利用をお待ちしております。'
-#       signed_up: 'アカウント登録が完了しました。'
-#       signed_up_but_inactive: 'ログインするためには、アカウントを有効化してください。'
-#       signed_up_but_locked: 'アカウントが凍結されているためログインできません。'
-#       signed_up_but_unconfirmed: '本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。'
-#       update_needs_confirmation: 'アカウント情報を変更しました。変更されたメールアドレスの本人確認のため、本人確認用メールより確認処理をおこなってください。'
-#       updated: 'アカウント情報を変更しました。'
-#     sessions:
-#       signed_in: 'ログインしました。'
-#       signed_out: 'ログアウトしました。'
-#       already_signed_out: '既にログアウト済みです。'
-#     unlocks:
-#       send_instructions: 'アカウントの凍結解除方法を数分以内にメールでご連絡します。'
-#       send_paranoid_instructions: 'アカウントが見つかった場合、アカウントの凍結解除方法を数分以内にメールでご連絡します。'
-#       unlocked: 'アカウントを凍結解除しました。'
-#   errors:
-#     messages:
-#       already_confirmed: 'は既に登録済みです。ログインしてください。'
-#       confirmation_period_expired: "の期限が切れました。%{period} までに確認する必要があります。 新しくリクエストしてください。"
-#       expired: 'の有効期限が切れました。新しくリクエストしてください。'
-#       not_found: 'は見つかりませんでした。'
-#       not_locked: 'は凍結されていません。'
-#       not_saved:
-#         one: "エラーが発生したため %{resource} は保存されませんでした:"
-#         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした:"
-#       taken: "は既に使用されています。"
-#       blank: "が入力されていません。"
-#       too_short: "は%{count}文字以上に設定して下さい。"
-#       too_long: "は%{count}文字以下に設定して下さい。"
-#       invalid: "は有効でありません。"
-#       confirmation: "が内容とあっていません。"
 
 
