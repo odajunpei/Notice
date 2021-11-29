@@ -45,24 +45,25 @@ ja:
 
       familycode:
         famcode: 家族コード
-      
+
       post:
         post: 投稿
-      
+
       comment:
         comment: コメント
-      
+
       inquiry:
         name: 氏名
         email: メールアドレス
         title: タイトル
         inquiry: 内容
-      
+
       question:
         body: 質問内容
         choices1: 選択肢1
         choices2: 選択肢2
-      
+        user: 質問相手
+
 
 
 

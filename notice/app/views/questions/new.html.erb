@@ -8,7 +8,7 @@
         <div class="alert alert-danger" role="alert">
           <strong>入力内容にエラーがあります</strong>
           <ul>
-            <%= @question.errors.full_messages.each do |msg| %>
+            <% @question.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
             <% end %>
           </ul>
@@ -23,7 +23,7 @@
         </tr>
         <tr>
           <td>
-            <%= f.collection_select :user_id, @users, :id,  :nickname, :prompt => true, class:"form-size" %>
+            <%= f.collection_select :user_id, @users, :id,  :nickname, class:"form-size" %>
           </td>
         </tr>
         <tr>
