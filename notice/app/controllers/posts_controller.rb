@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
     mail_members = Member.where(familycode_id: current_user.familycode_id)
     if @post.save
-      if @post.post == "SOS" && mail_members.present?
+      if @post.post == "問題発生!" && mail_members.present?
         mail_members.each do |member|
           SosMailer.send_when_sos(member.email, current_user).deliver
         end
