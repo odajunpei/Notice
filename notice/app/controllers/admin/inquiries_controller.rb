@@ -3,7 +3,13 @@ class Admin::InquiriesController < ApplicationController
  before_action :set_q, only: [:index, :search]
  helper_method :sort_column, :sort_direction
   def index
-    @inquiries = Inquiry.all.order(sort_column+ ' ' + sort_direction).page(params[:page]).per(10)
+    @see = See.find_by(ip: request.remote_ip)
+    if @see
+      @inquiries = Inquiry.all.order(sort_column+ ' ' + sort_direction).page(params[:page]).per(10)
+    else
+      @inquiries = Inquiry.all.order(sort_column+ ' ' + sort_direction).page(params[:page]).per(10)
+      See.create(ip: request.remote_ip)
+    end
   end
 
   def edit
